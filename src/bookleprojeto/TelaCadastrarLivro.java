@@ -250,7 +250,7 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
         });
 
         jbuttonSalvarLivro.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jbuttonSalvarLivro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagensBookle/accept.png"))); // NOI18N
+        jbuttonSalvarLivro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagensBookle/save.png"))); // NOI18N
         jbuttonSalvarLivro.setText("Salvar");
         jbuttonSalvarLivro.setEnabled(false);
         jbuttonSalvarLivro.addActionListener(new java.awt.event.ActionListener() {

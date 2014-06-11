@@ -38,14 +38,14 @@ public class TelaLivrosSugeridos extends javax.swing.JInternalFrame {
      */
     public void iniciaTables() {
 
-        selectTable("SELECT * FROM tblivros INNER JOIN tbdisciplina ON tblivros.coddisciplina = tbdisciplina.coddisciplina AND tbdisciplina.nomedisciplina LIKE" + "'" + telapesquisar.getResNomedisciplina() + "'", "nomelivro", "contexemplares", "localbiblioteca", "statuslivro", jtableLivros);
+        selectTable("SELECT * FROM tblivros INNER JOIN tbdisciplina ON tblivros.coddisciplina = tbdisciplina.coddisciplina AND tbdisciplina.nomedisciplina LIKE" + "'" + telapesquisar.resNomedisciplina + "'", "nomelivro", "contexemplares", "localbiblioteca", "statuslivro", jtableLivros);
 
-        if (telapesquisar.getResNomedisciplina02() != null) {
-            selectTable("SELECT * FROM tblivros INNER JOIN tbdisciplina ON tblivros.coddisciplina = tbdisciplina.coddisciplina AND tbdisciplina.nomedisciplina LIKE" + "'" + telapesquisar.getResNomedisciplina02() + "'", "nomelivro", "contexemplares", "localbiblioteca", "statuslivro", jtableLivros02);
+        if (telapesquisar.resNomedisciplina02 != null) {
+            selectTable("SELECT * FROM tblivros INNER JOIN tbdisciplina ON tblivros.coddisciplina = tbdisciplina.coddisciplina AND tbdisciplina.nomedisciplina LIKE" + "'" + telapesquisar.resNomedisciplina02 + "'", "nomelivro", "contexemplares", "localbiblioteca", "statuslivro", jtableLivros02);
         }
 
-        if (telapesquisar.getResNomedisciplina03() != null) {
-            selectTable("SELECT * FROM tblivros INNER JOIN tbdisciplina ON tblivros.coddisciplina = tbdisciplina.coddisciplina AND tbdisciplina.nomedisciplina LIKE" + "'" + telapesquisar.getResNomedisciplina03() + "'", "nomelivro", "contexemplares", "localbiblioteca", "statuslivro", jtableLivros03);
+        if (telapesquisar.resNomedisciplina03 != null) {
+            selectTable("SELECT * FROM tblivros INNER JOIN tbdisciplina ON tblivros.coddisciplina = tbdisciplina.coddisciplina AND tbdisciplina.nomedisciplina LIKE" + "'" + telapesquisar.resNomedisciplina03 + "'", "nomelivro", "contexemplares", "localbiblioteca", "statuslivro", jtableLivros03);
         }
     }
 
@@ -159,10 +159,10 @@ public class TelaLivrosSugeridos extends javax.swing.JInternalFrame {
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel4.setText(telapesquisar.getResNomecurso());
+        jLabel4.setText(telapesquisar.resNomecurso);
 
         labelNomeDisciplina.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        labelNomeDisciplina.setText(telapesquisar.getResNomedisciplina());
+        labelNomeDisciplina.setText(telapesquisar.resNomedisciplina);
 
         jbuttonVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagensBookle/back.png"))); // NOI18N
         jbuttonVoltar.setText("Voltar");
@@ -215,10 +215,10 @@ public class TelaLivrosSugeridos extends javax.swing.JInternalFrame {
         jScrollPane3.setViewportView(jtableLivros03);
 
         labelNomeDisciplina02.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        labelNomeDisciplina02.setText(telapesquisar.getResNomedisciplina02());
+        labelNomeDisciplina02.setText(telapesquisar.resNomedisciplina02);
 
         labelNomeDisciplina03.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        labelNomeDisciplina03.setText(telapesquisar.getResNomedisciplina03());
+        labelNomeDisciplina03.setText(telapesquisar.resNomedisciplina03);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

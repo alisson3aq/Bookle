@@ -125,7 +125,7 @@
           <Color blue="66" green="66" red="0" type="rgb"/>
         </Property>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="telapesquisar.getResNomecurso()" type="code"/>
+          <Connection code="telapesquisar.resNomecurso" type="code"/>
         </Property>
       </Properties>
     </Component>
@@ -135,7 +135,7 @@
           <Font name="Tahoma" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="telapesquisar.getResNomedisciplina()" type="code"/>
+          <Connection code="telapesquisar.resNomedisciplina" type="code"/>
         </Property>
       </Properties>
     </Component>
@@ -231,7 +231,7 @@
           <Font name="Dialog" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="telapesquisar.getResNomedisciplina02()" type="code"/>
+          <Connection code="telapesquisar.resNomedisciplina02" type="code"/>
         </Property>
       </Properties>
     </Component>
@@ -241,7 +241,7 @@
           <Font name="Dialog" size="18" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-          <Connection code="telapesquisar.getResNomedisciplina03()" type="code"/>
+          <Connection code="telapesquisar.resNomedisciplina03" type="code"/>
         </Property>
       </Properties>
     </Component>

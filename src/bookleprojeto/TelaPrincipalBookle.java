@@ -12,7 +12,9 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
 
 /**
- * Classe da tela principal do sistema.
+ * Classe da tela principal do sistema, nessa tela é apresentado
+ * um menu com módulos do sistema que podem variar de acordo com 
+ * o nível de permissão do usuário logado.
  * @author Kélvin Santiago
  * @version 1.0
  */
@@ -153,7 +155,7 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
 
         jlabelIntroLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagensBookle/logoIntro.png"))); // NOI18N
         jDesktopPane1.add(jlabelIntroLogo);
-        jlabelIntroLogo.setBounds(400, 70, 495, 450);
+        jlabelIntroLogo.setBounds(430, 210, 460, 200);
 
         jlabelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagensBookle/background.jpg"))); // NOI18N
         jDesktopPane1.add(jlabelBackground);

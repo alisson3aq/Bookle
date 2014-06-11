@@ -24,10 +24,10 @@ public class TelaPesquisar extends javax.swing.JInternalFrame {
 
     TelaLogin telalogin = new TelaLogin();
 
-    private static String resNomecurso = null;
-    private static String resNomedisciplina = null;
-    private static String resNomedisciplina02 = null;
-    private static String resNomedisciplina03 = null;
+    public static String resNomecurso = null;
+    public static String resNomedisciplina = null;
+    public static String resNomedisciplina02 = null;
+    public static String resNomedisciplina03 = null;
  
     /**
      * Construtor inicia componentes básicos da interface gráfica.
@@ -89,8 +89,10 @@ public class TelaPesquisar extends javax.swing.JInternalFrame {
         jdesktoppanelPesquisar.setPreferredSize(new java.awt.Dimension(1289, 577));
 
         labelTitulo.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        labelTitulo.setText("Bookle Sistema Acadêmico");
+        labelTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagensBookle/booklelogo.png"))); // NOI18N
+        labelTitulo.setText("Pesquisa Bookle ");
 
+        buttonRemoveDisc02.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         buttonRemoveDisc02.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagensBookle/block.png"))); // NOI18N
         buttonRemoveDisc02.setText("Remover");
         buttonRemoveDisc02.setEnabled(false);
@@ -100,6 +102,7 @@ public class TelaPesquisar extends javax.swing.JInternalFrame {
             }
         });
 
+        buttonRemoveDisc03.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         buttonRemoveDisc03.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagensBookle/block.png"))); // NOI18N
         buttonRemoveDisc03.setText("Remover");
         buttonRemoveDisc03.setEnabled(false);
@@ -118,6 +121,7 @@ public class TelaPesquisar extends javax.swing.JInternalFrame {
             }
         });
 
+        buttonAddDisc03.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         buttonAddDisc03.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagensBookle/add.png"))); // NOI18N
         buttonAddDisc03.setText("Adicionar");
         buttonAddDisc03.addActionListener(new java.awt.event.ActionListener() {
@@ -132,16 +136,17 @@ public class TelaPesquisar extends javax.swing.JInternalFrame {
         jcomboboxDisciplina03.setEnabled(false);
 
         labelDisciplina.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        labelDisciplina.setText("Disciplina(s)");
+        labelDisciplina.setText("Selecione a Disciplina(s)");
 
         labelCurso.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        labelCurso.setText("Curso");
+        labelCurso.setText("Selecione o Curso");
 
         jcomboboxDisciplina02.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jcomboboxDisciplina02.setModel(new javax.swing.DefaultComboBoxModel());
         jcomboboxDisciplina02.setSelectedIndex(-1);
         jcomboboxDisciplina02.setEnabled(false);
 
+        buttonAddDisc02.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         buttonAddDisc02.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagensBookle/add.png"))); // NOI18N
         buttonAddDisc02.setText("Adicionar");
         buttonAddDisc02.addActionListener(new java.awt.event.ActionListener() {
@@ -177,39 +182,38 @@ public class TelaPesquisar extends javax.swing.JInternalFrame {
         jdesktoppanelPesquisarLayout.setHorizontalGroup(
             jdesktoppanelPesquisarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jdesktoppanelPesquisarLayout.createSequentialGroup()
-                .addContainerGap(408, Short.MAX_VALUE)
-                .addGroup(jdesktoppanelPesquisarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdesktoppanelPesquisarLayout.createSequentialGroup()
-                        .addGroup(jdesktoppanelPesquisarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(labelCurso)
-                            .addComponent(jcomboboxDisciplina, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jcomboboxDisciplina02, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(labelDisciplina)
-                            .addGroup(jdesktoppanelPesquisarLayout.createSequentialGroup()
-                                .addComponent(jbuttonAcessar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(35, 35, 35)
-                                .addComponent(jbuttonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jcomboboxDisciplina03, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jcomboboxCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jdesktoppanelPesquisarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(buttonAddDisc02, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buttonAddDisc03, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jdesktoppanelPesquisarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(buttonRemoveDisc02, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buttonRemoveDisc03, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(227, 227, 227))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdesktoppanelPesquisarLayout.createSequentialGroup()
-                        .addComponent(labelTitulo)
-                        .addGap(379, 379, 379))))
+                .addGap(447, 447, 447)
+                .addComponent(labelTitulo)
+                .addContainerGap(455, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdesktoppanelPesquisarLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jdesktoppanelPesquisarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(labelCurso)
+                    .addComponent(jcomboboxDisciplina, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jcomboboxDisciplina02, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(labelDisciplina)
+                    .addGroup(jdesktoppanelPesquisarLayout.createSequentialGroup()
+                        .addComponent(jbuttonAcessar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(jbuttonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jcomboboxDisciplina03, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcomboboxCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jdesktoppanelPesquisarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(buttonAddDisc02, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonAddDisc03, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jdesktoppanelPesquisarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(buttonRemoveDisc02, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonRemoveDisc03, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(227, 227, 227))
         );
         jdesktoppanelPesquisarLayout.setVerticalGroup(
             jdesktoppanelPesquisarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jdesktoppanelPesquisarLayout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addGap(35, 35, 35)
                 .addComponent(labelTitulo)
-                .addGap(31, 31, 31)
+                .addGap(45, 45, 45)
                 .addComponent(labelCurso)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jcomboboxCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -228,7 +232,7 @@ public class TelaPesquisar extends javax.swing.JInternalFrame {
                     .addComponent(buttonRemoveDisc03, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jcomboboxDisciplina03, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonAddDisc03, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 60, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(jdesktoppanelPesquisarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbuttonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbuttonAcessar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -266,22 +270,22 @@ public class TelaPesquisar extends javax.swing.JInternalFrame {
         // Ao clicar ele seta como editavel
         jcomboboxDisciplina.setEnabled(true);
         // Setando conteudo comboboxindex na variavel
-        setResNomecurso((String) jcomboboxCurso.getSelectedItem());
-        setResNomedisciplina((String) jcomboboxDisciplina.getSelectedItem());
+        resNomecurso = ((String) jcomboboxCurso.getSelectedItem());
+        resNomedisciplina = ((String) jcomboboxDisciplina.getSelectedItem());
 
         // chamando metodo pra preencher comboboxDisciplina
         preencheComboBox("SELECT * FROM tbdisciplina INNER JOIN tbcurso ON tbdisciplina.codcurso = tbcurso.codcurso"
-            + " AND tbcurso.nomecurso LIKE '" + getResNomecurso() + "'", "nomedisciplina", jcomboboxDisciplina);
+            + " AND tbcurso.nomecurso LIKE '" + resNomecurso + "'", "nomedisciplina", jcomboboxDisciplina);
         jcomboboxDisciplina.setSelectedIndex(-1);
 
         // chamando metodo pra peencher comboboxDisciplina02
         preencheComboBox("SELECT * FROM tbdisciplina INNER JOIN tbcurso ON tbdisciplina.codcurso = tbcurso.codcurso"
-            + " AND tbcurso.nomecurso LIKE '" + getResNomecurso() + "'", "nomedisciplina", jcomboboxDisciplina02);
+            + " AND tbcurso.nomecurso LIKE '" + resNomecurso + "'", "nomedisciplina", jcomboboxDisciplina02);
         jcomboboxDisciplina02.setSelectedIndex(-1);
 
         // chamando metodo pra peencher comboboxDisciplina03
         preencheComboBox("SELECT * FROM tbdisciplina INNER JOIN tbcurso ON tbdisciplina.codcurso = tbcurso.codcurso"
-            + " AND tbcurso.nomecurso LIKE '" + getResNomecurso() + "'", "nomedisciplina", jcomboboxDisciplina03);
+            + " AND tbcurso.nomecurso LIKE '" + resNomecurso + "'", "nomedisciplina", jcomboboxDisciplina03);
         jcomboboxDisciplina03.setSelectedIndex(-1);
     }//GEN-LAST:event_jcomboboxCursoActionPerformed
 
@@ -319,11 +323,11 @@ public class TelaPesquisar extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbuttonCancelarActionPerformed
 
     private void jbuttonAcessarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonAcessarActionPerformed
-        setResNomecurso((String) jcomboboxCurso.getSelectedItem());
-        setResNomedisciplina((String) jcomboboxDisciplina.getSelectedItem());
-        setResNomedisciplina02((String) jcomboboxDisciplina02.getSelectedItem());
-        setResNomedisciplina03((String) jcomboboxDisciplina03.getSelectedItem());
-        if (getResNomecurso() == null || getResNomedisciplina() == null && getResNomedisciplina02() == null && getResNomedisciplina03() == null) {
+        resNomecurso = ((String) jcomboboxCurso.getSelectedItem());
+        resNomedisciplina = ((String) jcomboboxDisciplina.getSelectedItem());
+        resNomedisciplina02 = ((String) jcomboboxDisciplina02.getSelectedItem());
+        resNomedisciplina03 = ((String) jcomboboxDisciplina03.getSelectedItem());
+        if (resNomecurso == null || resNomedisciplina == null && resNomedisciplina02 == null && resNomedisciplina03 == null) {
             JOptionPane.showMessageDialog(null, "O Curso deve ser selecionado, juntamente com a disciplina!", "Aviso", JOptionPane.ERROR_MESSAGE);
         } else {
             TelaLivrosSugeridos telalivrossugeridos = new TelaLivrosSugeridos();
@@ -349,37 +353,4 @@ public class TelaPesquisar extends javax.swing.JInternalFrame {
     private javax.swing.JLabel labelTitulo;
     // End of variables declaration//GEN-END:variables
 
-    // Getters e Setters
-    public String getResNomecurso() {
-        return resNomecurso;
-    }
-
-    public void setResNomecurso(String resNomecurso) {
-        this.resNomecurso = resNomecurso;
-    }
-
-    public String getResNomedisciplina() {
-        return resNomedisciplina;
-    }
-
-    public void setResNomedisciplina(String resNomedisciplina) {
-        this.resNomedisciplina = resNomedisciplina;
-    }
-
-    public static String getResNomedisciplina02() {
-        return resNomedisciplina02;
-    }
-
-     public static void setResNomedisciplina02(String aResNomedisciplina02) {
-        resNomedisciplina02 = aResNomedisciplina02;
-    }
-
-      public static String getResNomedisciplina03() {
-        return resNomedisciplina03;
-    }
-
-    public static void setResNomedisciplina03(String aResNomedisciplina03) {
-        resNomedisciplina03 = aResNomedisciplina03;
-    }
-    
 }

@@ -203,7 +203,7 @@ public class TelaCadastrarCurso extends javax.swing.JInternalFrame {
         });
 
         jbuttonSalvarCurso.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jbuttonSalvarCurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagensBookle/accept.png"))); // NOI18N
+        jbuttonSalvarCurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagensBookle/save.png"))); // NOI18N
         jbuttonSalvarCurso.setText("Salvar");
         jbuttonSalvarCurso.setEnabled(false);
         jbuttonSalvarCurso.addActionListener(new java.awt.event.ActionListener() {

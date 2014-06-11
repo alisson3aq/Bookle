@@ -192,7 +192,7 @@ public class TelaCadastrarUsuario extends javax.swing.JInternalFrame {
         });
 
         jbuttonSalvar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jbuttonSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagensBookle/accept.png"))); // NOI18N
+        jbuttonSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagensBookle/save.png"))); // NOI18N
         jbuttonSalvar.setText("Salvar");
         jbuttonSalvar.setEnabled(false);
         jbuttonSalvar.addActionListener(new java.awt.event.ActionListener() {
