@@ -450,7 +450,7 @@ public class TelaCadastrarUsuario extends javax.swing.JInternalFrame {
 
     private void radiobuttonAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radiobuttonAlunoActionPerformed
         radiobuttonAluno.setSelected(true);
-        radiobuttonAdministrador.setSelected(true);
+        radiobuttonAdministrador.setSelected(false);
         radiobuttonProfessor.setSelected(false);
         tipoCad = radiobuttonAluno.getText();
     }//GEN-LAST:event_radiobuttonAlunoActionPerformed
