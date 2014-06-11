@@ -36,7 +36,7 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
      * Metódo para liberar os módulos do sistema de acordo com o nível de
      * permissão do usuário.
      */
-    public void liberaPermissao() {
+    public final void liberaPermissao() {
 
         switch (telalogin.tipouser) {
             case "Aluno":
