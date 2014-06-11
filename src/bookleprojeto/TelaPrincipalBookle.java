@@ -1,3 +1,7 @@
+/**Bookle Sistema Acadêmico<br>
+ * Autor: Kélvin Santiago<br>
+ * Data: 11/06/2014.
+ */
 package bookleprojeto;
 
 import java.util.HashMap;

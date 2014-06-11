@@ -1,7 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Bookle Sistema Acadêmico<br>
+ * Autor: Kélvin Santiago<br>
+ * Data: 11/06/2014.
  */
 package bookleprojeto;
 
@@ -10,15 +10,24 @@ import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 
 /**
+ * Classe responsável em disponibilizar algumas modificações das Disciplinas
+ * com:<br>
+ * - Cadastrar nova disciplina<br>
+ * - Excluir nova disciplina<br>
+ * - Visualizar disciplinas cadastradas.
  *
- * @author admin
+ * @author Kélvin Santiago
  */
 public class TelaCadastrarDisciplina extends javax.swing.JInternalFrame {
 
     TelaPesquisar telapesquisar = new TelaPesquisar();
+    ConexaoMysql conectmysql = new ConexaoMysql();
 
     /**
-     * Creates new form TelaCadastrarDisciplina
+     * Construtor inicia componentes básicos da interface gráfica, e inicia o
+     * listarDisciplinar que consiste em preencher um componente jtable com os
+     * dados da consulta SQL, o construtor também inicia o preencherCombobox da
+     * Classe telaPesquisar, que preenche um combobox com o nome dos cursos
      */
     public TelaCadastrarDisciplina() {
         initComponents();
@@ -27,6 +36,10 @@ public class TelaCadastrarDisciplina extends javax.swing.JInternalFrame {
         jcomboboxCursoCadDisciplina.setSelectedIndex(-1);
     }
 
+    /**
+     * Método faz uma consulta na tabela tbdisciplina do banco de dados bookle e
+     * preenche uma jtable com as disciplinas.
+     */
     public void listarDisciplina() {
         ArrayList dadosdisciplina = new ArrayList();
 
@@ -34,21 +47,17 @@ public class TelaCadastrarDisciplina extends javax.swing.JInternalFrame {
 
         String[] colunas = new String[]{"Código da Disciplina", "Nome da Disciplina"};
         try {
-
-            ConexaoMysql conectmysql = new ConexaoMysql();
             conectmysql.abrirConexao();
-            conectmysql.statement = conectmysql.conexao.createStatement();
-            conectmysql.resultset = conectmysql.statement.executeQuery("SELECT * FROM tbdisciplina");
+            conectmysql.createStatement();
+            conectmysql.executaSQL("SELECT * FROM tbdisciplina");
 
             while (conectmysql.resultset.next()) {
-
                 dadosdisciplina.add(new Object[]{conectmysql.resultset.getString("coddisciplina"), conectmysql.resultset.getString("nomedisciplina")});
             }
-
-            conectmysql.statement.close();
+            conectmysql.fecharConexao();
 
         } catch (Exception erro) {
-            System.out.println("Erro preencher Tabela Cursos: " + erro);
+            System.out.println("Erro preencher Tabela Disciplinas: " + erro);
 
         }
         ModeloTabela modeltable = new ModeloTabela(dadosdisciplina, colunas);
@@ -63,37 +72,31 @@ public class TelaCadastrarDisciplina extends javax.swing.JInternalFrame {
         jtableListaDisciplinas.setAutoResizeMode(jtableListaDisciplinas.AUTO_RESIZE_OFF);
         jtableListaDisciplinas.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         jtableListaDisciplinas.setRowHeight(50);
-
     }
 
+    /**
+     * Método cadastra disciplina de acordo com o jtextfield informado e de
+     * acordo com o curso selecionado, e se esta disciplina não existir.
+     */
     public void cadastrarDisciplina() {
         try {
             Boolean cadastrado = false;
             int codigodocurso = 0;
 
-            ConexaoMysql conectmysql = new ConexaoMysql();
-
             conectmysql.abrirConexao();
-
-            // Percorrendo tabela Curso
-            conectmysql.statement = conectmysql.conexao.createStatement();
-
-            conectmysql.resultset = conectmysql.statement.executeQuery("select * from tbcurso");
+            conectmysql.createStatement();
+            conectmysql.executaSQL("select * from tbcurso");
 
             while (conectmysql.resultset.next()) {
-
                 if (conectmysql.resultset.getString("nomecurso").equals(jcomboboxCursoCadDisciplina.getSelectedItem())) {
                     codigodocurso = conectmysql.resultset.getInt("codcurso");
                 }
             }
 
-            // Percorrendo Tabela Disciplina
-            conectmysql.statement = conectmysql.conexao.createStatement();
-
-            conectmysql.resultset = conectmysql.statement.executeQuery("select * from tbdisciplina");
+            conectmysql.createStatement();
+            conectmysql.executaSQL("select * from tbdisciplina");
 
             while (conectmysql.resultset.next()) {
-
                 if (conectmysql.resultset.getString("nomedisciplina").equals(jtextfieldDisciplina.getText())) {
                     JOptionPane.showMessageDialog(null, "A Disciplina ja está cadastrada", "Disciplina Cadastrada!", JOptionPane.INFORMATION_MESSAGE);
                     cadastrado = true;
@@ -101,23 +104,53 @@ public class TelaCadastrarDisciplina extends javax.swing.JInternalFrame {
             }
 
             if (cadastrado == false) {
-
                 conectmysql.statement.executeUpdate("INSERT INTO tbdisciplina(codcurso,nomedisciplina) VALUES (" + codigodocurso + "," + "'" + jtextfieldDisciplina.getText() + "')");
-                conectmysql.statement = conectmysql.conexao.createStatement();
-                conectmysql.resultset = conectmysql.statement.executeQuery("select * from tbuser");
-
                 JOptionPane.showMessageDialog(null, "Disciplina Cadastrada com Sucesso!", "Disciplina Cadastrada!", JOptionPane.INFORMATION_MESSAGE);
                 jtextfieldDisciplina.setText(null);
                 jcomboboxCursoCadDisciplina.setSelectedIndex(-1);
             }
 
-            conectmysql.statement.close();
+            conectmysql.fecharConexao();
 
         } catch (Exception erro) {
             System.out.println("Erro Cadastrar Disciplina: " + erro);
-
         }
+    }
 
+    /**
+     * Método exclui disciplina de acordo com o getSelectedRow, ou seja de acordo com a seleção
+     * feita no jtable pelo usuário.
+     */
+    public void excluirDisciplina() {
+        int selecionado = jtableListaDisciplinas.getSelectedRow();
+        if (selecionado != -1) {
+            try {
+               
+                conectmysql.abrirConexao();
+                conectmysql.createStatement();
+                
+                String nomedisciplina = jtableListaDisciplinas.getValueAt(jtableListaDisciplinas.getSelectedRow(), 1).toString();
+                int opcao = JOptionPane.showConfirmDialog(null, "Deseja Excluir a Disciplina: " + nomedisciplina, "Exclusão de Disciplina", JOptionPane.YES_NO_OPTION);
+
+                if (opcao == JOptionPane.YES_OPTION) {
+                    conectmysql.statement.executeUpdate("DELETE FROM tbdisciplina  WHERE nomedisciplina ='" + nomedisciplina + "'");
+                    JOptionPane.showMessageDialog(null, "Curso " + nomedisciplina + " Excluído com sucesso!","Disciplina Excluída",JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Exclusão de disciplina cancelada");
+                }
+                listarDisciplina();
+
+            } catch (Exception erro) {
+                if (erro instanceof com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException) {
+                    JOptionPane.showMessageDialog(null, "Existem Livros vinculados a esta disciplina, exclua os livros do curso", "Erro SQL Foreign", JOptionPane.ERROR_MESSAGE);
+                } else {
+                    System.out.println("Erro Excluir Disciplina: " + erro);
+                }
+
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Você deve selecionar pelo menos uma disciplina para excluir!");
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -313,41 +346,11 @@ public class TelaCadastrarDisciplina extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbuttonVoltarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonVoltarMenuActionPerformed
-
-        dispose();        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_jbuttonVoltarMenuActionPerformed
 
     private void jbuttonExcluirCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonExcluirCursoActionPerformed
-        int selecionado = jtableListaDisciplinas.getSelectedRow();
-        if (selecionado != -1) {
-            try {
-
-                ConexaoMysql conectmysql = new ConexaoMysql();
-                conectmysql.abrirConexao();
-                conectmysql.statement = conectmysql.conexao.createStatement();
-                String nomedisciplina = jtableListaDisciplinas.getValueAt(jtableListaDisciplinas.getSelectedRow(), 1).toString();
-
-                int opcao = JOptionPane.showConfirmDialog(null, "Deseja Excluir a Disciplina: " + nomedisciplina, "Exclusão de Disciplina", JOptionPane.YES_NO_OPTION);
-
-                if (opcao == JOptionPane.YES_OPTION) {
-                    conectmysql.statement.executeUpdate("DELETE FROM tbdisciplina  WHERE nomedisciplina ='" + nomedisciplina+ "'");
-                    JOptionPane.showMessageDialog(null, "Curso " + nomedisciplina + " Excluído com sucesso!");
-                } else {
-                    JOptionPane.showMessageDialog(null, "Operação Cancelada");
-                }
-                listarDisciplina();
-
-            } catch (Exception erro) {
-                if (erro instanceof com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException) {
-                    JOptionPane.showMessageDialog(null, "Existem Livros vinculados a esta disciplina, exclua os livros do curso", "Erro SQL Foreign", JOptionPane.ERROR_MESSAGE);
-                } else {
-                    System.out.println("Erro Excluir Disciplina: " + erro);
-                }
-                
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Selecione uma Disciplina para excluir!");
-        }
+        excluirDisciplina();
     }//GEN-LAST:event_jbuttonExcluirCursoActionPerformed
 
     private void jbuttonCancelarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonCancelarCursoActionPerformed
@@ -367,11 +370,10 @@ public class TelaCadastrarDisciplina extends javax.swing.JInternalFrame {
     private void jbuttonSalvarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonSalvarCursoActionPerformed
         String cursoselecionado = ((String) jcomboboxCursoCadDisciplina.getSelectedItem());
         if (cursoselecionado == null) {
-             JOptionPane.showMessageDialog(null, "Selecione um curso!", "Campo Curso Vazio", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Selecione um curso!", "Campo Curso Vazio", JOptionPane.ERROR_MESSAGE);
         } else if (jtextfieldDisciplina.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Insira o nome da Disciplina!", "Campo Disciplina Vazio", JOptionPane.ERROR_MESSAGE);
         } else {
-
             cadastrarDisciplina();
             jtextfieldDisciplina.setText(null);
             jbuttonNovoDisciplina.setEnabled(true);
@@ -382,7 +384,6 @@ public class TelaCadastrarDisciplina extends javax.swing.JInternalFrame {
             jbuttonSalvarCurso.setEnabled(false);
             jbuttonVoltarMenu.setEnabled(true);
             jcomboboxCursoCadDisciplina.setEnabled(false);
-
             listarDisciplina();
         }
     }//GEN-LAST:event_jbuttonSalvarCursoActionPerformed
@@ -398,7 +399,6 @@ public class TelaCadastrarDisciplina extends javax.swing.JInternalFrame {
         jtextfieldDisciplina.setEnabled(true);
         jcomboboxCursoCadDisciplina.setEnabled(true);
     }//GEN-LAST:event_jbuttonNovoDisciplinaActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
