@@ -1,9 +1,3 @@
-/**
- * Bookle Sistema Acadêmico 2014
- *
- * @author Kelvin Santiago
- * @version 1.0
- */
 package bookleprojeto;
 
 import java.util.HashMap;
@@ -14,8 +8,9 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
 
 /**
- *
- * @author Kelvin Santiago
+ * Classe da tela principal do sistema.
+ * @author Kélvin Santiago
+ * @version 1.0
  */
 public class TelaPrincipalBookle extends javax.swing.JFrame {
 
@@ -37,12 +32,12 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
      * permissão do usuário.
      */
     public final void liberaPermissao() {
-
         switch (telalogin.tipouser) {
             case "Aluno":
                 menuCadastrar.setVisible(false);
                 menuRelatorios.setVisible(false);
                 break;
+                
             case "Professor":
                 submenuCurso.setVisible(false);
                 submenuDisciplina.setVisible(false);
@@ -57,7 +52,12 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
 
         }
     }
-
+    
+    /**
+     * Metódo para gerar relatório do iReport.
+     * @param Query String - Código SQL para consulta no Banco.
+     * @param localArquivo String - Caminho do arquivo do relatório jasper.
+     */
     public void gerarRelatorio(String Query, String localArquivo) {
         conectmysql.abrirConexao();
         JasperPrint jasperprint = null;
@@ -402,15 +402,15 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
     private void submenuUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submenuUsuariosActionPerformed
         gerarRelatorio("SELECT * FROM tbuser", "src/Relatorios/RelatorioUsuarios.jasper");
     }//GEN-LAST:event_submenuUsuariosActionPerformed
-
+    // Evento submenu Curso
     private void submenuCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submenuCursosActionPerformed
         gerarRelatorio("SELECT * FROM tbcurso", "src/Relatorios/RelatorioCurso.jasper");
     }//GEN-LAST:event_submenuCursosActionPerformed
-
+    // Evento submenu Disciplinas
     private void submenuDisciplinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submenuDisciplinasActionPerformed
         gerarRelatorio("SELECT * FROM tbdisciplina INNER JOIN tbcurso ON tbdisciplina.codcurso = tbcurso.codcurso", "src/Relatorios/RelatorioDisciplinas.jasper");
     }//GEN-LAST:event_submenuDisciplinasActionPerformed
-
+    // Evento submenu Livros
     private void submenuLivrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submenuLivrosActionPerformed
         gerarRelatorio(
                 "SELECT\n"
@@ -423,61 +423,12 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
                 + "     INNER JOIN `tbcurso` tbcurso ON tbdisciplina_A.`codcurso` = tbcurso.`codcurso`"
         ,"src/Relatorios/RelatorioLivro.jasper");
     }//GEN-LAST:event_submenuLivrosActionPerformed
-// Evento submenu Livro
+    // Evento submenu Livro
     private void submenuLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submenuLivroActionPerformed
         TelaCadastrarLivro telacadastrarlivro = new TelaCadastrarLivro();
         jDesktopPane1.add(telacadastrarlivro);
         telacadastrarlivro.setVisible(true);
     }//GEN-LAST:event_submenuLivroActionPerformed
-
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-
-                
-
-}
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipalBookle.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } 
-
-catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipalBookle.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } 
-
-catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipalBookle.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } 
-
-catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaPrincipalBookle.class  
-
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaPrincipalBookle().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane1;
