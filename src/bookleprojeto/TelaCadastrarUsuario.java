@@ -1,65 +1,68 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Bookle Sistema Acadêmico<br>
+ * Autor: Kélvin Santiago<br>
+ * Data: 11/06/2014.
  */
 package bookleprojeto;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 
 /**
+ * Classe responsável em disponibilizar algumas modificações dos Usuarios
+ * com:<br>
+ * - Cadastrar novo Usuário<br>
+ * - Excluir Usuário<br>
+ * - Visualizar usuários cadastrados.
  *
- * @author admin
+ * @author Kélvin Santiago
  */
 public class TelaCadastrarUsuario extends javax.swing.JInternalFrame {
 
+    ConexaoMysql conectmysql = new ConexaoMysql();
     public String nomeCad;
     public String senhaCad;
     public String tipoCad = "Aluno";
 
     /**
-     * Creates new form TelaCadastrarUsuario
+     * Construtor inicia componentes básicos da interface gráfica, e inicia o
+     * listaruser que consiste em preencher um componente jtable com os dados da
+     * consulta SQL dos usuários cadastrados.
      */
     public TelaCadastrarUsuario() {
         initComponents();
         listarUser();
     }
 
+    /**
+     * Método cadastra usuários de acordo com os campos:<br>
+     * - Nome do Usuário<br>
+     * - Senha - Tipo de Permissão do usuário.
+     */
     public void cadastrarUser() {
 
         try {
             Boolean cadastrado = false;
-
-            ConexaoMysql conectmysql = new ConexaoMysql();
-
             conectmysql.abrirConexao();
-
-            conectmysql.statement = conectmysql.conexao.createStatement();
-
-            conectmysql.resultset = conectmysql.statement.executeQuery("select * from tbuser");
+            conectmysql.createStatement();
+            conectmysql.executaSQL("select * from tbuser");
 
             while (conectmysql.resultset.next()) {
                 if (conectmysql.resultset.getString("nomeuser").equals(nomeCad)) {
-                    JOptionPane.showMessageDialog(null, "Usuário Já está cadastrado\n"
+                    JOptionPane.showMessageDialog(null, "Usuário já está cadastrado\n"
                             + "Sua matrícula é: " + conectmysql.resultset.getString("matriculauser"), "Usuario Cadastrado!", JOptionPane.INFORMATION_MESSAGE);
                     cadastrado = true;
-
                 }
             }
 
             if (cadastrado == false) {
-
                 conectmysql.statement.executeUpdate("INSERT INTO tbuser (nomeuser,senhauser,permissaouser) VALUES (" + "'" + nomeCad + "'," + "'" + senhaCad + "'" + ",'" + tipoCad + "')");
-                conectmysql.statement = conectmysql.conexao.createStatement();
-                conectmysql.resultset = conectmysql.statement.executeQuery("select * from tbuser");
+                conectmysql.createStatement();
+                conectmysql.executaSQL("select * from tbuser");
+                
                 while (conectmysql.resultset.next()) {
                     if (conectmysql.resultset.getString("nomeuser").equals(nomeCad)) {
-
                         JOptionPane.showMessageDialog(null, "Usuário Cadastrado com Sucesso!\n"
                                 + "Sua matrícula é: " + conectmysql.resultset.getString("matriculauser"), "Usuario Cadastrado!", JOptionPane.INFORMATION_MESSAGE);
                         jpasswordfieldSenha.setText("");
@@ -69,36 +72,36 @@ public class TelaCadastrarUsuario extends javax.swing.JInternalFrame {
 
             }
 
-            conectmysql.statement.close();
+            conectmysql.fecharConexao();
 
         } catch (Exception erro) {
             System.out.println("Erro Cadastrar Usuario: " + erro);
-
         }
     }
 
+      /**
+     * Método faz uma consulta na tabela tbusuario do banco de dados bookle e
+     * preenche uma jtable com os usuarios cadastrados.
+     */
     public void listarUser() {
         ArrayList dadosuser = new ArrayList();
-
         dadosuser.clear();
 
         String[] colunas = new String[]{"Matrícula", "Nome", "Senha", "Permissão"};
         try {
 
-            ConexaoMysql conectmysql = new ConexaoMysql();
             conectmysql.abrirConexao();
-            conectmysql.statement = conectmysql.conexao.createStatement();
-            conectmysql.resultset = conectmysql.statement.executeQuery("SELECT * FROM tbuser");
+            conectmysql.createStatement();
+            conectmysql.executaSQL("SELECT * FROM tbuser");
 
             while (conectmysql.resultset.next()) {
-
                 dadosuser.add(new Object[]{conectmysql.resultset.getString("matriculauser"), conectmysql.resultset.getString("nomeuser"), conectmysql.resultset.getString("senhauser"), conectmysql.resultset.getString("permissaouser")});
             }
 
-            conectmysql.statement.close();
+            conectmysql.fecharConexao();
 
         } catch (Exception erro) {
-            System.out.println("Erro preencher Tabela: " + erro);
+            System.out.println("Erro preencher Tabela Usuários: " + erro);
 
         }
         ModeloTabela modeltable = new ModeloTabela(dadosuser, colunas);
@@ -120,10 +123,40 @@ public class TelaCadastrarUsuario extends javax.swing.JInternalFrame {
     }
 
     /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
+     * Método exclui usuário de acordo com o getSelectedRow, ou seja de acordo com a seleção
+     * feita no jtable pelo usuário.
      */
+    public void excluirUser(){
+    int selecionado = jtableListaUsuarios.getSelectedRow();
+        if (selecionado != -1) {
+            try {
+
+                conectmysql.abrirConexao();
+                conectmysql.createStatement();
+                
+                String nomeusuario = jtableListaUsuarios.getValueAt(jtableListaUsuarios.getSelectedRow(), 1).toString();
+                int opcao = JOptionPane.showConfirmDialog(null, "Deseja Excluir o usuário: " + nomeusuario, "Exclusão de Usuário", JOptionPane.YES_NO_OPTION);
+
+                if (opcao == JOptionPane.YES_OPTION) {
+                    conectmysql.statement.executeUpdate("DELETE FROM tbuser  WHERE nomeuser ='" + (jtableListaUsuarios.getValueAt(jtableListaUsuarios.getSelectedRow(), 1)) + "'");
+                    JOptionPane.showMessageDialog(null, "Usuário " + nomeusuario + " Excluído com sucesso!", "Usuário Excluído", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Operação Cancelada");
+                }
+                listarUser();
+                conectmysql.fecharConexao();
+
+            } catch (Exception erro) {
+                System.out.println("Erro Excluir Usuario: " + erro);
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Você deve selecionar pelo menos um usuário para excluir!");
+        }
+
+    }
+    
+    // Método gerado automaticamente GUI
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -369,7 +402,7 @@ public class TelaCadastrarUsuario extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbuttonVoltarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonVoltarMenuActionPerformed
-        dispose();        // TODO add your handling code here:
+        dispose();        
     }//GEN-LAST:event_jbuttonVoltarMenuActionPerformed
 
     private void jbuttonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonSalvarActionPerformed
@@ -423,32 +456,7 @@ public class TelaCadastrarUsuario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_radiobuttonAlunoActionPerformed
 
     private void jbuttonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonExcluirActionPerformed
-        int selecionado = jtableListaUsuarios.getSelectedRow();
-        if (selecionado != -1) {
-            try {
-
-                ConexaoMysql conectmysql = new ConexaoMysql();
-                conectmysql.abrirConexao();
-                conectmysql.statement = conectmysql.conexao.createStatement();
-                String nomeusuario = jtableListaUsuarios.getValueAt(jtableListaUsuarios.getSelectedRow(), 1).toString();
-                int opcao = JOptionPane.showConfirmDialog(null, "Deseja Excluir o usuário: " + nomeusuario, "Exclusão de Usuário", JOptionPane.YES_NO_OPTION);
-
-                if (opcao == JOptionPane.YES_OPTION) {
-                    conectmysql.statement.executeUpdate("DELETE FROM tbuser  WHERE nomeuser ='" + (jtableListaUsuarios.getValueAt(jtableListaUsuarios.getSelectedRow(), 1)) + "'");
-                    JOptionPane.showMessageDialog(null, "Usuário " + nomeusuario + " Excluído com sucesso!");
-                } else {
-                    JOptionPane.showMessageDialog(null, "Operação Cancelada");
-                }
-                listarUser();
-
-            } catch (Exception erro) {
-                System.out.println("Erro Excluir Usuario: " + erro);
-            }
-
-        } else {
-            JOptionPane.showMessageDialog(null, "Selecione um usuário para excluir!");
-        }
-
+        excluirUser();
     }//GEN-LAST:event_jbuttonExcluirActionPerformed
 
     private void jbuttonNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonNovoActionPerformed
@@ -485,7 +493,6 @@ public class TelaCadastrarUsuario extends javax.swing.JInternalFrame {
         jtextfieldNome.setText("");
         jpasswordfieldSenha.setText("");
     }//GEN-LAST:event_jbuttonCancelarActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;

@@ -12,7 +12,7 @@ import javax.swing.ListSelectionModel;
 /**
  * Classe responsável em disponibilizar algumas modificações dos cursos com:<br>
  * - Cadastrar novo curso<br>
- * - Excluir novo curso<br>
+ * - Excluir curso<br>
  * - Visualizar cursos cadastrados.
  * @author Kélvin Santiago
  */
@@ -125,6 +125,7 @@ public class TelaCadastrarCurso extends javax.swing.JInternalFrame {
                     JOptionPane.showMessageDialog(null, "Exclusão de curso cancelada!");
                 }
                 listarCursos();
+                conectmysql.fecharConexao();
 
             } catch (Exception erro) {
 

@@ -10,15 +10,24 @@ import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
 
 /**
+ * Classe responsável em disponibilizar algumas modificações dos Livros com:<br>
+ * - Cadastrar novo Livro<br>
+ * - Excluir Livro<br>
+ * - Visualizar livros cadastradas.
  *
- * @author admin
+ * @author Kélvin Santiago
  */
 public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
 
     TelaPesquisar telapesquisar = new TelaPesquisar();
+    ConexaoMysql conectmysql = new ConexaoMysql();
 
     /**
-     * Creates new form TelaCadastrarLivro
+     * Construtor inicia componentes básicos da interface gráfica, e inicia o
+     * listarlivros que consiste em preencher um componente jtable com os dados
+     * da consulta SQL dos livros cadastrados, o construtor também inicia o
+     * preencherCombobox da Classe telaPesquisar, que preenche um combobox com o
+     * nome das disciplinas.
      */
     public TelaCadastrarLivro() {
         initComponents();
@@ -27,20 +36,19 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
         jcomboboxLivros.setSelectedIndex(-1);
     }
 
+    /**
+     * Método faz uma consulta na tabela tblivros do banco de dados bookle e
+     * preenche uma jtable com os livros cadastrados.
+     */
     public void listaLivros() {
         ArrayList dadoslivros = new ArrayList();
-
         dadoslivros.clear();
-
         String[] colunas = new String[]{"Código", "Nome Livro", "Exemplares", "Biblioteca", "Status"};
         try {
-
-            ConexaoMysql conectmysql = new ConexaoMysql();
             conectmysql.abrirConexao();
             conectmysql.executaSQL("SELECT * FROM tblivros");
 
             while (conectmysql.resultset.next()) {
-
                 dadoslivros.add(new Object[]{conectmysql.resultset.getString("codlivro"), conectmysql.resultset.getString("nomelivro"), conectmysql.resultset.getString("contexemplares"), conectmysql.resultset.getString("localbiblioteca"), conectmysql.resultset.getString("statuslivro")});
             }
 
@@ -68,9 +76,16 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
         jtableListaLivros.setAutoResizeMode(jtableListaLivros.AUTO_RESIZE_OFF);
         jtableListaLivros.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         jtableListaLivros.setRowHeight(50);
-
     }
 
+    /**
+     * Método cadastra livros de acordo com os campos:<br>
+     * - Nome da Disciplina (ComboBox)<br> 
+     * - Nome do Livro<br> 
+     * - Status<br> 
+     * - Quantidade de Exemplares<br>
+     * - Local do Livro.
+     */
     public void cadastrarLivro() {
         try {
             Boolean cadastrado = false;
@@ -78,19 +93,16 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
 
             ConexaoMysql conectmysql = new ConexaoMysql();
             conectmysql.abrirConexao();
-            conectmysql.executaSQL("select * from tbdisciplina");
+            conectmysql.executaSQL("SELECT * FROM tbdisciplina");
 
             while (conectmysql.resultset.next()) {
-
                 if (conectmysql.resultset.getString("nomedisciplina").equals(jcomboboxLivros.getSelectedItem())) {
                     codigodadisciplina = conectmysql.resultset.getInt("coddisciplina");
                 }
             }
-
-            conectmysql.executaSQL("select * from tblivros");
+            conectmysql.executaSQL("SELECT * FROM tblivros");
 
             while (conectmysql.resultset.next()) {
-
                 if (conectmysql.resultset.getString("nomelivro").equals(jtextfieldNomeLivro.getText())) {
                     JOptionPane.showMessageDialog(null, "O livro ja está Cadastrado!", "Livro Cadastrado!", JOptionPane.INFORMATION_MESSAGE);
                     cadastrado = true;
@@ -98,7 +110,6 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
             }
 
             if (cadastrado == false) {
-
                 conectmysql.statement.executeUpdate("INSERT INTO tblivros(coddisciplina,nomelivro,statuslivro,contexemplares,localbiblioteca) VALUES ("
                         + "'" + codigodadisciplina + "',"
                         + "'" + jtextfieldNomeLivro.getText() + "',"
@@ -107,27 +118,51 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
                         + "'" + jtextfieldLocalBiblioteca.getText() + "'"
                         + ")");
 
-//conectmysql.statement = conectmysql.conexao.createStatement();
-                //conectmysql.resultset = conectmysql.statement.executeQuery("select * from tbuser");
                 JOptionPane.showMessageDialog(null, "Livro Cadastrado com Sucesso!", "Livro Cadastrado!", JOptionPane.INFORMATION_MESSAGE);
                 jtextfieldNomeLivro.setText(null);
                 jcomboboxLivros.setSelectedIndex(-1);
             }
 
-            conectmysql.statement.close();
+            conectmysql.fecharConexao();
 
         } catch (Exception erro) {
             System.out.println("Erro Cadastrar Livro: " + erro);
+        }
 
+    }
+    
+    /**
+     * Método exclui livro de acordo com o getSelectedRow, ou seja de acordo com a seleção
+     * feita no jtable pelo usuário.
+     */
+    public void excluirLivro() {
+        int selecionado = jtableListaLivros.getSelectedRow();
+        if (selecionado != -1) {
+            try {
+                conectmysql.abrirConexao();
+
+                String nomelivro = jtableListaLivros.getValueAt(jtableListaLivros.getSelectedRow(), 1).toString();
+                int opcao = JOptionPane.showConfirmDialog(null, "Deseja Excluir o Livro: " + nomelivro, "Exclusão de Livro", JOptionPane.YES_NO_OPTION);
+
+                if (opcao == JOptionPane.YES_OPTION) {
+                    conectmysql.statement.executeUpdate("DELETE FROM tblivros  WHERE nomelivro ='" + nomelivro + "'");
+                    JOptionPane.showMessageDialog(null, "Livro " + nomelivro + " Excluído com sucesso!", "Livro Excluído", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Exclusão de Livro Cancelada!");
+                }
+                listaLivros();
+                conectmysql.fecharConexao();
+
+            } catch (Exception erro) {
+                System.err.println("Erro Excluir Livro: " + erro);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Você deve selecionar pelo menos um livro para excluir!");
         }
 
     }
 
-    /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
-     */
+    // Método gerado automaticamente GUI
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -242,11 +277,6 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
 
         jcomboboxLivros.setModel(new javax.swing.DefaultComboBoxModel());
         jcomboboxLivros.setEnabled(false);
-        jcomboboxLivros.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcomboboxLivrosActionPerformed(evt);
-            }
-        });
 
         jtextfieldNomeLivro.setBackground(new java.awt.Color(255, 255, 204));
         jtextfieldNomeLivro.setEnabled(false);
@@ -261,11 +291,6 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
 
         jtextfieldContExemplares.setBackground(new java.awt.Color(255, 255, 204));
         jtextfieldContExemplares.setEnabled(false);
-        jtextfieldContExemplares.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtextfieldContExemplaresActionPerformed(evt);
-            }
-        });
         jtextfieldContExemplares.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jtextfieldContExemplaresKeyTyped(evt);
@@ -391,10 +416,6 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
         setBounds(0, 0, 1290, 615);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jcomboboxLivrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcomboboxLivrosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jcomboboxLivrosActionPerformed
-
     private void jbuttonNovoLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonNovoLivroActionPerformed
         jbuttonNovoLivro.setEnabled(false);
         labelNomeDisciplina.setEnabled(true);
@@ -414,37 +435,11 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jbuttonNovoLivroActionPerformed
 
     private void jbuttonVoltarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonVoltarMenuActionPerformed
-
-        dispose();        // TODO add your handling code here:
+        dispose();
     }//GEN-LAST:event_jbuttonVoltarMenuActionPerformed
 
     private void jbuttonExcluirLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonExcluirLivroActionPerformed
-        int selecionado = jtableListaLivros.getSelectedRow();
-        if (selecionado != -1) {
-            try {
-
-                ConexaoMysql conectmysql = new ConexaoMysql();
-                conectmysql.abrirConexao();
-
-                String nomelivro = jtableListaLivros.getValueAt(jtableListaLivros.getSelectedRow(), 1).toString();
-
-                int opcao = JOptionPane.showConfirmDialog(null, "Deseja Excluir o Livro: " + nomelivro, "Exclusão de Livro", JOptionPane.YES_NO_OPTION);
-
-                if (opcao == JOptionPane.YES_OPTION) {
-                    conectmysql.statement.executeUpdate("DELETE FROM tblivros  WHERE nomelivro ='" + nomelivro + "'");
-                    JOptionPane.showMessageDialog(null, "Livro " + nomelivro + " Excluído com sucesso!");
-                } else {
-                    JOptionPane.showMessageDialog(null, "Operação Cancelada");
-                }
-                listaLivros();
-
-            } catch (Exception erro) {
-                System.err.println("Erro Excluir Livro: " + erro);
-            }
-
-        } else {
-            JOptionPane.showMessageDialog(null, "Selecione um Livro para excluir!");
-        }
+        excluirLivro();
     }//GEN-LAST:event_jbuttonExcluirLivroActionPerformed
 
     private void jbuttonCancelarLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonCancelarLivroActionPerformed
@@ -467,11 +462,11 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
         jtextfieldNomeLivro.setText("");
         jtextfieldContExemplares.setText("");
         jtextfieldLocalBiblioteca.setText("");
-         jtextfieldNomeLivro.setText("");
+        jtextfieldNomeLivro.setText("");
         jtextfieldContExemplares.setText("");
         jtextfieldLocalBiblioteca.setText("");
         jtextfieldStatusLivro.setText("");
-        
+
     }//GEN-LAST:event_jbuttonCancelarLivroActionPerformed
 
     private void jbuttonSalvarLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonSalvarLivroActionPerformed
@@ -504,22 +499,16 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
             jbuttonSalvarLivro.setEnabled(false);
             jbuttonVoltarMenu.setEnabled(true);
             jcomboboxLivros.setEnabled(false);
-
             listaLivros();
         }
     }//GEN-LAST:event_jbuttonSalvarLivroActionPerformed
 
-    private void jtextfieldContExemplaresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtextfieldContExemplaresActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtextfieldContExemplaresActionPerformed
-
     private void jtextfieldContExemplaresKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtextfieldContExemplaresKeyTyped
-        String caracteres="0123456789";
-        if(!caracteres.contains(evt.getKeyChar()+"")){
+        String caracteres = "0123456789";
+        if (!caracteres.contains(evt.getKeyChar() + "")) {
             evt.consume();
-        } 
+        }
     }//GEN-LAST:event_jtextfieldContExemplaresKeyTyped
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;

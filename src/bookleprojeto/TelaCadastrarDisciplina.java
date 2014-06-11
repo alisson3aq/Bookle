@@ -13,7 +13,7 @@ import javax.swing.ListSelectionModel;
  * Classe responsável em disponibilizar algumas modificações das Disciplinas
  * com:<br>
  * - Cadastrar nova disciplina<br>
- * - Excluir nova disciplina<br>
+ * - Excluir disciplina<br>
  * - Visualizar disciplinas cadastradas.
  *
  * @author Kélvin Santiago
@@ -27,7 +27,7 @@ public class TelaCadastrarDisciplina extends javax.swing.JInternalFrame {
      * Construtor inicia componentes básicos da interface gráfica, e inicia o
      * listarDisciplinar que consiste em preencher um componente jtable com os
      * dados da consulta SQL, o construtor também inicia o preencherCombobox da
-     * Classe telaPesquisar, que preenche um combobox com o nome dos cursos
+     * Classe telaPesquisar, que preenche um combobox com o nome dos cursos.
      */
     public TelaCadastrarDisciplina() {
         initComponents();
@@ -139,6 +139,7 @@ public class TelaCadastrarDisciplina extends javax.swing.JInternalFrame {
                     JOptionPane.showMessageDialog(null, "Exclusão de disciplina cancelada");
                 }
                 listarDisciplina();
+                conectmysql.fecharConexao();
 
             } catch (Exception erro) {
                 if (erro instanceof com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException) {
@@ -153,6 +154,7 @@ public class TelaCadastrarDisciplina extends javax.swing.JInternalFrame {
         }
     }
 
+    // Método gerado automaticamente GUI
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
