@@ -114,7 +114,6 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
         menuAjuda = new javax.swing.JMenu();
         submenuAutoria = new javax.swing.JMenuItem();
         menuSair = new javax.swing.JMenu();
-        jMenu1 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bookle Sistema Acadêmico");
@@ -344,9 +343,6 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
         });
         jmenuPrincipal.add(menuSair);
 
-        jMenu1.setText("Configurações");
-        jmenuPrincipal.add(jMenu1);
-
         setJMenuBar(jmenuPrincipal);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -445,7 +441,6 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jlabelBackground;
     private javax.swing.JLabel jlabelIntroLogo;

@@ -277,11 +277,6 @@
             <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jmenuPrincipal.add(Box.createHorizontalGlue());"/>
           </AuxValues>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Configura&#xe7;&#xf5;es"/>
-          </Properties>
-        </Menu>
       </SubComponents>
     </Menu>
   </NonVisualComponents>
