@@ -2,8 +2,10 @@
  * Autor: Kélvin Santiago<br>
  * Data: 11/06/2014.
  */
-package bookleprojeto;
+package bookleprojeto.interfaces;
 
+
+import bookleprojeto.conexao.ConexaoMysql;
 import java.util.HashMap;
 import javax.swing.Box;
 import net.sf.jasperreports.engine.JRResultSetDataSource;
@@ -115,7 +117,6 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bookle Sistema Acadêmico");
-        setPreferredSize(new java.awt.Dimension(800, 800));
         setResizable(false);
 
         jDesktopPane1.setBackground(new java.awt.Color(204, 204, 204));

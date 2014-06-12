@@ -4,8 +4,9 @@
  * Data: 11/06/2014.
  */
 
-package bookleprojeto;
+package bookleprojeto.interfaces;
 
+import bookleprojeto.conexao.ConexaoMysql;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 

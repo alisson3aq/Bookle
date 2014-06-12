@@ -3,8 +3,9 @@
  * Autor: Kélvin Santiago<br>
  * Data: 11/06/2014.
  */
-package bookleprojeto;
+package bookleprojeto.interfaces;
 
+import bookleprojeto.conexao.ConexaoMysql;
 import javax.swing.JOptionPane;
 
 /**
@@ -156,7 +157,7 @@ public class TelaLogin extends javax.swing.JFrame {
         labelTitulo.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         labelTitulo.setText("Login Bookle");
 
-        labelImageLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagensBookle/booklelogo.png"))); // NOI18N
+        labelImageLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/booklelogo.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

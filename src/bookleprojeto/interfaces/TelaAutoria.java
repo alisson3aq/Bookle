@@ -4,7 +4,7 @@
  * Data: 11/06/2014.
  */
 
-package bookleprojeto;
+package bookleprojeto.interfaces;
 
 /** Esta é a classe da tela Autoria, que mostra os dados sobre a criação do projeto. 
  * @author Kelvin Santiago

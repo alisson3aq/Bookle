@@ -5,6 +5,8 @@
  */
 package bookleprojeto;
 
+import bookleprojeto.interfaces.TelaLogin;
+
 /** Esta é a classe principal do projeto que inicializa a janela de Login, contendo 
  * apenas a classe main.
  * @author Kelvin Santiago

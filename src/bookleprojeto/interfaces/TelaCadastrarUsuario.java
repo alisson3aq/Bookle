@@ -3,8 +3,10 @@
  * Autor: Kélvin Santiago<br>
  * Data: 11/06/2014.
  */
-package bookleprojeto;
+package bookleprojeto.interfaces;
 
+import bookleprojeto.conexao.ConexaoMysql;
+import bookleprojeto.modelo.ModeloTabela;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
