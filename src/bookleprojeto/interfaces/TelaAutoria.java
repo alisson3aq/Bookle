@@ -59,7 +59,7 @@ public class TelaAutoria extends javax.swing.JInternalFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagensBookle/booklelogo.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/booklelogo.png"))); // NOI18N
 
         jLabel3.setText("Versão: 1.7 | Banco de Dados: Mysql 5.5.24");
 

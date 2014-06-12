@@ -3,7 +3,7 @@
  * Autor: Kélvin Santiago<br>
  * Data: 11/06/2014.
  */
-package bookleprojeto.modelo;
+package bookleprojeto.modelos;
 
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;

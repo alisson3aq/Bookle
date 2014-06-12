@@ -6,7 +6,7 @@
 package bookleprojeto.interfaces;
 
 import bookleprojeto.conexao.ConexaoMysql;
-import bookleprojeto.modelo.ModeloTabela;
+import bookleprojeto.modelos.ModeloTabela;
 import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
@@ -166,7 +166,7 @@ public class TelaLivrosSugeridos extends javax.swing.JInternalFrame {
         labelNomeDisciplina.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labelNomeDisciplina.setText(telapesquisar.resNomedisciplina);
 
-        jbuttonVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagensBookle/back.png"))); // NOI18N
+        jbuttonVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/back.png"))); // NOI18N
         jbuttonVoltar.setText("Voltar");
         jbuttonVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -47,7 +47,7 @@ public class TelaAlterarSenha extends javax.swing.JInternalFrame {
         setPreferredSize(new java.awt.Dimension(585, 508));
 
         jbuttonAlterar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jbuttonAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagensBookle/accept.png"))); // NOI18N
+        jbuttonAlterar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/accept.png"))); // NOI18N
         jbuttonAlterar.setText("Alterar");
         jbuttonAlterar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,7 +56,7 @@ public class TelaAlterarSenha extends javax.swing.JInternalFrame {
         });
 
         jbuttonCancelar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jbuttonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagensBookle/delete.png"))); // NOI18N
+        jbuttonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/delete.png"))); // NOI18N
         jbuttonCancelar.setText("Cancelar");
         jbuttonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,7 +68,7 @@ public class TelaAlterarSenha extends javax.swing.JInternalFrame {
         labelNomeUsuario.setText("Nome Usuário / Matrícula:");
 
         jbuttonLimpar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jbuttonLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagensBookle/limpar.png"))); // NOI18N
+        jbuttonLimpar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/limpar.png"))); // NOI18N
         jbuttonLimpar.setText("Limpar");
         jbuttonLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,7 +77,7 @@ public class TelaAlterarSenha extends javax.swing.JInternalFrame {
         });
 
         jlabelTitulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jlabelTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagensBookle/chave.png"))); // NOI18N
+        jlabelTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/chave.png"))); // NOI18N
         jlabelTitulo.setText("Alteração de Senha");
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));

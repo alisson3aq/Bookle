@@ -122,16 +122,16 @@ public class TelaLogin extends javax.swing.JFrame {
         labelNome.setForeground(new java.awt.Color(0, 102, 153));
         labelNome.setText("Matrícula / Nome Usuário:");
         getContentPane().add(labelNome);
-        labelNome.setBounds(122, 117, 260, 24);
+        labelNome.setBounds(122, 117, 260, 25);
 
         labelPassword.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         labelPassword.setForeground(new java.awt.Color(0, 102, 153));
         labelPassword.setText("Password:");
         getContentPane().add(labelPassword);
-        labelPassword.setBounds(122, 191, 120, 24);
+        labelPassword.setBounds(122, 191, 120, 25);
 
         buttonSair.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        buttonSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagensBookle/delete.png"))); // NOI18N
+        buttonSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/delete.png"))); // NOI18N
         buttonSair.setText("Sair");
         buttonSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,7 +142,7 @@ public class TelaLogin extends javax.swing.JFrame {
         buttonSair.setBounds(282, 275, 130, 50);
 
         buttonAcessar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        buttonAcessar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagensBookle/accept.png"))); // NOI18N
+        buttonAcessar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/accept.png"))); // NOI18N
         buttonAcessar.setText("Entrar");
         buttonAcessar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,7 +181,7 @@ public class TelaLogin extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 0, 520, 103);
+        jPanel2.setBounds(0, 0, 520, 104);
 
         setSize(new java.awt.Dimension(520, 381));
         setLocationRelativeTo(null);
