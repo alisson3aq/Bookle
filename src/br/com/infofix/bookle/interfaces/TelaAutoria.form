@@ -176,13 +176,13 @@
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/bookleprojeto/imagens/booklelogo.png"/>
+              <Image iconType="3" name="/br/com/infofix/bookle/imagens/booklelogo.png"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Vers&#xe3;o: 1.7 | Banco de Dados: Mysql 5.5.24"/>
+            <Property name="text" type="java.lang.String" value="Vers&#xe3;o: 1.0 | Banco de Dados: Mysql 5.5.24"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">

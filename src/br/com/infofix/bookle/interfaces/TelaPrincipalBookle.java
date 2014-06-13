@@ -2,10 +2,10 @@
  * Autor: Kélvin Santiago<br>
  * Data: 11/06/2014.
  */
-package bookleprojeto.interfaces;
+package br.com.infofix.bookle.interfaces;
 
 
-import bookleprojeto.conexao.ConexaoMysql;
+import br.com.infofix.bookle.conexao.ConexaoMysql;
 import java.util.HashMap;
 import javax.swing.Box;
 import net.sf.jasperreports.engine.JRResultSetDataSource;
@@ -14,7 +14,7 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
 
 /**
- * Classe da tela principal do sistema, nessa tela é apresentado
+ * Classe da tela principal do sistema, nessa tela é apresentado 
  * um menu com módulos do sistema que podem variar de acordo com 
  * o nível de permissão do usuário logado.
  * @author Kélvin Santiago
@@ -35,7 +35,7 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
         liberaPermissao();
     }
 
-    /**
+     /**
      * Metódo para liberar os módulos do sistema de acordo com o nível de
      * permissão do usuário.
      */
@@ -45,7 +45,7 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
                 menuCadastrar.setVisible(false);
                 menuRelatorios.setVisible(false);
                 break;
-                
+
             case "Professor":
                 submenuCurso.setVisible(false);
                 submenuDisciplina.setVisible(false);
@@ -60,9 +60,10 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
 
         }
     }
-    
+
     /**
      * Metódo para gerar relatório do iReport.
+     *
      * @param Query String - Código SQL para consulta no Banco.
      * @param localArquivo String - Caminho do arquivo do relatório jasper.
      */
@@ -127,7 +128,7 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Logado como: "+telalogin.nomelogado+" - "+telalogin.matriculalogado);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/cadastraruser.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/cadastraruser.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -154,17 +155,17 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
         jDesktopPane1.add(jPanel1);
         jPanel1.setBounds(0, 290, 410, 60);
 
-        jlabelIntroLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/logoIntro.png"))); // NOI18N
+        jlabelIntroLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/logoIntro.png"))); // NOI18N
         jDesktopPane1.add(jlabelIntroLogo);
         jlabelIntroLogo.setBounds(430, 210, 460, 200);
 
-        jlabelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/background.jpg"))); // NOI18N
+        jlabelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/background.jpg"))); // NOI18N
         jDesktopPane1.add(jlabelBackground);
         jlabelBackground.setBounds(0, 0, 1280, 610);
 
         jmenuPrincipal.setAlignmentY(0.5F);
 
-        menuUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/usuario.png"))); // NOI18N
+        menuUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/usuario.png"))); // NOI18N
         menuUsuario.setText("Usuário");
         menuUsuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         menuUsuario.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -173,7 +174,7 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
         menuUsuario.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         submenuAlterarSenha.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        submenuAlterarSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/alterarsenha.png"))); // NOI18N
+        submenuAlterarSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/alterarsenha.png"))); // NOI18N
         submenuAlterarSenha.setText("Alterar Senha");
         submenuAlterarSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,7 +184,7 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
         menuUsuario.add(submenuAlterarSenha);
 
         submenuTrocarUsuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        submenuTrocarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/trocaruser.png"))); // NOI18N
+        submenuTrocarUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/trocaruser.png"))); // NOI18N
         submenuTrocarUsuario.setText("Trocar Usuário");
         submenuTrocarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,14 +195,14 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
 
         jmenuPrincipal.add(menuUsuario);
 
-        menuPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/pesquisar.png"))); // NOI18N
+        menuPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/pesquisar.png"))); // NOI18N
         menuPesquisar.setText("Pesquisar");
         menuPesquisar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         menuPesquisar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         menuPesquisar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         submenuLivrosSugeridos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        submenuLivrosSugeridos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/livrossugeridos.png"))); // NOI18N
+        submenuLivrosSugeridos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/livrossugeridos.png"))); // NOI18N
         submenuLivrosSugeridos.setText("Livros Sugeridos");
         submenuLivrosSugeridos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -212,7 +213,7 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
 
         jmenuPrincipal.add(menuPesquisar);
 
-        menuCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/cadastrar.png"))); // NOI18N
+        menuCadastrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/cadastrar.png"))); // NOI18N
         menuCadastrar.setText("Cadastrar");
         menuCadastrar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         menuCadastrar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -220,7 +221,7 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
         menuCadastrar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         submenuUsuario.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        submenuUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/adicionauser.png"))); // NOI18N
+        submenuUsuario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/adicionauser.png"))); // NOI18N
         submenuUsuario.setText("Usuário");
         submenuUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -230,7 +231,7 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
         menuCadastrar.add(submenuUsuario);
 
         submenuCurso.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        submenuCurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/curso.png"))); // NOI18N
+        submenuCurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/curso.png"))); // NOI18N
         submenuCurso.setText("Curso");
         submenuCurso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -240,7 +241,7 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
         menuCadastrar.add(submenuCurso);
 
         submenuDisciplina.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        submenuDisciplina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/disciplina.png"))); // NOI18N
+        submenuDisciplina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/disciplina.png"))); // NOI18N
         submenuDisciplina.setText("Disciplina");
         submenuDisciplina.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -250,7 +251,7 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
         menuCadastrar.add(submenuDisciplina);
 
         submenuLivro.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        submenuLivro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/livro.png"))); // NOI18N
+        submenuLivro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/livro.png"))); // NOI18N
         submenuLivro.setText("Livro");
         submenuLivro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -261,14 +262,14 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
 
         jmenuPrincipal.add(menuCadastrar);
 
-        menuRelatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/relatorios.png"))); // NOI18N
+        menuRelatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/relatorios.png"))); // NOI18N
         menuRelatorios.setText("Relatórios");
         menuRelatorios.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         menuRelatorios.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         menuRelatorios.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         submenuUsuarios.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        submenuUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/relatoriouser.png"))); // NOI18N
+        submenuUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/relatoriouser.png"))); // NOI18N
         submenuUsuarios.setText("Relatorio Usuários");
         submenuUsuarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -278,7 +279,7 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
         menuRelatorios.add(submenuUsuarios);
 
         submenuCursos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        submenuCursos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/relatoriocurso.png"))); // NOI18N
+        submenuCursos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/relatoriocurso.png"))); // NOI18N
         submenuCursos.setText("Relatório Cursos");
         submenuCursos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -288,7 +289,7 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
         menuRelatorios.add(submenuCursos);
 
         submenuDisciplinas.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        submenuDisciplinas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/relatoriodisciplinas.png"))); // NOI18N
+        submenuDisciplinas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/relatoriodisciplinas.png"))); // NOI18N
         submenuDisciplinas.setText("Relatório Disciplinas");
         submenuDisciplinas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -298,7 +299,7 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
         menuRelatorios.add(submenuDisciplinas);
 
         submenuLivros.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        submenuLivros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/relatoriolivros.png"))); // NOI18N
+        submenuLivros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/relatoriolivros.png"))); // NOI18N
         submenuLivros.setText("Relatório Livros");
         submenuLivros.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -309,7 +310,7 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
 
         jmenuPrincipal.add(menuRelatorios);
 
-        menuAjuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/ajuda.png"))); // NOI18N
+        menuAjuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/ajuda.png"))); // NOI18N
         menuAjuda.setText("Ajuda");
         menuAjuda.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         menuAjuda.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -317,7 +318,7 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
         menuAjuda.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
         submenuAutoria.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        submenuAutoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/autoria.png"))); // NOI18N
+        submenuAutoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/autoria.png"))); // NOI18N
         submenuAutoria.setText("Autoria");
         submenuAutoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -329,7 +330,7 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
         jmenuPrincipal.add(menuAjuda);
 
         jmenuPrincipal.add(Box.createHorizontalGlue());
-        menuSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/exit.png"))); // NOI18N
+        menuSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/exit.png"))); // NOI18N
         menuSair.setText("Sair");
         menuSair.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         menuSair.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -407,15 +408,15 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
     }//GEN-LAST:event_submenuDisciplinaActionPerformed
     // Evento submenu Usuarios
     private void submenuUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submenuUsuariosActionPerformed
-        gerarRelatorio("SELECT * FROM tbuser", "src/bookleprojeto/relatorios/RelatorioUsuarios.jasper");
+        gerarRelatorio("SELECT * FROM tbuser", "src/br/com/infofix/bookle/relatorios/RelatorioUsuarios.jasper");
     }//GEN-LAST:event_submenuUsuariosActionPerformed
     // Evento submenu Curso
     private void submenuCursosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submenuCursosActionPerformed
-        gerarRelatorio("SELECT * FROM tbcurso", "src/bookleprojeto/relatorios/RelatorioCurso.jasper");
+        gerarRelatorio("SELECT * FROM tbcurso", "src/br/com/infofix/bookle/relatorios/RelatorioCurso.jasper");
     }//GEN-LAST:event_submenuCursosActionPerformed
     // Evento submenu Disciplinas
     private void submenuDisciplinasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submenuDisciplinasActionPerformed
-        gerarRelatorio("SELECT * FROM tbdisciplina INNER JOIN tbcurso ON tbdisciplina.codcurso = tbcurso.codcurso", "src/bookleprojeto/relatorios/RelatorioDisciplinas.jasper");
+        gerarRelatorio("SELECT * FROM tbdisciplina INNER JOIN tbcurso ON tbdisciplina.codcurso = tbcurso.codcurso", "src/br/com/infofix/bookle/relatorios/RelatorioDisciplinas.jasper");
     }//GEN-LAST:event_submenuDisciplinasActionPerformed
     // Evento submenu Livros
     private void submenuLivrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submenuLivrosActionPerformed
@@ -427,8 +428,7 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
                 + "     tbdisciplina_A.`codcurso` AS tbdisciplina_A_codcurso\n"
                 + "FROM\n"
                 + "     `tblivros` tblivros INNER JOIN `tbdisciplina` tbdisciplina_A ON tblivros.`coddisciplina` = tbdisciplina_A.`coddisciplina`\n"
-                + "     INNER JOIN `tbcurso` tbcurso ON tbdisciplina_A.`codcurso` = tbcurso.`codcurso`"
-        ,"src/bookleprojeto/relatorios/RelatorioLivro.jasper");
+                + "     INNER JOIN `tbcurso` tbcurso ON tbdisciplina_A.`codcurso` = tbcurso.`codcurso`", "src/br/com/infofix/bookle/relatorios/RelatorioLivro.jasper");
     }//GEN-LAST:event_submenuLivrosActionPerformed
     // Evento submenu Livro
     private void submenuLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submenuLivroActionPerformed

@@ -3,10 +3,10 @@
  * Autor: Kélvin Santiago<br>
  * Data: 11/06/2014.
  */
-package bookleprojeto.interfaces;
+package br.com.infofix.bookle.interfaces;
 
-import bookleprojeto.conexao.ConexaoMysql;
-import bookleprojeto.modelos.ModeloTabela;
+import br.com.infofix.bookle.conexao.ConexaoMysql;
+import br.com.infofix.bookle.modelos.ModeloTabela;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
@@ -210,12 +210,12 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
         jtabelLivrosCadastrados.setText("Livros Cadastradas no Sistema");
 
         labelTituloCadLivro.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        labelTituloCadLivro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/booklelogo.png"))); // NOI18N
+        labelTituloCadLivro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/booklelogo.png"))); // NOI18N
         labelTituloCadLivro.setText("BOOKLE CADASTRAR LIVRO");
         labelTituloCadLivro.setEnabled(false);
 
         jbuttonNovoLivro.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jbuttonNovoLivro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/add_page.png"))); // NOI18N
+        jbuttonNovoLivro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/add_page.png"))); // NOI18N
         jbuttonNovoLivro.setText("Novo Livro");
         jbuttonNovoLivro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -224,7 +224,7 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
         });
 
         jbuttonVoltarMenu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jbuttonVoltarMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/back.png"))); // NOI18N
+        jbuttonVoltarMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/back.png"))); // NOI18N
         jbuttonVoltarMenu.setText("Voltar ao Menu");
         jbuttonVoltarMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -233,7 +233,7 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
         });
 
         jbuttonExcluirLivro.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jbuttonExcluirLivro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/block.png"))); // NOI18N
+        jbuttonExcluirLivro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/block.png"))); // NOI18N
         jbuttonExcluirLivro.setText("Excluir Livro");
         jbuttonExcluirLivro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -242,7 +242,7 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
         });
 
         jbuttonCancelarLivro.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jbuttonCancelarLivro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/delete.png"))); // NOI18N
+        jbuttonCancelarLivro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/delete.png"))); // NOI18N
         jbuttonCancelarLivro.setText("Cancelar");
         jbuttonCancelarLivro.setEnabled(false);
         jbuttonCancelarLivro.addActionListener(new java.awt.event.ActionListener() {
@@ -252,7 +252,7 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
         });
 
         jbuttonSalvarLivro.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jbuttonSalvarLivro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/save.png"))); // NOI18N
+        jbuttonSalvarLivro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/save.png"))); // NOI18N
         jbuttonSalvarLivro.setText("Salvar");
         jbuttonSalvarLivro.setEnabled(false);
         jbuttonSalvarLivro.addActionListener(new java.awt.event.ActionListener() {

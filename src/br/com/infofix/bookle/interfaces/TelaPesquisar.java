@@ -4,9 +4,9 @@
  * Data: 11/06/2014.
  */
 
-package bookleprojeto.interfaces;
+package br.com.infofix.bookle.interfaces;
 
-import bookleprojeto.conexao.ConexaoMysql;
+import br.com.infofix.bookle.conexao.ConexaoMysql;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
@@ -90,11 +90,11 @@ public class TelaPesquisar extends javax.swing.JInternalFrame {
         jdesktoppanelPesquisar.setPreferredSize(new java.awt.Dimension(1289, 577));
 
         labelTitulo.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        labelTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/booklelogo.png"))); // NOI18N
+        labelTitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/booklelogo.png"))); // NOI18N
         labelTitulo.setText("Pesquisa Bookle ");
 
         buttonRemoveDisc02.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        buttonRemoveDisc02.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/block.png"))); // NOI18N
+        buttonRemoveDisc02.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/block.png"))); // NOI18N
         buttonRemoveDisc02.setText("Remover");
         buttonRemoveDisc02.setEnabled(false);
         buttonRemoveDisc02.addActionListener(new java.awt.event.ActionListener() {
@@ -104,7 +104,7 @@ public class TelaPesquisar extends javax.swing.JInternalFrame {
         });
 
         buttonRemoveDisc03.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        buttonRemoveDisc03.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/block.png"))); // NOI18N
+        buttonRemoveDisc03.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/block.png"))); // NOI18N
         buttonRemoveDisc03.setText("Remover");
         buttonRemoveDisc03.setEnabled(false);
         buttonRemoveDisc03.addActionListener(new java.awt.event.ActionListener() {
@@ -123,7 +123,7 @@ public class TelaPesquisar extends javax.swing.JInternalFrame {
         });
 
         buttonAddDisc03.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        buttonAddDisc03.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/add.png"))); // NOI18N
+        buttonAddDisc03.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/add.png"))); // NOI18N
         buttonAddDisc03.setText("Adicionar");
         buttonAddDisc03.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,7 +148,7 @@ public class TelaPesquisar extends javax.swing.JInternalFrame {
         jcomboboxDisciplina02.setEnabled(false);
 
         buttonAddDisc02.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        buttonAddDisc02.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/add.png"))); // NOI18N
+        buttonAddDisc02.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/add.png"))); // NOI18N
         buttonAddDisc02.setText("Adicionar");
         buttonAddDisc02.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,7 +157,7 @@ public class TelaPesquisar extends javax.swing.JInternalFrame {
         });
 
         jbuttonCancelar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jbuttonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/delete.png"))); // NOI18N
+        jbuttonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/delete.png"))); // NOI18N
         jbuttonCancelar.setText("Sair");
         jbuttonCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,7 +170,7 @@ public class TelaPesquisar extends javax.swing.JInternalFrame {
         jcomboboxDisciplina.setEnabled(false);
 
         jbuttonAcessar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jbuttonAcessar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/search.png"))); // NOI18N
+        jbuttonAcessar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/search.png"))); // NOI18N
         jbuttonAcessar.setText("Pesquisar");
         jbuttonAcessar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

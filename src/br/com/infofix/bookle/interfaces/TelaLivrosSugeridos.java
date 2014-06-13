@@ -3,10 +3,10 @@
  * Autor: Kélvin Santiago<br>
  * Data: 11/06/2014.
  */
-package bookleprojeto.interfaces;
+package br.com.infofix.bookle.interfaces;
 
-import bookleprojeto.conexao.ConexaoMysql;
-import bookleprojeto.modelos.ModeloTabela;
+import br.com.infofix.bookle.conexao.ConexaoMysql;
+import br.com.infofix.bookle.modelos.ModeloTabela;
 import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
@@ -166,7 +166,7 @@ public class TelaLivrosSugeridos extends javax.swing.JInternalFrame {
         labelNomeDisciplina.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labelNomeDisciplina.setText(telapesquisar.resNomedisciplina);
 
-        jbuttonVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/back.png"))); // NOI18N
+        jbuttonVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/back.png"))); // NOI18N
         jbuttonVoltar.setText("Voltar");
         jbuttonVoltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

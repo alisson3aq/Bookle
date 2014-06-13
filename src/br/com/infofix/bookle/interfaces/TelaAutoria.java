@@ -4,7 +4,7 @@
  * Data: 11/06/2014.
  */
 
-package bookleprojeto.interfaces;
+package br.com.infofix.bookle.interfaces;
 
 /** Esta é a classe da tela Autoria, que mostra os dados sobre a criação do projeto. 
  * @author Kelvin Santiago
@@ -59,9 +59,9 @@ public class TelaAutoria extends javax.swing.JInternalFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/booklelogo.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/booklelogo.png"))); // NOI18N
 
-        jLabel3.setText("Versão: 1.7 | Banco de Dados: Mysql 5.5.24");
+        jLabel3.setText("Versão: 1.0 | Banco de Dados: Mysql 5.5.24");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setText("BOOKLE - Sistema Acadêmico ™ ");

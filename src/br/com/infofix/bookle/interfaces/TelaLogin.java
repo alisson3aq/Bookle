@@ -3,9 +3,9 @@
  * Autor: Kélvin Santiago<br>
  * Data: 11/06/2014.
  */
-package bookleprojeto.interfaces;
+package br.com.infofix.bookle.interfaces;
 
-import bookleprojeto.conexao.ConexaoMysql;
+import br.com.infofix.bookle.conexao.ConexaoMysql;
 import javax.swing.JOptionPane;
 
 /**
@@ -131,7 +131,7 @@ public class TelaLogin extends javax.swing.JFrame {
         labelPassword.setBounds(122, 191, 120, 25);
 
         buttonSair.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        buttonSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/delete.png"))); // NOI18N
+        buttonSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/delete.png"))); // NOI18N
         buttonSair.setText("Sair");
         buttonSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -142,7 +142,7 @@ public class TelaLogin extends javax.swing.JFrame {
         buttonSair.setBounds(282, 275, 130, 50);
 
         buttonAcessar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        buttonAcessar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/accept.png"))); // NOI18N
+        buttonAcessar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/accept.png"))); // NOI18N
         buttonAcessar.setText("Entrar");
         buttonAcessar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -157,7 +157,7 @@ public class TelaLogin extends javax.swing.JFrame {
         labelTitulo.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         labelTitulo.setText("Login Bookle");
 
-        labelImageLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/booklelogo.png"))); // NOI18N
+        labelImageLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/booklelogo.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

@@ -3,10 +3,10 @@
  * Autor: Kélvin Santiago<br>
  * Data: 11/06/2014.
  */
-package bookleprojeto.interfaces;
+package br.com.infofix.bookle.interfaces;
 
-import bookleprojeto.conexao.ConexaoMysql;
-import bookleprojeto.modelos.ModeloTabela;
+import br.com.infofix.bookle.conexao.ConexaoMysql;
+import br.com.infofix.bookle.modelos.ModeloTabela;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
@@ -185,7 +185,7 @@ public class TelaCadastrarUsuario extends javax.swing.JInternalFrame {
         setClosable(true);
 
         jbuttonVoltarMenu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jbuttonVoltarMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/back.png"))); // NOI18N
+        jbuttonVoltarMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/back.png"))); // NOI18N
         jbuttonVoltarMenu.setText("Voltar ao Menu");
         jbuttonVoltarMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -194,7 +194,7 @@ public class TelaCadastrarUsuario extends javax.swing.JInternalFrame {
         });
 
         jbuttonSalvar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jbuttonSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/save.png"))); // NOI18N
+        jbuttonSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/save.png"))); // NOI18N
         jbuttonSalvar.setText("Salvar");
         jbuttonSalvar.setEnabled(false);
         jbuttonSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -218,7 +218,7 @@ public class TelaCadastrarUsuario extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jtableListaUsuarios);
 
         jbuttonExcluir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jbuttonExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/block.png"))); // NOI18N
+        jbuttonExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/block.png"))); // NOI18N
         jbuttonExcluir.setText("Excluir Usuário");
         jbuttonExcluir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -227,7 +227,7 @@ public class TelaCadastrarUsuario extends javax.swing.JInternalFrame {
         });
 
         jbuttonNovo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jbuttonNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/add_page.png"))); // NOI18N
+        jbuttonNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/accept_page.png"))); // NOI18N
         jbuttonNovo.setText("Novo Usuário");
         jbuttonNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -239,7 +239,7 @@ public class TelaCadastrarUsuario extends javax.swing.JInternalFrame {
         jLabel2.setText("Usuários Cadastrados no Sistema");
 
         jbuttonCancelar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jbuttonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/delete.png"))); // NOI18N
+        jbuttonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/delete.png"))); // NOI18N
         jbuttonCancelar.setText("Cancelar");
         jbuttonCancelar.setEnabled(false);
         jbuttonCancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -265,7 +265,7 @@ public class TelaCadastrarUsuario extends javax.swing.JInternalFrame {
         });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/booklelogo.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/booklelogo.png"))); // NOI18N
         jLabel1.setText("BOOKLE CADASTRAR USUÁRIO");
 
         radiobuttonProfessor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N

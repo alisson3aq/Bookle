@@ -3,9 +3,9 @@
  * Autor: Kélvin Santiago<br>
  * Data: 11/06/2014.
  */
-package bookleprojeto;
+package br.com.infofix.bookle.util;
 
-import bookleprojeto.interfaces.TelaLogin;
+import br.com.infofix.bookle.interfaces.TelaLogin;
 
 /** Esta é a classe principal do projeto que inicializa a janela de Login, contendo 
  * apenas a classe main.

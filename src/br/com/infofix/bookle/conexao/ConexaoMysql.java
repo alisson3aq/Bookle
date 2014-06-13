@@ -2,7 +2,7 @@
  * Autor: Kélvin Santiago<br>
  * Data: 11/06/2014.
  */
-package bookleprojeto.conexao;
+package br.com.infofix.bookle.conexao;
 
 import java.sql.Statement;
 import java.sql.Connection;

@@ -3,10 +3,10 @@
  * Autor: Kélvin Santiago<br>
  * Data: 11/06/2014.
  */
-package bookleprojeto.interfaces;
+package br.com.infofix.bookle.interfaces;
 
-import bookleprojeto.conexao.ConexaoMysql;
-import bookleprojeto.modelos.ModeloTabela;
+import br.com.infofix.bookle.conexao.ConexaoMysql;
+import br.com.infofix.bookle.modelos.ModeloTabela;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
@@ -196,7 +196,7 @@ public class TelaCadastrarDisciplina extends javax.swing.JInternalFrame {
         jtabelDisciplinasCadastrados.setText("Disciplinas Cadastradas no Sistema");
 
         jbuttonVoltarMenu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jbuttonVoltarMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/back.png"))); // NOI18N
+        jbuttonVoltarMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/back.png"))); // NOI18N
         jbuttonVoltarMenu.setText("Voltar ao Menu");
         jbuttonVoltarMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -205,7 +205,7 @@ public class TelaCadastrarDisciplina extends javax.swing.JInternalFrame {
         });
 
         jbuttonExcluirCurso.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jbuttonExcluirCurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/block.png"))); // NOI18N
+        jbuttonExcluirCurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/block.png"))); // NOI18N
         jbuttonExcluirCurso.setText("Excluir Disciplina");
         jbuttonExcluirCurso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -214,7 +214,7 @@ public class TelaCadastrarDisciplina extends javax.swing.JInternalFrame {
         });
 
         jbuttonCancelarCurso.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jbuttonCancelarCurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/delete.png"))); // NOI18N
+        jbuttonCancelarCurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/delete.png"))); // NOI18N
         jbuttonCancelarCurso.setText("Cancelar");
         jbuttonCancelarCurso.setEnabled(false);
         jbuttonCancelarCurso.addActionListener(new java.awt.event.ActionListener() {
@@ -224,7 +224,7 @@ public class TelaCadastrarDisciplina extends javax.swing.JInternalFrame {
         });
 
         jbuttonSalvarCurso.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jbuttonSalvarCurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/save.png"))); // NOI18N
+        jbuttonSalvarCurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/save.png"))); // NOI18N
         jbuttonSalvarCurso.setText("Salvar");
         jbuttonSalvarCurso.setEnabled(false);
         jbuttonSalvarCurso.addActionListener(new java.awt.event.ActionListener() {
@@ -234,7 +234,7 @@ public class TelaCadastrarDisciplina extends javax.swing.JInternalFrame {
         });
 
         jbuttonNovoDisciplina.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jbuttonNovoDisciplina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/add_page.png"))); // NOI18N
+        jbuttonNovoDisciplina.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/add_page.png"))); // NOI18N
         jbuttonNovoDisciplina.setText("Nova Disciplina");
         jbuttonNovoDisciplina.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -245,7 +245,7 @@ public class TelaCadastrarDisciplina extends javax.swing.JInternalFrame {
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         labelTituloCadCurso.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        labelTituloCadCurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/bookleprojeto/imagens/booklelogo.png"))); // NOI18N
+        labelTituloCadCurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/booklelogo.png"))); // NOI18N
         labelTituloCadCurso.setText("Bookle Cadastrar Disciplina");
 
         jcomboboxCursoCadDisciplina.setModel(new javax.swing.DefaultComboBoxModel());
