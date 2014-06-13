@@ -6,12 +6,15 @@
 package br.com.infofix.bookle.interfaces;
 
 import br.com.infofix.bookle.conexao.ConexaoMysql;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
+import org.apache.poi.hpsf.Variant;
 
 /**
- * Classe responsável por montar a tela de login do sistema que consite
- * em input de usuário e senha, se esses dados de autenticação forem
- * verdadeiros é aberto a tela da Janela principal do sistema Bookle.
+ * Classe responsável por montar a tela de login do sistema que consite em input
+ * de usuário e senha, se esses dados de autenticação forem verdadeiros é aberto
+ * a tela da Janela principal do sistema Bookle.
+ *
  * @author Kélvin Santiago
  */
 public class TelaLogin extends javax.swing.JFrame {
@@ -21,17 +24,17 @@ public class TelaLogin extends javax.swing.JFrame {
     public static String matriculalogado;
     public static String senhalogado;
     public static String tipouser;
-    
+
     /**
      * Construtor inicia componentes básicos da interface gráfica.
-    */ 
+     */
     public TelaLogin() {
         initComponents();
     }
-    
+
     /**
-     * Método instancia objeto da janela principal do sistema e seta 
-     * como visível.
+     * Método instancia objeto da janela principal do sistema e seta como
+     * visível.
      */
     public void acessarSistema() {
         TelaPrincipalBookle telaprin = new TelaPrincipalBookle();
@@ -39,10 +42,11 @@ public class TelaLogin extends javax.swing.JFrame {
     }
 
     /**
-     * Método verifica autenticação no banco de dados mysql 
-     * se os dados de usuário/matrícula e senha forem corretos
-     * o sistema retorna true, caso não seja ele retorna false
-     * informando que o usuário/matrícula ou senha estão incorretos.
+     * Método verifica autenticação no banco de dados mysql se os dados de
+     * usuário/matrícula e senha forem corretos o sistema retorna true, caso não
+     * seja ele retorna false informando que o usuário/matrícula ou senha estão
+     * incorretos.
+     *
      * @return acesso Boolean
      */
     public boolean verificaAutenticacao() {
@@ -53,7 +57,7 @@ public class TelaLogin extends javax.swing.JFrame {
             conectmysql.abrirConexao();
             conectmysql.createStatement();
             conectmysql.executaSQL("SELECT * FROM tbuser");
-           
+
             while (conectmysql.resultset.next()) {
                 if ((textfieldNome.getText().equals(conectmysql.resultset.getString("matriculauser"))
                         || textfieldNome.getText().equals(conectmysql.resultset.getString("nomeuser")))
@@ -61,7 +65,7 @@ public class TelaLogin extends javax.swing.JFrame {
                     nomelogado = conectmysql.resultset.getString("nomeuser");
                     matriculalogado = conectmysql.resultset.getString("matriculauser");
                     senhalogado = conectmysql.resultset.getString("senhauser");
-                    tipouser =  conectmysql.resultset.getString("permissaouser");
+                    tipouser = conectmysql.resultset.getString("permissaouser");
                     acesso = true;
                 }
             }
@@ -115,6 +119,11 @@ public class TelaLogin extends javax.swing.JFrame {
         textfieldNome.setBounds(122, 143, 280, 30);
 
         jpasswordField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jpasswordField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jpasswordFieldKeyPressed(evt);
+            }
+        });
         getContentPane().add(jpasswordField);
         jpasswordField.setBounds(122, 220, 280, 30);
 
@@ -199,6 +208,17 @@ public class TelaLogin extends javax.swing.JFrame {
             acessarSistema();
         }
     }//GEN-LAST:event_buttonAcessarActionPerformed
+
+    private void jpasswordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jpasswordFieldKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            boolean acesso;
+            acesso = verificaAutenticacao();
+            if (acesso) {
+                dispose();
+                acessarSistema();
+            }
+        }
+    }//GEN-LAST:event_jpasswordFieldKeyPressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonAcessar;
