@@ -36,7 +36,7 @@ public class TelaPesquisar extends javax.swing.JInternalFrame {
     public TelaPesquisar() {
         initComponents();
     }
-
+    
     /**
      * Método implementa o preenchimento de um combobox passado como argumento,
      * com os dados da consulta SQL.

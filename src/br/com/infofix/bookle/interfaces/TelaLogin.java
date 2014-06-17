@@ -6,9 +6,9 @@
 package br.com.infofix.bookle.interfaces;
 
 import br.com.infofix.bookle.conexao.ConexaoMysql;
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
-import org.apache.poi.hpsf.Variant;
 
 /**
  * Classe responsável por montar a tela de login do sistema que consite em input
@@ -30,6 +30,14 @@ public class TelaLogin extends javax.swing.JFrame {
      */
     public TelaLogin() {
         initComponents();
+        setIcon();
+    }
+    
+    /**
+     * Método seta a imagem ao favicon do frame.
+     */
+    private void setIcon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/br/com/infofix/bookle/imagens/booklelogo.png")));
     }
 
     /**
@@ -114,10 +122,12 @@ public class TelaLogin extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(null);
 
+        textfieldNome.setBackground(new java.awt.Color(255, 255, 204));
         textfieldNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         getContentPane().add(textfieldNome);
         textfieldNome.setBounds(122, 143, 280, 30);
 
+        jpasswordField.setBackground(new java.awt.Color(255, 255, 204));
         jpasswordField.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jpasswordField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -135,7 +145,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
         labelPassword.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         labelPassword.setForeground(new java.awt.Color(0, 102, 153));
-        labelPassword.setText("Password:");
+        labelPassword.setText("Senha:");
         getContentPane().add(labelPassword);
         labelPassword.setBounds(122, 191, 120, 25);
 
@@ -161,7 +171,7 @@ public class TelaLogin extends javax.swing.JFrame {
         getContentPane().add(buttonAcessar);
         buttonAcessar.setBounds(109, 275, 130, 50);
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel2.setBackground(new java.awt.Color(102, 204, 255));
 
         labelTitulo.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         labelTitulo.setText("Login Bookle");

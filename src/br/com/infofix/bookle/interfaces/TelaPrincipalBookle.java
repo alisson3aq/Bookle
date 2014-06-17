@@ -6,6 +6,8 @@ package br.com.infofix.bookle.interfaces;
 
 
 import br.com.infofix.bookle.conexao.ConexaoMysql;
+import java.awt.BorderLayout;
+import java.awt.Toolkit;
 import java.util.HashMap;
 import javax.swing.Box;
 import net.sf.jasperreports.engine.JRResultSetDataSource;
@@ -33,8 +35,15 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
     public TelaPrincipalBookle() {
         initComponents();
         liberaPermissao();
+        setIcon();
     }
-
+    
+    /**
+     * Método seta a imagem ao favicon do frame.
+     */
+     private void setIcon() {
+         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/br/com/infofix/bookle/imagens/booklelogo.png")));
+     }
      /**
      * Metódo para liberar os módulos do sistema de acordo com o nível de
      * permissão do usuário.
@@ -211,6 +220,7 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
 
         menuPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/pesquisar.png"))); // NOI18N
         menuPesquisar.setText("Pesquisar");
+        menuPesquisar.setBorderPainted(true);
         menuPesquisar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         menuPesquisar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         menuPesquisar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -389,6 +399,7 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
     private void submenuAutoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submenuAutoriaActionPerformed
         TelaAutoria telaautoria = new TelaAutoria();
         jDesktopPane1.add(telaautoria);
+        telaautoria.setLocation(450,70);
         telaautoria.setVisible(true);
     }//GEN-LAST:event_submenuAutoriaActionPerformed
     // Evento submenu Curso
