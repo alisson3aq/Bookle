@@ -37,7 +37,7 @@ public class TelaLogin extends javax.swing.JFrame {
      * Método seta a imagem ao favicon do frame.
      */
     private void setIcon() {
-        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/br/com/infofix/bookle/imagens/booklelogo.png")));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/br/com/infofix/bookle/imagens/chave.png")));
     }
 
     /**

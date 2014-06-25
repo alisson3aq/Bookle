@@ -171,7 +171,7 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
 
         jlabelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/background.jpg"))); // NOI18N
         jDesktopPane1.add(jlabelBackground);
-        jlabelBackground.setBounds(0, 0, 1280, 610);
+        jlabelBackground.setBounds(0, 0, 1290, 620);
 
         jmenuPrincipal.setAlignmentY(0.5F);
 
