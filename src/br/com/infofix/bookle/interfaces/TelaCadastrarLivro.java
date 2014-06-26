@@ -117,12 +117,13 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
                         + "'" + jtextfieldNomeLivro.getText() + "',"
                         + "'" + jtextfieldStatusLivro.getText() + "',"
                         + "'" + jtextfieldContExemplares.getText() + "',"
-                        + "'" + jtextfieldLocalBiblioteca.getText() + "'"
+                        + "'" + jcomboboxLocalBiblioteca.getSelectedItem() + "'"
                         + ")");
 
                 JOptionPane.showMessageDialog(null, "Livro Cadastrado com Sucesso!", "Livro Cadastrado!", JOptionPane.INFORMATION_MESSAGE);
                 jtextfieldNomeLivro.setText(null);
                 jcomboboxLivros.setSelectedIndex(-1);
+                jcomboboxLocalBiblioteca.setSelectedIndex(-1);
             }
 
             conectmysql.fecharConexao();
@@ -179,7 +180,6 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
         jbuttonCancelarLivro = new javax.swing.JButton();
         jbuttonSalvarLivro = new javax.swing.JButton();
         jpanelCadastroLivro = new javax.swing.JPanel();
-        jtextfieldLocalBiblioteca = new javax.swing.JTextField();
         labelLocalBiblioteca = new javax.swing.JLabel();
         jtextfieldStatusLivro = new javax.swing.JTextField();
         labelStatus = new javax.swing.JLabel();
@@ -189,6 +189,7 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
         labelNomeLivro = new javax.swing.JLabel();
         jtextfieldContExemplares = new javax.swing.JTextField();
         labelNomeDisciplina = new javax.swing.JLabel();
+        jcomboboxLocalBiblioteca = new javax.swing.JComboBox();
 
         setPreferredSize(new java.awt.Dimension(1290, 615));
 
@@ -263,9 +264,6 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
 
         jpanelCadastroLivro.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jtextfieldLocalBiblioteca.setBackground(new java.awt.Color(255, 255, 204));
-        jtextfieldLocalBiblioteca.setEnabled(false);
-
         labelLocalBiblioteca.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         labelLocalBiblioteca.setText("Local Biblioteca");
         labelLocalBiblioteca.setEnabled(false);
@@ -303,6 +301,10 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
         labelNomeDisciplina.setText("Selecione a Disciplina");
         labelNomeDisciplina.setEnabled(false);
 
+        jcomboboxLocalBiblioteca.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"Campus I", "Campus II", "Campus III"}));
+        jcomboboxLocalBiblioteca.setSelectedIndex(-1);
+        jcomboboxLocalBiblioteca.setEnabled(false);
+
         javax.swing.GroupLayout jpanelCadastroLivroLayout = new javax.swing.GroupLayout(jpanelCadastroLivro);
         jpanelCadastroLivro.setLayout(jpanelCadastroLivroLayout);
         jpanelCadastroLivroLayout.setHorizontalGroup(
@@ -317,11 +319,11 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
                             .addComponent(labelContExemplares)
                             .addComponent(jtextfieldContExemplares, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(jpanelCadastroLivroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jpanelCadastroLivroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(labelStatus)
-                            .addComponent(jtextfieldStatusLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jtextfieldLocalBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(labelLocalBiblioteca)))
+                            .addComponent(jtextfieldStatusLivro, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
+                            .addComponent(labelLocalBiblioteca)
+                            .addComponent(jcomboboxLocalBiblioteca, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jpanelCadastroLivroLayout.createSequentialGroup()
                         .addGap(176, 176, 176)
                         .addGroup(jpanelCadastroLivroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -338,25 +340,28 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
                 .addComponent(labelNomeDisciplina)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jcomboboxLivros, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jpanelCadastroLivroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelCadastroLivroLayout.createSequentialGroup()
-                        .addComponent(labelNomeLivro)
+                .addGap(18, 18, 18)
+                .addGroup(jpanelCadastroLivroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jpanelCadastroLivroLayout.createSequentialGroup()
+                        .addComponent(labelLocalBiblioteca)
+                        .addGap(53, 53, 53))
+                    .addGroup(jpanelCadastroLivroLayout.createSequentialGroup()
+                        .addGroup(jpanelCadastroLivroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labelNomeLivro)
+                            .addComponent(labelStatus))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtextfieldNomeLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jpanelCadastroLivroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jtextfieldNomeLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jtextfieldStatusLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(labelContExemplares)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jtextfieldContExemplares, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelCadastroLivroLayout.createSequentialGroup()
-                        .addComponent(labelStatus)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtextfieldStatusLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(labelLocalBiblioteca)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jtextfieldLocalBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(16, 16, 16))
+                        .addGroup(jpanelCadastroLivroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jtextfieldContExemplares, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jpanelCadastroLivroLayout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(jcomboboxLocalBiblioteca, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -364,20 +369,23 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(247, 287, Short.MAX_VALUE)
+                .addGap(149, 149, 149)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(labelTituloCadLivro)
                         .addGap(403, 403, 403))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(52, 52, 52))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jtabelLivrosCadastrados)
-                                .addGap(220, 220, 220))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(208, 208, 208)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(269, 269, 269))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(jtabelLivrosCadastrados)
+                                    .addGap(437, 437, 437))))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                     .addComponent(jpanelCadastroLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(39, 39, 39))
@@ -390,8 +398,8 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
                                     .addGap(13, 13, 13)
                                     .addComponent(jbuttonExcluirLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jbuttonVoltarMenu))))
-                        .addGap(217, 217, 217))))
+                                    .addComponent(jbuttonVoltarMenu)))
+                            .addGap(217, 217, 217)))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -432,7 +440,7 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
         jtextfieldNomeLivro.setEnabled(true);
         jtextfieldStatusLivro.setEnabled(true);
         jtextfieldContExemplares.setEnabled(true);
-        jtextfieldLocalBiblioteca.setEnabled(true);
+        jcomboboxLocalBiblioteca.setEnabled(true);
         jcomboboxLivros.setEnabled(true);
     }//GEN-LAST:event_jbuttonNovoLivroActionPerformed
 
@@ -454,7 +462,7 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
         labelNomeDisciplina.setEnabled(false);
         jtextfieldNomeLivro.setEnabled(false);
         jtextfieldContExemplares.setEnabled(false);
-        jtextfieldLocalBiblioteca.setEnabled(false);
+        jcomboboxLocalBiblioteca.setEnabled(false);
         jtextfieldStatusLivro.setEnabled(false);
         jbuttonExcluirLivro.setEnabled(true);
         jbuttonCancelarLivro.setEnabled(false);
@@ -463,16 +471,17 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
         jcomboboxLivros.setEnabled(false);
         jtextfieldNomeLivro.setText("");
         jtextfieldContExemplares.setText("");
-        jtextfieldLocalBiblioteca.setText("");
+        jcomboboxLocalBiblioteca.setSelectedIndex(-1);
+        jcomboboxLivros.setSelectedIndex(-1);
         jtextfieldNomeLivro.setText("");
         jtextfieldContExemplares.setText("");
-        jtextfieldLocalBiblioteca.setText("");
         jtextfieldStatusLivro.setText("");
 
     }//GEN-LAST:event_jbuttonCancelarLivroActionPerformed
 
     private void jbuttonSalvarLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonSalvarLivroActionPerformed
         String cursoselecionado = ((String) jcomboboxLivros.getSelectedItem());
+        String localselecionado = ((String) jcomboboxLocalBiblioteca.getSelectedItem());
         if (cursoselecionado == null) {
             JOptionPane.showMessageDialog(null, "Selecione uma Disciplina!", "Campo Disciplina Vazio", JOptionPane.ERROR_MESSAGE);
         } else if (jtextfieldNomeLivro.getText().equals("")) {
@@ -481,8 +490,8 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Insira o status do Livro!", "Campo Livro Vazio", JOptionPane.ERROR_MESSAGE);
         } else if (jtextfieldContExemplares.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Insira a quantidade de Exemplares!", "Campo Livro Vazio", JOptionPane.ERROR_MESSAGE);
-        } else if (jtextfieldLocalBiblioteca.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Insira o local do Livro!", "Campo Livro Vazio", JOptionPane.ERROR_MESSAGE);
+        } else if (localselecionado == null) {
+            JOptionPane.showMessageDialog(null, "Selecione o local do Livro!", "Campo Livro Vazio", JOptionPane.ERROR_MESSAGE);
         } else {
             cadastrarLivro();
             jtextfieldNomeLivro.setText(null);
@@ -494,7 +503,7 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
             labelNomeDisciplina.setEnabled(false);
             jtextfieldNomeLivro.setEnabled(false);
             jtextfieldContExemplares.setEnabled(false);
-            jtextfieldLocalBiblioteca.setEnabled(false);
+            jcomboboxLocalBiblioteca.setEnabled(false);
             jtextfieldStatusLivro.setEnabled(false);
             jbuttonExcluirLivro.setEnabled(true);
             jbuttonCancelarLivro.setEnabled(false);
@@ -520,11 +529,11 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbuttonSalvarLivro;
     private javax.swing.JButton jbuttonVoltarMenu;
     private javax.swing.JComboBox jcomboboxLivros;
+    private javax.swing.JComboBox jcomboboxLocalBiblioteca;
     private javax.swing.JPanel jpanelCadastroLivro;
     private javax.swing.JLabel jtabelLivrosCadastrados;
     private javax.swing.JTable jtableListaLivros;
     private javax.swing.JTextField jtextfieldContExemplares;
-    private javax.swing.JTextField jtextfieldLocalBiblioteca;
     private javax.swing.JTextField jtextfieldNomeLivro;
     private javax.swing.JTextField jtextfieldStatusLivro;
     private javax.swing.JLabel labelContExemplares;
