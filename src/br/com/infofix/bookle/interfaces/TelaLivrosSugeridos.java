@@ -89,9 +89,9 @@ public class TelaLivrosSugeridos extends javax.swing.JInternalFrame {
             jtableLivros.getColumnModel().getColumn(0).setResizable(false);
             jtableLivros.getColumnModel().getColumn(1).setPreferredWidth(80);
             jtableLivros.getColumnModel().getColumn(1).setResizable(false);
-            jtableLivros.getColumnModel().getColumn(2).setPreferredWidth(70);
+            jtableLivros.getColumnModel().getColumn(2).setPreferredWidth(100);
             jtableLivros.getColumnModel().getColumn(2).setResizable(false);
-            jtableLivros.getColumnModel().getColumn(3).setPreferredWidth(70);
+            jtableLivros.getColumnModel().getColumn(3).setPreferredWidth(90);
             jtableLivros.getColumnModel().getColumn(3).setResizable(false);
             jtableLivros.getTableHeader().setReorderingAllowed(false);
             jtableLivros.setAutoResizeMode(jtable.AUTO_RESIZE_OFF);
@@ -104,9 +104,9 @@ public class TelaLivrosSugeridos extends javax.swing.JInternalFrame {
             jtableLivros02.getColumnModel().getColumn(0).setResizable(false);
             jtableLivros02.getColumnModel().getColumn(1).setPreferredWidth(80);
             jtableLivros02.getColumnModel().getColumn(1).setResizable(false);
-            jtableLivros02.getColumnModel().getColumn(2).setPreferredWidth(70);
+            jtableLivros02.getColumnModel().getColumn(2).setPreferredWidth(100);
             jtableLivros02.getColumnModel().getColumn(2).setResizable(false);
-            jtableLivros02.getColumnModel().getColumn(3).setPreferredWidth(70);
+            jtableLivros02.getColumnModel().getColumn(3).setPreferredWidth(90);
             jtableLivros02.getColumnModel().getColumn(3).setResizable(false);
             jtableLivros02.getTableHeader().setReorderingAllowed(false);
             jtableLivros02.setAutoResizeMode(jtable.AUTO_RESIZE_OFF);
@@ -118,9 +118,9 @@ public class TelaLivrosSugeridos extends javax.swing.JInternalFrame {
             jtableLivros03.getColumnModel().getColumn(0).setResizable(false);
             jtableLivros03.getColumnModel().getColumn(1).setPreferredWidth(80);
             jtableLivros03.getColumnModel().getColumn(1).setResizable(false);
-            jtableLivros03.getColumnModel().getColumn(2).setPreferredWidth(70);
+            jtableLivros03.getColumnModel().getColumn(2).setPreferredWidth(100);
             jtableLivros03.getColumnModel().getColumn(2).setResizable(false);
-            jtableLivros03.getColumnModel().getColumn(3).setPreferredWidth(70);
+            jtableLivros03.getColumnModel().getColumn(3).setPreferredWidth(90);
             jtableLivros03.getColumnModel().getColumn(3).setResizable(false);
             jtableLivros03.getTableHeader().setReorderingAllowed(false);
             jtableLivros03.setAutoResizeMode(jtable.AUTO_RESIZE_OFF);
@@ -152,20 +152,30 @@ public class TelaLivrosSugeridos extends javax.swing.JInternalFrame {
         setResizable(true);
         setTitle("Livros Sugeridos");
         setPreferredSize(new java.awt.Dimension(1289, 615));
+        getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel1.setText("Bookle Sistema Acadêmico");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(391, 12, 544, 43);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Curso selecionado:");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(461, 61, 166, 22);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 102, 102));
         jLabel4.setText(telapesquisar.resNomecurso);
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(639, 61, 362, 22);
 
         labelNomeDisciplina.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         labelNomeDisciplina.setText(telapesquisar.resNomedisciplina);
+        getContentPane().add(labelNomeDisciplina);
+        labelNomeDisciplina.setBounds(470, 110, 420, 22);
 
+        jbuttonVoltar.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jbuttonVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/back.png"))); // NOI18N
         jbuttonVoltar.setText("Voltar");
         jbuttonVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -173,6 +183,8 @@ public class TelaLivrosSugeridos extends javax.swing.JInternalFrame {
                 jbuttonVoltarActionPerformed(evt);
             }
         });
+        getContentPane().add(jbuttonVoltar);
+        jbuttonVoltar.setBounds(326, 490, 130, 50);
 
         jtableLivros.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jtableLivros.setModel(new javax.swing.table.DefaultTableModel(
@@ -188,6 +200,9 @@ public class TelaLivrosSugeridos extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(jtableLivros);
 
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(326, 140, 638, 73);
+
         jtableLivros02.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jtableLivros02.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -201,6 +216,9 @@ public class TelaLivrosSugeridos extends javax.swing.JInternalFrame {
             }
         ));
         jScrollPane1.setViewportView(jtableLivros02);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(326, 259, 638, 73);
 
         jtableLivros03.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jtableLivros03.setModel(new javax.swing.table.DefaultTableModel(
@@ -216,71 +234,20 @@ public class TelaLivrosSugeridos extends javax.swing.JInternalFrame {
         ));
         jScrollPane3.setViewportView(jtableLivros03);
 
+        getContentPane().add(jScrollPane3);
+        jScrollPane3.setBounds(326, 387, 638, 73);
+
         labelNomeDisciplina02.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         labelNomeDisciplina02.setText(telapesquisar.resNomedisciplina02);
+        getContentPane().add(labelNomeDisciplina02);
+        labelNomeDisciplina02.setBounds(470, 230, 420, 22);
 
         labelNomeDisciplina03.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         labelNomeDisciplina03.setText(telapesquisar.resNomedisciplina03);
+        getContentPane().add(labelNomeDisciplina03);
+        labelNomeDisciplina03.setBounds(470, 350, 420, 22);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(353, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(381, 381, 381))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(267, 267, 267))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(labelNomeDisciplina, javax.swing.GroupLayout.PREFERRED_SIZE, 392, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(371, 371, 371))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jbuttonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(labelNomeDisciplina02, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(labelNomeDisciplina03, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(42, 42, 42))))
-                        .addGap(329, 329, 329))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel4))
-                .addGap(29, 29, 29)
-                .addComponent(labelNomeDisciplina)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(labelNomeDisciplina02)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(labelNomeDisciplina03)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jbuttonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(57, Short.MAX_VALUE))
-        );
-
-        setBounds(0, 0, 1289, 629);
+        setBounds(0, 0, 1285, 629);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbuttonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonVoltarActionPerformed

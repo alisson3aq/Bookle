@@ -29,12 +29,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jdesktoppanelPesquisar" alignment="1" pref="1273" max="32767" attributes="0"/>
+          <Component id="jdesktoppanelPesquisar" alignment="1" pref="1279" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jdesktoppanelPesquisar" alignment="0" max="32767" attributes="0"/>
+          <Component id="jdesktoppanelPesquisar" alignment="0" pref="579" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -52,13 +52,8 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="447" max="-2" attributes="0"/>
-                  <Component id="labelTitulo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="455" max="32767" attributes="0"/>
-              </Group>
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="458" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="labelCurso" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jcomboboxDisciplina" alignment="0" max="32767" attributes="0"/>
@@ -84,14 +79,19 @@
                   </Group>
                   <EmptySpace min="-2" pref="227" max="-2" attributes="0"/>
               </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="415" max="-2" attributes="0"/>
+                  <Component id="labelTitulo" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Component id="labelTitulo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                   <Component id="labelCurso" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jcomboboxCurso" min="-2" pref="40" max="-2" attributes="0"/>
@@ -113,7 +113,7 @@
                       <Component id="jcomboboxDisciplina03" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
                       <Component id="buttonAddDisc03" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="44" max="32767" attributes="0"/>
+                  <EmptySpace pref="48" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jbuttonCancelar" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                       <Component id="jbuttonAcessar" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>

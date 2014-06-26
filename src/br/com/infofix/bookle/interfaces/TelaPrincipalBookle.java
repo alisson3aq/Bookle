@@ -136,7 +136,7 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(51, 51, 51));
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setText("Logado como: "+telalogin.nomelogado+" - "+telalogin.matriculalogado);
+        jLabel1.setText("Olá "+telalogin.nomelogado+" - "+telalogin.matriculalogado);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/cadastraruser.png"))); // NOI18N
 
@@ -220,7 +220,6 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
 
         menuPesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/pesquisar.png"))); // NOI18N
         menuPesquisar.setText("Pesquisar");
-        menuPesquisar.setBorderPainted(true);
         menuPesquisar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         menuPesquisar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         menuPesquisar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -278,7 +277,7 @@ public class TelaPrincipalBookle extends javax.swing.JFrame {
         });
         menuCadastrar.add(submenuDisciplina);
 
-        submenuLivro.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
+        submenuLivro.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         submenuLivro.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         submenuLivro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/livro.png"))); // NOI18N
         submenuLivro.setText("Livro");

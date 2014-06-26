@@ -65,7 +65,7 @@ public class TelaCadastrarCurso extends javax.swing.JInternalFrame {
         jtableListaCursos.setModel(modeltable);
         jtableListaCursos.getColumnModel().getColumn(0).setPreferredWidth(120);
         jtableListaCursos.getColumnModel().getColumn(0).setResizable(false);
-        jtableListaCursos.getColumnModel().getColumn(1).setPreferredWidth(230);
+        jtableListaCursos.getColumnModel().getColumn(1).setPreferredWidth(246);
         jtableListaCursos.getColumnModel().getColumn(1).setResizable(false);
 
         jtableListaCursos.getTableHeader().setReorderingAllowed(false);
@@ -236,6 +236,11 @@ public class TelaCadastrarCurso extends javax.swing.JInternalFrame {
 
         jtextfieldCurso.setBackground(new java.awt.Color(255, 255, 204));
         jtextfieldCurso.setEnabled(false);
+        jtextfieldCurso.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtextfieldCursoKeyTyped(evt);
+            }
+        });
 
         labelTituloCadCurso.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         labelTituloCadCurso.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/booklelogo.png"))); // NOI18N
@@ -274,30 +279,32 @@ public class TelaCadastrarCurso extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 294, Short.MAX_VALUE)
-                .addComponent(jbuttonNovoCurso)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jbuttonSalvarCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addComponent(jbuttonCancelarCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13)
-                .addComponent(jbuttonExcluirCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jbuttonVoltarMenu)
-                .addGap(227, 227, 227))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(453, 453, 453)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(489, 489, 489)
+                        .addComponent(jtabelCursoCadastrados))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(369, 369, 369)
-                        .addComponent(jpanelCadastroCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(489, 489, 489)
-                        .addComponent(jtabelCursoCadastrados)))
-                .addContainerGap(371, Short.MAX_VALUE))
+                        .addComponent(jpanelCadastroCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(339, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jbuttonNovoCurso)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jbuttonSalvarCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(12, 12, 12)
+                        .addComponent(jbuttonCancelarCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(13, 13, 13)
+                        .addComponent(jbuttonExcluirCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jbuttonVoltarMenu)
+                        .addGap(228, 228, 228))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(432, 432, 432))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -306,9 +313,9 @@ public class TelaCadastrarCurso extends javax.swing.JInternalFrame {
                 .addComponent(jpanelCadastroCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(jtabelCursoCadastrados)
-                .addGap(7, 7, 7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jbuttonNovoCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbuttonSalvarCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -368,6 +375,13 @@ public class TelaCadastrarCurso extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Insira o nome do Curso!", "Campo Curso Vazio", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jbuttonSalvarCursoActionPerformed
+
+    private void jtextfieldCursoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtextfieldCursoKeyTyped
+           String caracteres = "0123456789";
+        if (caracteres.contains(evt.getKeyChar() + "")) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtextfieldCursoKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;

@@ -29,47 +29,44 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jScrollPane1" min="-2" pref="368" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="447" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jtabelDisciplinasCadastrados" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="470" max="-2" attributes="0"/>
-                  </Group>
-              </Group>
+              <EmptySpace min="0" pref="227" max="32767" attributes="0"/>
+              <Component id="jbuttonNovoDisciplina" min="-2" pref="170" max="-2" attributes="0"/>
+              <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
+              <Component id="jbuttonSalvarCurso" min="-2" pref="130" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jbuttonCancelarCurso" min="-2" pref="140" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jbuttonExcluirCurso" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jbuttonVoltarMenu" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="248" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="268" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jtabelDisciplinasCadastrados" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="470" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="424" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="-2" pref="435" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="400" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jbuttonNovoDisciplina" min="-2" pref="150" max="-2" attributes="0"/>
-                      <EmptySpace min="7" pref="7" max="-2" attributes="0"/>
-                      <Component id="jbuttonSalvarCurso" min="-2" pref="130" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jbuttonCancelarCurso" min="-2" pref="140" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jbuttonExcluirCurso" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jbuttonVoltarMenu" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="248" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="362" max="-2" attributes="0"/>
+                      <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jtabelDisciplinasCadastrados" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="122" max="-2" attributes="0"/>
@@ -220,7 +217,7 @@
                               <Component id="jcomboboxCursoCadDisciplina" alignment="0" min="-2" pref="321" max="-2" attributes="0"/>
                               <Component id="labelNomeDisciplina" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="90" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -230,7 +227,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="labelTituloCadCurso" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Component id="labelNomeCurso" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
                   <Component id="jcomboboxCursoCadDisciplina" min="-2" pref="40" max="-2" attributes="0"/>
@@ -238,7 +235,7 @@
                   <Component id="labelNomeDisciplina" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                   <Component id="jtextfieldDisciplina" min="-2" pref="40" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="33" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="35" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -252,7 +249,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/br/com/infofix/bookle/imagens/booklelogo.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Bookle Cadastrar Disciplina"/>
+            <Property name="text" type="java.lang.String" value="BOOKLE CADASTRAR DISCIPLINA"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="jcomboboxCursoCadDisciplina">
@@ -279,6 +276,9 @@
             </Property>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtextfieldDisciplinaKeyTyped"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="labelNomeDisciplina">
           <Properties>

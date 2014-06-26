@@ -45,7 +45,7 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
     public void listaLivros() {
         ArrayList dadoslivros = new ArrayList();
         dadoslivros.clear();
-        String[] colunas = new String[]{"Código", "Nome Livro", "Exemplares", "Biblioteca", "Status"};
+        String[] colunas = new String[]{"Cód. Livro", "Nome Livro", "Exemplares", "Biblioteca", "Status"};
         try {
             conectmysql.abrirConexao();
             conectmysql.executaSQL("SELECT * FROM tblivros");
@@ -63,15 +63,15 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
         ModeloTabela modeltable = new ModeloTabela(dadoslivros, colunas);
 
         jtableListaLivros.setModel(modeltable);
-        jtableListaLivros.getColumnModel().getColumn(0).setPreferredWidth(60);
+        jtableListaLivros.getColumnModel().getColumn(0).setPreferredWidth(80);
         jtableListaLivros.getColumnModel().getColumn(0).setResizable(false);
-        jtableListaLivros.getColumnModel().getColumn(1).setPreferredWidth(350);
+        jtableListaLivros.getColumnModel().getColumn(1).setPreferredWidth(359);
         jtableListaLivros.getColumnModel().getColumn(1).setResizable(false);
         jtableListaLivros.getColumnModel().getColumn(2).setPreferredWidth(80);
         jtableListaLivros.getColumnModel().getColumn(2).setResizable(false);
-        jtableListaLivros.getColumnModel().getColumn(3).setPreferredWidth(70);
+        jtableListaLivros.getColumnModel().getColumn(3).setPreferredWidth(85);
         jtableListaLivros.getColumnModel().getColumn(3).setResizable(false);
-        jtableListaLivros.getColumnModel().getColumn(4).setPreferredWidth(70);
+        jtableListaLivros.getColumnModel().getColumn(4).setPreferredWidth(85);
         jtableListaLivros.getColumnModel().getColumn(4).setResizable(false);
 
         jtableListaLivros.getTableHeader().setReorderingAllowed(false);
@@ -213,7 +213,6 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
         labelTituloCadLivro.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         labelTituloCadLivro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/booklelogo.png"))); // NOI18N
         labelTituloCadLivro.setText("BOOKLE CADASTRAR LIVRO");
-        labelTituloCadLivro.setEnabled(false);
 
         jbuttonNovoLivro.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jbuttonNovoLivro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/add_page.png"))); // NOI18N
@@ -373,22 +372,14 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(labelTituloCadLivro)
-                        .addGap(403, 403, 403))
+                        .addGap(409, 409, 409))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                            .addGap(208, 208, 208)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(269, 269, 269))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(jtabelLivrosCadastrados)
-                                    .addGap(437, 437, 437))))
+                            .addGap(376, 376, 376)
+                            .addComponent(jtabelLivrosCadastrados)
+                            .addGap(443, 443, 443))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addComponent(jpanelCadastroLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(39, 39, 39))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(jbuttonNovoLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -398,8 +389,13 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
                                     .addGap(13, 13, 13)
                                     .addComponent(jbuttonExcluirLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jbuttonVoltarMenu)))
-                            .addGap(217, 217, 217)))))
+                                    .addComponent(jbuttonVoltarMenu))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jpanelCadastroLivro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jScrollPane1))
+                                    .addGap(39, 39, 39)))
+                            .addGap(223, 223, 223)))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -410,9 +406,9 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
                 .addComponent(jpanelCadastroLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jtabelLivrosCadastrados)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jbuttonNovoLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbuttonSalvarLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)

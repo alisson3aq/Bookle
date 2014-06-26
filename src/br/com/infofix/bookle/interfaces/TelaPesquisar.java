@@ -182,12 +182,8 @@ public class TelaPesquisar extends javax.swing.JInternalFrame {
         jdesktoppanelPesquisar.setLayout(jdesktoppanelPesquisarLayout);
         jdesktoppanelPesquisarLayout.setHorizontalGroup(
             jdesktoppanelPesquisarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jdesktoppanelPesquisarLayout.createSequentialGroup()
-                .addGap(447, 447, 447)
-                .addComponent(labelTitulo)
-                .addContainerGap(455, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jdesktoppanelPesquisarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(458, Short.MAX_VALUE)
                 .addGroup(jdesktoppanelPesquisarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(labelCurso)
                     .addComponent(jcomboboxDisciplina, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -208,13 +204,17 @@ public class TelaPesquisar extends javax.swing.JInternalFrame {
                     .addComponent(buttonRemoveDisc02, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(buttonRemoveDisc03, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(227, 227, 227))
+            .addGroup(jdesktoppanelPesquisarLayout.createSequentialGroup()
+                .addGap(415, 415, 415)
+                .addComponent(labelTitulo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jdesktoppanelPesquisarLayout.setVerticalGroup(
             jdesktoppanelPesquisarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jdesktoppanelPesquisarLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addGap(27, 27, 27)
                 .addComponent(labelTitulo)
-                .addGap(45, 45, 45)
+                .addGap(53, 53, 53)
                 .addComponent(labelCurso)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jcomboboxCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -233,7 +233,7 @@ public class TelaPesquisar extends javax.swing.JInternalFrame {
                     .addComponent(buttonRemoveDisc03, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jcomboboxDisciplina03, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buttonAddDisc03, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
                 .addGroup(jdesktoppanelPesquisarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jbuttonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbuttonAcessar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -257,11 +257,11 @@ public class TelaPesquisar extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jdesktoppanelPesquisar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1273, Short.MAX_VALUE)
+            .addComponent(jdesktoppanelPesquisar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1279, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jdesktoppanelPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jdesktoppanelPesquisar, javax.swing.GroupLayout.DEFAULT_SIZE, 579, Short.MAX_VALUE)
         );
 
         setBounds(0, 0, 1289, 611);
