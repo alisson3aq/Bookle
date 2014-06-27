@@ -394,7 +394,7 @@ public class TelaCadastrarCurso extends javax.swing.JInternalFrame {
         jbuttonCancelarCurso.setEnabled(false);
         jbuttonVoltarMenu.setEnabled(true);
         jtextfieldCurso.setText("");
-
+        jbuttonEditar.setEnabled(true);
     }//GEN-LAST:event_jbuttonCancelarCursoActionPerformed
 
     private void jbuttonExcluirCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonExcluirCursoActionPerformed
@@ -409,6 +409,7 @@ public class TelaCadastrarCurso extends javax.swing.JInternalFrame {
         jbuttonCancelarCurso.setEnabled(true);
         jbuttonSalvarCurso.setEnabled(true);
         jbuttonVoltarMenu.setEnabled(false);
+        jbuttonEditar.setEnabled(false);
     }//GEN-LAST:event_jbuttonNovoCursoActionPerformed
 
     private void jbuttonSalvarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonSalvarCursoActionPerformed
@@ -419,9 +420,10 @@ public class TelaCadastrarCurso extends javax.swing.JInternalFrame {
             labelCursoCad.setEnabled(false);
             jtextfieldCurso.setEnabled(false);
             jbuttonExcluirCurso.setEnabled(true);
-            jbuttonCancelarCurso.setEnabled(true);
+            jbuttonCancelarCurso.setEnabled(false);
             jbuttonSalvarCurso.setEnabled(false);
             jbuttonVoltarMenu.setEnabled(true);
+            jbuttonEditar.setEnabled(true);
             listarCursos();
         } else {
             JOptionPane.showMessageDialog(null, "Insira o nome do Curso!", "Campo Curso Vazio", JOptionPane.ERROR_MESSAGE);

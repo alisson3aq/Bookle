@@ -177,7 +177,7 @@ public class TelaCadastrarDisciplina extends javax.swing.JInternalFrame {
         jtextfieldDisciplina = new javax.swing.JTextField();
         labelNomeDisciplina = new javax.swing.JLabel();
         jbuttonAtualizar3 = new javax.swing.JButton();
-        jbuttonEditar1 = new javax.swing.JButton();
+        jbuttonEditar = new javax.swing.JButton();
 
         setClosable(true);
         setPreferredSize(new java.awt.Dimension(1290, 615));
@@ -316,12 +316,12 @@ public class TelaCadastrarDisciplina extends javax.swing.JInternalFrame {
             }
         });
 
-        jbuttonEditar1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jbuttonEditar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/editar.png"))); // NOI18N
-        jbuttonEditar1.setText("Editar");
-        jbuttonEditar1.addActionListener(new java.awt.event.ActionListener() {
+        jbuttonEditar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jbuttonEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/editar.png"))); // NOI18N
+        jbuttonEditar.setText("Editar");
+        jbuttonEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbuttonEditar1ActionPerformed(evt);
+                jbuttonEditarActionPerformed(evt);
             }
         });
 
@@ -350,7 +350,7 @@ public class TelaCadastrarDisciplina extends javax.swing.JInternalFrame {
                         .addGap(7, 7, 7)
                         .addComponent(jbuttonCancelarCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jbuttonEditar1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jbuttonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jbuttonExcluirCurso)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -378,7 +378,7 @@ public class TelaCadastrarDisciplina extends javax.swing.JInternalFrame {
                     .addComponent(jbuttonSalvarCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jbuttonCancelarCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jbuttonEditar1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jbuttonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jbuttonExcluirCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jbuttonVoltarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(6, 6, 6))
@@ -392,7 +392,7 @@ public class TelaCadastrarDisciplina extends javax.swing.JInternalFrame {
         jDesktopPane1.setLayer(jbuttonNovoDisciplina, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jbuttonAtualizar3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jbuttonEditar1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jbuttonEditar, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         getContentPane().add(jDesktopPane1);
         jDesktopPane1.setBounds(0, 0, 1280, 580);
@@ -420,6 +420,7 @@ public class TelaCadastrarDisciplina extends javax.swing.JInternalFrame {
         jbuttonCancelarCurso.setEnabled(false);
         jbuttonVoltarMenu.setEnabled(true);
         jtextfieldDisciplina.setText("");
+        jbuttonEditar.setEnabled(true);
     }//GEN-LAST:event_jbuttonCancelarCursoActionPerformed
 
     private void jbuttonSalvarCursoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonSalvarCursoActionPerformed
@@ -430,6 +431,7 @@ public class TelaCadastrarDisciplina extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Insira o nome da Disciplina!", "Campo Disciplina Vazio", JOptionPane.ERROR_MESSAGE);
         } else {
             cadastrarDisciplina();
+            jcomboboxCursoCadDisciplina.setSelectedIndex(-1);
             jtextfieldDisciplina.setText(null);
             jbuttonNovoDisciplina.setEnabled(true);
             labelNomeCurso.setEnabled(false);
@@ -439,6 +441,7 @@ public class TelaCadastrarDisciplina extends javax.swing.JInternalFrame {
             jbuttonSalvarCurso.setEnabled(false);
             jbuttonVoltarMenu.setEnabled(true);
             jcomboboxCursoCadDisciplina.setEnabled(false);
+            jbuttonEditar.setEnabled(true);
             listarDisciplina();
         }
     }//GEN-LAST:event_jbuttonSalvarCursoActionPerformed
@@ -453,13 +456,14 @@ public class TelaCadastrarDisciplina extends javax.swing.JInternalFrame {
         jbuttonVoltarMenu.setEnabled(false);
         jtextfieldDisciplina.setEnabled(true);
         jcomboboxCursoCadDisciplina.setEnabled(true);
+        jbuttonEditar.setEnabled(false);
     }//GEN-LAST:event_jbuttonNovoDisciplinaActionPerformed
 
     private void jbuttonAtualizar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonAtualizar3ActionPerformed
         listarDisciplina();
     }//GEN-LAST:event_jbuttonAtualizar3ActionPerformed
 
-    private void jbuttonEditar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonEditar1ActionPerformed
+    private void jbuttonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonEditarActionPerformed
         int selecionado = jtableListaDisciplinas.getSelectedRow();
         if (selecionado != -1) {
             TelaEditarDisciplina editardisciplina = new TelaEditarDisciplina(jtableListaDisciplinas.getValueAt(jtableListaDisciplinas.getSelectedRow(), 0).toString());
@@ -468,7 +472,7 @@ public class TelaCadastrarDisciplina extends javax.swing.JInternalFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Selecione alguma DISCIPLINA e clique em editar!");
         }
-    }//GEN-LAST:event_jbuttonEditar1ActionPerformed
+    }//GEN-LAST:event_jbuttonEditarActionPerformed
 
     private void jtextfieldDisciplinaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtextfieldDisciplinaKeyTyped
         String caracteres = "0123456789";
@@ -483,7 +487,7 @@ public class TelaCadastrarDisciplina extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbuttonAtualizar3;
     private javax.swing.JButton jbuttonCancelarCurso;
-    private javax.swing.JButton jbuttonEditar1;
+    private javax.swing.JButton jbuttonEditar;
     private javax.swing.JButton jbuttonExcluirCurso;
     private javax.swing.JButton jbuttonNovoDisciplina;
     private javax.swing.JButton jbuttonSalvarCurso;

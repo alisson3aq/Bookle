@@ -1,8 +1,18 @@
+/**
+ * Bookle Sistema Acadêmico<br>
+ * Autor: Kélvin Santiago<br>
+ * Data: 27/06/2014.
+ */
 package br.com.infofix.bookle.interfaces;
 
 import br.com.infofix.bookle.conexao.ConexaoMysql;
 import javax.swing.JOptionPane;
 
+/**
+ * Classe responsável pela edição dos dados do livro.<br>
+ *
+ * @author Kélvin Santiago
+ */
 public class TelaEditarLivro extends javax.swing.JInternalFrame {
 
     ConexaoMysql conectmysql = new ConexaoMysql();
@@ -10,12 +20,26 @@ public class TelaEditarLivro extends javax.swing.JInternalFrame {
     Boolean cadastrado = false;
     String nomedolivro = "";
 
+    /**
+     * Este construtor inicializa os componentes de interface GUI, gerados
+     * automaticamente, é inicializado também um método preencheCamposEditar que
+     * é responsável em preencher cada componente de acordo com a opcao
+     * selecionada na jtable do formulário de cadastro de livros.
+     * 
+     * @param codlivro
+     */
     public TelaEditarLivro(String codlivro) {
         initComponents();
         telapesquisar.preencheComboBox("select * from tbdisciplina", "nomedisciplina", jcomboboxDisciplinas);
         preencheCamposEditar(codlivro);
     }
 
+     /**
+     * O Método é responsável por preencher os componentes do formulário, com
+     * base ao codigo da disciplina que foi informado via argumento no construtor
+     *
+     * @param codlivro  String - Codigo do Livro
+     */
     public void preencheCamposEditar(String codlivro) {
 
         String sql = "SELECT * FROM tblivros INNER JOIN tbdisciplina ON tblivros.coddisciplina = tbdisciplina.coddisciplina AND tblivros.codlivro = " + codlivro;
@@ -41,6 +65,10 @@ public class TelaEditarLivro extends javax.swing.JInternalFrame {
         }
     }
 
+     /**
+     * Este método é responsável por pegar as informações dos componentes do
+     * formulário e atualiza-las no banco de dados.
+     */
     public void editarLivro() {
         String sql = "UPDATE tblivros set coddisciplina = ?, nomelivro = ?, statuslivro = ?, contexemplares = ?, localbiblioteca = ? where codlivro = ?";
         try {
@@ -80,6 +108,7 @@ public class TelaEditarLivro extends javax.swing.JInternalFrame {
         }
     }
 
+    // Código gerado automaticamente pelo IDE
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -315,11 +344,13 @@ public class TelaEditarLivro extends javax.swing.JInternalFrame {
 
         setBounds(285, 10, 707, 566);
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    // Evento Cancelar
     private void jbuttonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonCancelarActionPerformed
         dispose();
     }//GEN-LAST:event_jbuttonCancelarActionPerformed
 
+    // Evento Editar
     private void jbuttonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonEditarActionPerformed
         if (jtextfieldNomeLivro.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Insira o nome do Livro", "Nome disciplina em Branco", JOptionPane.ERROR_MESSAGE);
@@ -333,13 +364,13 @@ public class TelaEditarLivro extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jbuttonEditarActionPerformed
 
+    // Evento Bloqueia Letras Quantidade de Livros
     private void jtextfieldQuantidadeLivrosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtextfieldQuantidadeLivrosKeyTyped
         String caracteres = "0123456789";
         if (!caracteres.contains(evt.getKeyChar() + "")) {
             evt.consume();
         }
     }//GEN-LAST:event_jtextfieldQuantidadeLivrosKeyTyped
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

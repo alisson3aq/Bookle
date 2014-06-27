@@ -1,19 +1,43 @@
+/**
+ * Bookle Sistema Acadêmico<br>
+ * Autor: Kélvin Santiago<br>
+ * Data: 27/06/2014.
+ */
 package br.com.infofix.bookle.interfaces;
 
 import br.com.infofix.bookle.conexao.ConexaoMysql;
 import javax.swing.JOptionPane;
 
+/**
+ * Classe responsável pela edição dos dados do curso.<br>
+ *
+ * @author Kélvin Santiago
+ */
 public class TelaEditarCurso extends javax.swing.JInternalFrame {
 
     ConexaoMysql conectmysql = new ConexaoMysql();
     Boolean cadastrado = false;
     String nomedocurso = "";
 
+    /**
+     * Este construtor inicializa os componentes de interface GUI, gerados
+     * automaticamente, é inicializado também um método preencheCamposEditar que
+     * é responsável em preencher cada componente de acordo com a opcao
+     * selecionada na jtable do formulário de cadastro de cursos.
+     *
+     * @param codcurso
+     */
     public TelaEditarCurso(String codcurso) {
         initComponents();
         preencheCamposEditar(codcurso);
     }
 
+    /**
+     * O Método é responsável por preencher os componentes do formulário, com
+     * base ao codigo do curso que foi informado via argumento no construtor
+     *
+     * @param codcurso String - Codigo do curso
+     */
     public void preencheCamposEditar(String codcurso) {
         labelCodCursoResultado.setText(codcurso);
         try {
@@ -32,6 +56,10 @@ public class TelaEditarCurso extends javax.swing.JInternalFrame {
         }
     }
 
+    /**
+     * Este método é responsável por pegar as informações dos componentes do
+     * formulário e atualiza-las no banco de dados.
+     */
     public void editarCurso() {
         String sql = "UPDATE tbcurso set nomecurso = ? where codcurso = ?";
         try {
@@ -62,6 +90,7 @@ public class TelaEditarCurso extends javax.swing.JInternalFrame {
         }
     }
 
+    // Código gerado automaticamente pelo IDE
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -195,10 +224,12 @@ public class TelaEditarCurso extends javax.swing.JInternalFrame {
         setBounds(400, 40, 482, 447);
     }// </editor-fold>//GEN-END:initComponents
 
+    // Evento button Cancelar
     private void jbuttonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonCancelarActionPerformed
         dispose();
     }//GEN-LAST:event_jbuttonCancelarActionPerformed
 
+    // Evento button Editar
     private void jbuttonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonEditarActionPerformed
         editarCurso();
     }//GEN-LAST:event_jbuttonEditarActionPerformed

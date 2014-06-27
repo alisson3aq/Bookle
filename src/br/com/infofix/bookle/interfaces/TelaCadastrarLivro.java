@@ -121,9 +121,6 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
                         + ")");
 
                 JOptionPane.showMessageDialog(null, "Livro Cadastrado com Sucesso!", "Livro Cadastrado!", JOptionPane.INFORMATION_MESSAGE);
-                jtextfieldNomeLivro.setText(null);
-                jcomboboxLivros.setSelectedIndex(-1);
-                jcomboboxLocalBiblioteca.setSelectedIndex(-1);
             }
 
             conectmysql.fecharConexao();
@@ -191,7 +188,7 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
         jtextfieldContExemplares = new javax.swing.JTextField();
         labelNomeDisciplina = new javax.swing.JLabel();
         jcomboboxLocalBiblioteca = new javax.swing.JComboBox();
-        jbuttonEditar1 = new javax.swing.JButton();
+        jbuttonEditar = new javax.swing.JButton();
         jbuttonAtualizar3 = new javax.swing.JButton();
 
         setClosable(true);
@@ -370,12 +367,12 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
                         .addContainerGap())))
         );
 
-        jbuttonEditar1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jbuttonEditar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/editar.png"))); // NOI18N
-        jbuttonEditar1.setText("Editar");
-        jbuttonEditar1.addActionListener(new java.awt.event.ActionListener() {
+        jbuttonEditar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jbuttonEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/editar.png"))); // NOI18N
+        jbuttonEditar.setText("Editar");
+        jbuttonEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbuttonEditar1ActionPerformed(evt);
+                jbuttonEditarActionPerformed(evt);
             }
         });
 
@@ -416,7 +413,7 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
                 .addGap(12, 12, 12)
                 .addComponent(jbuttonCancelarLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jbuttonEditar1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbuttonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jbuttonExcluirLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -444,7 +441,7 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
                     .addComponent(jbuttonSalvarLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jbuttonCancelarLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jbuttonEditar1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jbuttonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jbuttonExcluirLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jbuttonVoltarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(7, 7, 7))
@@ -458,7 +455,7 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
         jDesktopPane1.setLayer(jbuttonCancelarLivro, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jbuttonSalvarLivro, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jpanelCadastroLivro, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jbuttonEditar1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jbuttonEditar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jbuttonAtualizar3, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         getContentPane().add(jDesktopPane1);
@@ -483,6 +480,7 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
         jtextfieldContExemplares.setEnabled(true);
         jcomboboxLocalBiblioteca.setEnabled(true);
         jcomboboxLivros.setEnabled(true);
+        jbuttonEditar.setEnabled(false);
     }//GEN-LAST:event_jbuttonNovoLivroActionPerformed
 
     private void jbuttonVoltarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonVoltarMenuActionPerformed
@@ -517,6 +515,7 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
         jtextfieldNomeLivro.setText("");
         jtextfieldContExemplares.setText("");
         jtextfieldStatusLivro.setText("");
+        jbuttonEditar.setEnabled(true);
 
     }//GEN-LAST:event_jbuttonCancelarLivroActionPerformed
 
@@ -536,6 +535,10 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
         } else {
             cadastrarLivro();
             jtextfieldNomeLivro.setText(null);
+            jcomboboxLivros.setSelectedIndex(-1);
+            jcomboboxLocalBiblioteca.setSelectedIndex(-1);
+            jtextfieldContExemplares.setText(null);
+            jtextfieldStatusLivro.setText(null);
             jbuttonNovoLivro.setEnabled(true);
             labelNomeLivro.setEnabled(false);
             labelContExemplares.setEnabled(false);
@@ -551,6 +554,7 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
             jbuttonSalvarLivro.setEnabled(false);
             jbuttonVoltarMenu.setEnabled(true);
             jcomboboxLivros.setEnabled(false);
+            jbuttonEditar.setEnabled(true);
             listaLivros();
         }
     }//GEN-LAST:event_jbuttonSalvarLivroActionPerformed
@@ -562,7 +566,7 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jtextfieldContExemplaresKeyTyped
 
-    private void jbuttonEditar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonEditar1ActionPerformed
+    private void jbuttonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonEditarActionPerformed
         int selecionado = jtableListaLivros.getSelectedRow();
         if (selecionado != -1) {
             TelaEditarLivro editarlivro = new TelaEditarLivro(jtableListaLivros.getValueAt(jtableListaLivros.getSelectedRow(), 0).toString());
@@ -571,7 +575,7 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Selecione algum LIVRO e clique em editar!");
         }
-    }//GEN-LAST:event_jbuttonEditar1ActionPerformed
+    }//GEN-LAST:event_jbuttonEditarActionPerformed
 
     private void jbuttonAtualizar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonAtualizar3ActionPerformed
         listaLivros();
@@ -582,7 +586,7 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton jbuttonAtualizar3;
     private javax.swing.JButton jbuttonCancelarLivro;
-    private javax.swing.JButton jbuttonEditar1;
+    private javax.swing.JButton jbuttonEditar;
     private javax.swing.JButton jbuttonExcluirLivro;
     private javax.swing.JButton jbuttonNovoLivro;
     private javax.swing.JButton jbuttonSalvarLivro;

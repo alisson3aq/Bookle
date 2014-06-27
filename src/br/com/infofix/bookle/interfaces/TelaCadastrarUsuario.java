@@ -486,6 +486,7 @@ public class TelaCadastrarUsuario extends javax.swing.JInternalFrame {
             jbuttonSalvar.setEnabled(false);
             jbuttonCancelar.setEnabled(false);
             jbuttonVoltarMenu.setEnabled(true);
+            jbuttonEditar.setEnabled(true);
             jtextfieldNome.setText("");
             jpasswordfieldSenha.setText("");
             listarUser();
@@ -535,7 +536,7 @@ public class TelaCadastrarUsuario extends javax.swing.JInternalFrame {
         jbuttonCancelar.setEnabled(true);
         jbuttonSalvar.setEnabled(true);
         jbuttonVoltarMenu.setEnabled(false);
-
+        jbuttonEditar.setEnabled(false);
     }//GEN-LAST:event_jbuttonNovoActionPerformed
 
     private void jbuttonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonCancelarActionPerformed
@@ -552,6 +553,7 @@ public class TelaCadastrarUsuario extends javax.swing.JInternalFrame {
         jbuttonSalvar.setEnabled(false);
         jbuttonCancelar.setEnabled(false);
         jbuttonVoltarMenu.setEnabled(true);
+        jbuttonEditar.setEnabled(true);
         jtextfieldNome.setText("");
         jpasswordfieldSenha.setText("");
     }//GEN-LAST:event_jbuttonCancelarActionPerformed

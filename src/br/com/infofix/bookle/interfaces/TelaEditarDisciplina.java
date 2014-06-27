@@ -1,8 +1,18 @@
+/**
+ * Bookle Sistema Acadêmico<br>
+ * Autor: Kélvin Santiago<br>
+ * Data: 27/06/2014.
+ */
 package br.com.infofix.bookle.interfaces;
 
 import br.com.infofix.bookle.conexao.ConexaoMysql;
 import javax.swing.JOptionPane;
 
+/**
+ * Classe responsável pela edição dos dados da disciplina.<br>
+ *
+ * @author Kélvin Santiago
+ */
 public class TelaEditarDisciplina extends javax.swing.JInternalFrame {
 
     ConexaoMysql conectmysql = new ConexaoMysql();
@@ -10,12 +20,26 @@ public class TelaEditarDisciplina extends javax.swing.JInternalFrame {
     Boolean cadastrado = false;
     String nomedadisciplina = "";
 
+    /**
+     * Este construtor inicializa os componentes de interface GUI, gerados
+     * automaticamente, é inicializado também um método preencheCamposEditar que
+     * é responsável em preencher cada componente de acordo com a opcao
+     * selecionada na jtable do formulário de cadastro de disciplinas.
+     *
+     * @param coddisciplina 
+     */
     public TelaEditarDisciplina(String coddisciplina) {
         initComponents();
         telapesquisar.preencheComboBox("select * from tbcurso", "nomecurso", jcomboboxCursos);
         preencheCamposEditar(coddisciplina);
     }
 
+     /**
+     * O Método é responsável por preencher os componentes do formulário, com
+     * base ao codigo da disciplina que foi informado via argumento no construtor
+     *
+     * @param coddisciplina
+     */
     public void preencheCamposEditar(String coddisciplina) {
 
         String sql = "SELECT * FROM tbdisciplina INNER JOIN tbcurso ON tbdisciplina.codcurso = tbcurso.codcurso AND tbdisciplina.coddisciplina = " + coddisciplina;
@@ -38,6 +62,10 @@ public class TelaEditarDisciplina extends javax.swing.JInternalFrame {
         }
     }
 
+     /**
+     * Este método é responsável por pegar as informações dos componentes do
+     * formulário e atualiza-las no banco de dados.
+     */
     public void editarDisciplina() {
         String sql = "UPDATE tbdisciplina set codcurso = ?, nomedisciplina = ? where coddisciplina = ?";
         try {
@@ -74,6 +102,7 @@ public class TelaEditarDisciplina extends javax.swing.JInternalFrame {
         }
     }
 
+    // Código gerado automaticamente pelo IDE
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -251,10 +280,12 @@ public class TelaEditarDisciplina extends javax.swing.JInternalFrame {
         setBounds(400, 40, 557, 526);
     }// </editor-fold>//GEN-END:initComponents
 
+    // Evento button Cancelar
     private void jbuttonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonCancelarActionPerformed
         dispose();
     }//GEN-LAST:event_jbuttonCancelarActionPerformed
 
+    // Evento button Editar
     private void jbuttonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonEditarActionPerformed
         if (!jtextfieldNomeDisciplina.getText().equals("")) {
             editarDisciplina();
@@ -262,7 +293,6 @@ public class TelaEditarDisciplina extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Campo nome disciplina não pode ser vazio!", "Nome disciplina em Branco", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jbuttonEditarActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
