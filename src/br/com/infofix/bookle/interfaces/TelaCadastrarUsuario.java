@@ -109,9 +109,9 @@ public class TelaCadastrarUsuario extends javax.swing.JInternalFrame {
         ModeloTabela modeltable = new ModeloTabela(dadosuser, colunas);
 
         jtableListaUsuarios.setModel(modeltable);
-        jtableListaUsuarios.getColumnModel().getColumn(0).setPreferredWidth(70);
+        jtableListaUsuarios.getColumnModel().getColumn(0).setPreferredWidth(65);
         jtableListaUsuarios.getColumnModel().getColumn(0).setResizable(false);
-        jtableListaUsuarios.getColumnModel().getColumn(1).setPreferredWidth(230);
+        jtableListaUsuarios.getColumnModel().getColumn(1).setPreferredWidth(220);
         jtableListaUsuarios.getColumnModel().getColumn(1).setResizable(false);
         jtableListaUsuarios.getColumnModel().getColumn(2).setPreferredWidth(100);
         jtableListaUsuarios.getColumnModel().getColumn(2).setResizable(false);

@@ -63,7 +63,7 @@ public class TelaCadastrarCurso extends javax.swing.JInternalFrame {
         ModeloTabela modeltable = new ModeloTabela(dadoscurso, colunas);
 
         jtableListaCursos.setModel(modeltable);
-        jtableListaCursos.getColumnModel().getColumn(0).setPreferredWidth(120);
+        jtableListaCursos.getColumnModel().getColumn(0).setPreferredWidth(105);
         jtableListaCursos.getColumnModel().getColumn(0).setResizable(false);
         jtableListaCursos.getColumnModel().getColumn(1).setPreferredWidth(246);
         jtableListaCursos.getColumnModel().getColumn(1).setResizable(false);
@@ -302,8 +302,14 @@ public class TelaCadastrarCurso extends javax.swing.JInternalFrame {
         jDesktopPane1.setLayout(jDesktopPane1Layout);
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addGap(483, 483, 483)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbuttonAtualizar3)
+                .addContainerGap(304, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap(243, Short.MAX_VALUE)
+                .addContainerGap(228, Short.MAX_VALUE)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
                         .addComponent(jpanelCadastroCurso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -320,16 +326,10 @@ public class TelaCadastrarCurso extends javax.swing.JInternalFrame {
                         .addComponent(jbuttonExcluirCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jbuttonVoltarMenu)
-                        .addGap(142, 142, 142))))
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGap(483, 483, 483)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jtabelCursoCadastrados)
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jbuttonAtualizar3)))
-                .addContainerGap(304, Short.MAX_VALUE))
+                        .addGap(142, 142, 142))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                        .addComponent(jtabelCursoCadastrados)
+                        .addGap(456, 456, 456))))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -354,7 +354,7 @@ public class TelaCadastrarCurso extends javax.swing.JInternalFrame {
                         .addComponent(jbuttonExcluirCurso, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jbuttonVoltarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jbuttonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         jDesktopPane1.setLayer(jbuttonCancelarCurso, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jbuttonVoltarMenu, javax.swing.JLayeredPane.DEFAULT_LAYER);

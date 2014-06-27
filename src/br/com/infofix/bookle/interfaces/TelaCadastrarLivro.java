@@ -63,15 +63,15 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
         ModeloTabela modeltable = new ModeloTabela(dadoslivros, colunas);
 
         jtableListaLivros.setModel(modeltable);
-        jtableListaLivros.getColumnModel().getColumn(0).setPreferredWidth(80);
+        jtableListaLivros.getColumnModel().getColumn(0).setPreferredWidth(70);
         jtableListaLivros.getColumnModel().getColumn(0).setResizable(false);
         jtableListaLivros.getColumnModel().getColumn(1).setPreferredWidth(359);
         jtableListaLivros.getColumnModel().getColumn(1).setResizable(false);
         jtableListaLivros.getColumnModel().getColumn(2).setPreferredWidth(80);
         jtableListaLivros.getColumnModel().getColumn(2).setResizable(false);
-        jtableListaLivros.getColumnModel().getColumn(3).setPreferredWidth(85);
+        jtableListaLivros.getColumnModel().getColumn(3).setPreferredWidth(82);
         jtableListaLivros.getColumnModel().getColumn(3).setResizable(false);
-        jtableListaLivros.getColumnModel().getColumn(4).setPreferredWidth(85);
+        jtableListaLivros.getColumnModel().getColumn(4).setPreferredWidth(80);
         jtableListaLivros.getColumnModel().getColumn(4).setResizable(false);
 
         jtableListaLivros.getTableHeader().setReorderingAllowed(false);

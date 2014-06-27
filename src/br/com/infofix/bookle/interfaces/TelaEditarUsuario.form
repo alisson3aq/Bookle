@@ -68,7 +68,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="289" y="361" width="120" height="50"/>
+          <AbsoluteConstraints x="289" y="361" width="130" height="50"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -189,7 +189,10 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="labelMatriculaCod" alignment="0" pref="200" max="32767" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="labelMatriculaCod" pref="188" max="32767" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -236,7 +239,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="211" y="319" width="-1" height="-1"/>
+          <AbsoluteConstraints x="220" y="320" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -252,7 +255,7 @@
       </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="296" y="319" width="-1" height="-1"/>
+          <AbsoluteConstraints x="310" y="320" width="-1" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>

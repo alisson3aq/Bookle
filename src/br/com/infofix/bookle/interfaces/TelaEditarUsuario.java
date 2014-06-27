@@ -146,17 +146,17 @@ public class TelaEditarUsuario extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(jbuttonCancelar);
-        jbuttonCancelar.setBounds(289, 361, 120, 50);
+        jbuttonCancelar.setBounds(289, 361, 130, 50);
 
         labelMatricula.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         labelMatricula.setText("Matrícula:");
         getContentPane().add(labelMatricula);
-        labelMatricula.setBounds(130, 127, 76, 22);
+        labelMatricula.setBounds(130, 127, 87, 22);
 
         labelNome.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         labelNome.setText("Nome:");
         getContentPane().add(labelNome);
-        labelNome.setBounds(130, 176, 52, 22);
+        labelNome.setBounds(130, 176, 59, 22);
 
         jtextfieldNome.setBackground(new java.awt.Color(255, 255, 204));
         jtextfieldNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -166,7 +166,7 @@ public class TelaEditarUsuario extends javax.swing.JInternalFrame {
         labelSenha.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         labelSenha.setText("Senha:");
         getContentPane().add(labelSenha);
-        labelSenha.setBounds(130, 228, 54, 22);
+        labelSenha.setBounds(130, 228, 60, 22);
 
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -202,7 +202,9 @@ public class TelaEditarUsuario extends javax.swing.JInternalFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(labelMatriculaCod, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelMatriculaCod, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,7 +222,7 @@ public class TelaEditarUsuario extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(jradiobuttonAluno);
-        jradiobuttonAluno.setBounds(144, 319, 63, 25);
+        jradiobuttonAluno.setBounds(144, 319, 64, 25);
 
         jradiobuttonProfessor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jradiobuttonProfessor.setText("Professor");
@@ -230,7 +232,7 @@ public class TelaEditarUsuario extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(jradiobuttonProfessor);
-        jradiobuttonProfessor.setBounds(211, 319, 85, 25);
+        jradiobuttonProfessor.setBounds(220, 320, 91, 25);
 
         jradiobuttonAdministrador.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jradiobuttonAdministrador.setText("Administrador");
@@ -240,12 +242,12 @@ public class TelaEditarUsuario extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(jradiobuttonAdministrador);
-        jradiobuttonAdministrador.setBounds(296, 319, 113, 25);
+        jradiobuttonAdministrador.setBounds(310, 320, 120, 25);
 
         labelTipoUsuario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         labelTipoUsuario.setText("Tipo de usuário:");
         getContentPane().add(labelTipoUsuario);
-        labelTipoUsuario.setBounds(218, 288, 129, 22);
+        labelTipoUsuario.setBounds(218, 288, 143, 22);
         getContentPane().add(jpasswordfieldSenha);
         jpasswordfieldSenha.setBounds(220, 220, 200, 35);
 

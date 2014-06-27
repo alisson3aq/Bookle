@@ -49,8 +49,15 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="483" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="369" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jbuttonAtualizar3" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="304" max="32767" attributes="0"/>
+              </Group>
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="243" max="32767" attributes="0"/>
+                  <EmptySpace pref="228" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jpanelCadastroCurso" min="-2" max="-2" attributes="0"/>
@@ -70,19 +77,11 @@
                           <Component id="jbuttonVoltarMenu" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
                       </Group>
-                  </Group>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="483" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jtabelCursoCadastrados" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Component id="jScrollPane1" min="-2" pref="369" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jbuttonAtualizar3" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jtabelCursoCadastrados" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="456" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="304" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -114,7 +113,7 @@
                           <Component id="jbuttonEditar" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="41" max="32767" attributes="0"/>
+                  <EmptySpace pref="48" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
