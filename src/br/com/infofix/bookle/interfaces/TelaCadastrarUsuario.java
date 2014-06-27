@@ -62,7 +62,7 @@ public class TelaCadastrarUsuario extends javax.swing.JInternalFrame {
                 conectmysql.statement.executeUpdate("INSERT INTO tbuser (nomeuser,senhauser,permissaouser) VALUES (" + "'" + nomeCad + "'," + "'" + senhaCad + "'" + ",'" + tipoCad + "')");
                 conectmysql.createStatement();
                 conectmysql.executaSQL("select * from tbuser");
-                
+
                 while (conectmysql.resultset.next()) {
                     if (conectmysql.resultset.getString("nomeuser").equals(nomeCad)) {
                         JOptionPane.showMessageDialog(null, "Usuário Cadastrado com Sucesso!\n"
@@ -81,7 +81,7 @@ public class TelaCadastrarUsuario extends javax.swing.JInternalFrame {
         }
     }
 
-      /**
+    /**
      * Método faz uma consulta na tabela tbusuario do banco de dados bookle e
      * preenche uma jtable com os usuarios cadastrados.
      */
@@ -125,17 +125,17 @@ public class TelaCadastrarUsuario extends javax.swing.JInternalFrame {
     }
 
     /**
-     * Método exclui usuário de acordo com o getSelectedRow, ou seja de acordo com a seleção
-     * feita no jtable pelo usuário.
+     * Método exclui usuário de acordo com o getSelectedRow, ou seja de acordo
+     * com a seleção feita no jtable pelo usuário.
      */
-    public void excluirUser(){
-    int selecionado = jtableListaUsuarios.getSelectedRow();
+    public void excluirUser() {
+        int selecionado = jtableListaUsuarios.getSelectedRow();
         if (selecionado != -1) {
             try {
 
                 conectmysql.abrirConexao();
                 conectmysql.createStatement();
-                
+
                 String nomeusuario = jtableListaUsuarios.getValueAt(jtableListaUsuarios.getSelectedRow(), 1).toString();
                 int opcao = JOptionPane.showConfirmDialog(null, "Deseja Excluir o usuário: " + nomeusuario, "Exclusão de Usuário", JOptionPane.YES_NO_OPTION);
 
@@ -157,20 +157,15 @@ public class TelaCadastrarUsuario extends javax.swing.JInternalFrame {
         }
 
     }
-    
+
     // Método gerado automaticamente GUI
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jbuttonVoltarMenu = new javax.swing.JButton();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
         jbuttonSalvar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jtableListaUsuarios = new javax.swing.JTable();
-        jbuttonExcluir = new javax.swing.JButton();
-        jbuttonNovo = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jbuttonCancelar = new javax.swing.JButton();
+        jbuttonVoltarMenu = new javax.swing.JButton();
         jpanelCadastroUser = new javax.swing.JPanel();
         labelTipoUsuario = new javax.swing.JLabel();
         radiobuttonAluno = new javax.swing.JRadioButton();
@@ -181,17 +176,19 @@ public class TelaCadastrarUsuario extends javax.swing.JInternalFrame {
         labelSenhaCad = new javax.swing.JLabel();
         labelNomeCad = new javax.swing.JLabel();
         jtextfieldNome = new javax.swing.JTextField();
+        jbuttonNovo = new javax.swing.JButton();
+        jbuttonExcluir = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtableListaUsuarios = new javax.swing.JTable();
+        jbuttonCancelar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jbuttonEditar = new javax.swing.JButton();
+        jbuttonAtualizar = new javax.swing.JButton();
 
         setClosable(true);
+        setPreferredSize(new java.awt.Dimension(1290, 606));
 
-        jbuttonVoltarMenu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jbuttonVoltarMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/back.png"))); // NOI18N
-        jbuttonVoltarMenu.setText("Voltar ao Menu");
-        jbuttonVoltarMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbuttonVoltarMenuActionPerformed(evt);
-            }
-        });
+        jDesktopPane1.setBackground(new java.awt.Color(204, 204, 204));
 
         jbuttonSalvar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jbuttonSalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/save.png"))); // NOI18N
@@ -203,48 +200,12 @@ public class TelaCadastrarUsuario extends javax.swing.JInternalFrame {
             }
         });
 
-        jtableListaUsuarios.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jtableListaUsuarios.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {},
-                {},
-                {},
-                {}
-            },
-            new String [] {
-
-            }
-        ));
-        jScrollPane1.setViewportView(jtableListaUsuarios);
-
-        jbuttonExcluir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jbuttonExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/block.png"))); // NOI18N
-        jbuttonExcluir.setText("Excluir Usuário");
-        jbuttonExcluir.addActionListener(new java.awt.event.ActionListener() {
+        jbuttonVoltarMenu.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jbuttonVoltarMenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/back.png"))); // NOI18N
+        jbuttonVoltarMenu.setText("Voltar ao Menu");
+        jbuttonVoltarMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbuttonExcluirActionPerformed(evt);
-            }
-        });
-
-        jbuttonNovo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jbuttonNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/accept_page.png"))); // NOI18N
-        jbuttonNovo.setText("Novo Usuário");
-        jbuttonNovo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbuttonNovoActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel2.setText("Usuários Cadastrados no Sistema");
-
-        jbuttonCancelar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jbuttonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/delete.png"))); // NOI18N
-        jbuttonCancelar.setText("Cancelar");
-        jbuttonCancelar.setEnabled(false);
-        jbuttonCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbuttonCancelarActionPerformed(evt);
+                jbuttonVoltarMenuActionPerformed(evt);
             }
         });
 
@@ -354,61 +315,156 @@ public class TelaCadastrarUsuario extends javax.swing.JInternalFrame {
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 292, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+        jbuttonNovo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jbuttonNovo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/accept_page.png"))); // NOI18N
+        jbuttonNovo.setText("Novo Usuário");
+        jbuttonNovo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbuttonNovoActionPerformed(evt);
+            }
+        });
+
+        jbuttonExcluir.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jbuttonExcluir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/block.png"))); // NOI18N
+        jbuttonExcluir.setText("Excluir Usuário");
+        jbuttonExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbuttonExcluirActionPerformed(evt);
+            }
+        });
+
+        jtableListaUsuarios.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jtableListaUsuarios.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        jScrollPane1.setViewportView(jtableListaUsuarios);
+
+        jbuttonCancelar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jbuttonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/delete.png"))); // NOI18N
+        jbuttonCancelar.setText("Cancelar");
+        jbuttonCancelar.setEnabled(false);
+        jbuttonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbuttonCancelarActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setText("Usuários Cadastrados no Sistema");
+
+        jbuttonEditar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jbuttonEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/editar.png"))); // NOI18N
+        jbuttonEditar.setText("Editar");
+        jbuttonEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbuttonEditarActionPerformed(evt);
+            }
+        });
+
+        jbuttonAtualizar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jbuttonAtualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/refresh.png"))); // NOI18N
+        jbuttonAtualizar.setText("Atualizar");
+        jbuttonAtualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbuttonAtualizarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
                         .addComponent(jpanelCadastroUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(292, 292, 292))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(286, 286, 286))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(445, 445, 445))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                .addGap(0, 236, Short.MAX_VALUE)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
                         .addComponent(jbuttonNovo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jbuttonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
                         .addComponent(jbuttonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(13, 13, 13)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jbuttonEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jbuttonExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jbuttonVoltarMenu)
-                        .addGap(201, 201, 201))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(522, 522, 522)
+                        .addGap(132, 132, 132))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jbuttonAtualizar)
+                        .addGap(243, 243, 243))))
+        );
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                .addContainerGap(42, Short.MAX_VALUE)
+                .addComponent(jpanelCadastroUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23)
                 .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(347, 347, 347))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                        .addComponent(jbuttonAtualizar)
+                        .addGap(62, 62, 62)))
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jbuttonNovo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jbuttonSalvar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jbuttonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jbuttonExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jbuttonVoltarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jbuttonEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jDesktopPane1.setLayer(jbuttonSalvar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jbuttonVoltarMenu, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jpanelCadastroUser, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jbuttonNovo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jbuttonExcluir, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jbuttonCancelar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jbuttonEditar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jbuttonAtualizar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jDesktopPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jpanelCadastroUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jbuttonNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbuttonSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbuttonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jbuttonExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jbuttonVoltarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+            .addComponent(jDesktopPane1)
         );
 
         setBounds(0, 0, 1290, 615);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbuttonVoltarMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonVoltarMenuActionPerformed
-        dispose();        
+        dispose();
     }//GEN-LAST:event_jbuttonVoltarMenuActionPerformed
 
     private void jbuttonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonSalvarActionPerformed
@@ -507,11 +563,29 @@ public class TelaCadastrarUsuario extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jtextfieldNomeKeyTyped
 
+    private void jbuttonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonEditarActionPerformed
+        int selecionado = jtableListaUsuarios.getSelectedRow();
+        if (selecionado != -1) {
+            TelaEditarUsuario editaruser = new TelaEditarUsuario(jtableListaUsuarios.getValueAt(jtableListaUsuarios.getSelectedRow(), 0).toString());
+            jDesktopPane1.add(editaruser);
+            editaruser.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Selecione algum usuário e clique em editar!");
+        }
+    }//GEN-LAST:event_jbuttonEditarActionPerformed
+
+    private void jbuttonAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonAtualizarActionPerformed
+        listarUser();
+    }//GEN-LAST:event_jbuttonAtualizarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton jbuttonAtualizar;
     private javax.swing.JButton jbuttonCancelar;
+    private javax.swing.JButton jbuttonEditar;
     private javax.swing.JButton jbuttonExcluir;
     private javax.swing.JButton jbuttonNovo;
     private javax.swing.JButton jbuttonSalvar;

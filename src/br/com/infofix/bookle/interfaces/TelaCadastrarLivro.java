@@ -82,9 +82,9 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
 
     /**
      * Método cadastra livros de acordo com os campos:<br>
-     * - Nome da Disciplina (ComboBox)<br> 
-     * - Nome do Livro<br> 
-     * - Status<br> 
+     * - Nome da Disciplina (ComboBox)<br>
+     * - Nome do Livro<br>
+     * - Status<br>
      * - Quantidade de Exemplares<br>
      * - Local do Livro.
      */
@@ -133,10 +133,10 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
         }
 
     }
-    
+
     /**
-     * Método exclui livro de acordo com o getSelectedRow, ou seja de acordo com a seleção
-     * feita no jtable pelo usuário.
+     * Método exclui livro de acordo com o getSelectedRow, ou seja de acordo com
+     * a seleção feita no jtable pelo usuário.
      */
     public void excluirLivro() {
         int selecionado = jtableListaLivros.getSelectedRow();
@@ -170,6 +170,7 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDesktopPane1 = new javax.swing.JDesktopPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtableListaLivros = new javax.swing.JTable();
         jtabelLivrosCadastrados = new javax.swing.JLabel();
@@ -190,8 +191,14 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
         jtextfieldContExemplares = new javax.swing.JTextField();
         labelNomeDisciplina = new javax.swing.JLabel();
         jcomboboxLocalBiblioteca = new javax.swing.JComboBox();
+        jbuttonEditar1 = new javax.swing.JButton();
+        jbuttonAtualizar3 = new javax.swing.JButton();
 
+        setClosable(true);
         setPreferredSize(new java.awt.Dimension(1290, 615));
+        getContentPane().setLayout(null);
+
+        jDesktopPane1.setBackground(new java.awt.Color(204, 204, 204));
 
         jtableListaLivros.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jtableListaLivros.setModel(new javax.swing.table.DefaultTableModel(
@@ -320,9 +327,9 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jpanelCadastroLivroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(labelStatus)
-                            .addComponent(jtextfieldStatusLivro, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
+                            .addComponent(jtextfieldStatusLivro)
                             .addComponent(labelLocalBiblioteca)
-                            .addComponent(jcomboboxLocalBiblioteca, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jcomboboxLocalBiblioteca, 0, 321, Short.MAX_VALUE)))
                     .addGroup(jpanelCadastroLivroLayout.createSequentialGroup()
                         .addGap(176, 176, 176)
                         .addGroup(jpanelCadastroLivroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -363,61 +370,99 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
                         .addContainerGap())))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(149, 149, 149)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(labelTituloCadLivro)
-                        .addGap(409, 409, 409))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(376, 376, 376)
-                            .addComponent(jtabelLivrosCadastrados)
-                            .addGap(443, 443, 443))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jbuttonNovoLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jbuttonSalvarLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(12, 12, 12)
-                                    .addComponent(jbuttonCancelarLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(13, 13, 13)
-                                    .addComponent(jbuttonExcluirLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jbuttonVoltarMenu))
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jpanelCadastroLivro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jScrollPane1))
-                                    .addGap(39, 39, 39)))
-                            .addGap(223, 223, 223)))))
+        jbuttonEditar1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jbuttonEditar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/editar.png"))); // NOI18N
+        jbuttonEditar1.setText("Editar");
+        jbuttonEditar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbuttonEditar1ActionPerformed(evt);
+            }
+        });
+
+        jbuttonAtualizar3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jbuttonAtualizar3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/refresh.png"))); // NOI18N
+        jbuttonAtualizar3.setText("Atualizar");
+        jbuttonAtualizar3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbuttonAtualizar3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(433, 433, 433)
+                        .addComponent(labelTituloCadLivro))
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(525, 525, 525)
+                        .addComponent(jtabelLivrosCadastrados))
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(289, 289, 289)
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jpanelCadastroLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(11, 11, 11)
+                        .addComponent(jbuttonAtualizar3)))
+                .addGap(0, 179, Short.MAX_VALUE))
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addGap(173, 173, 173)
+                .addComponent(jbuttonNovoLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
+                .addComponent(jbuttonSalvarLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addComponent(jbuttonCancelarLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbuttonEditar1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbuttonExcluirLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jbuttonVoltarMenu)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                .addGap(13, 13, 13)
                 .addComponent(labelTituloCadLivro)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(7, 7, 7)
                 .addComponent(jpanelCadastroLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(13, 13, 13)
                 .addComponent(jtabelLivrosCadastrados)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(7, 7, 7)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(jbuttonAtualizar3)))
+                .addGap(7, 7, 7)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jbuttonNovoLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jbuttonSalvarLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbuttonCancelarLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jbuttonCancelarLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jbuttonEditar1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jbuttonExcluirLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jbuttonVoltarMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(28, 28, 28))
+                .addGap(7, 7, 7))
         );
+        jDesktopPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jtabelLivrosCadastrados, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(labelTituloCadLivro, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jbuttonNovoLivro, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jbuttonVoltarMenu, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jbuttonExcluirLivro, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jbuttonCancelarLivro, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jbuttonSalvarLivro, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jpanelCadastroLivro, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jbuttonEditar1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jbuttonAtualizar3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        getContentPane().add(jDesktopPane1);
+        jDesktopPane1.setBounds(0, 0, 1280, 580);
 
         setBounds(0, 0, 1290, 615);
     }// </editor-fold>//GEN-END:initComponents
@@ -517,9 +562,27 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jtextfieldContExemplaresKeyTyped
 
+    private void jbuttonEditar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonEditar1ActionPerformed
+        int selecionado = jtableListaLivros.getSelectedRow();
+        if (selecionado != -1) {
+            TelaEditarLivro editarlivro = new TelaEditarLivro(jtableListaLivros.getValueAt(jtableListaLivros.getSelectedRow(), 0).toString());
+            jDesktopPane1.add(editarlivro);
+            editarlivro.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Selecione algum LIVRO e clique em editar!");
+        }
+    }//GEN-LAST:event_jbuttonEditar1ActionPerformed
+
+    private void jbuttonAtualizar3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonAtualizar3ActionPerformed
+        listaLivros();
+    }//GEN-LAST:event_jbuttonAtualizar3ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JButton jbuttonAtualizar3;
     private javax.swing.JButton jbuttonCancelarLivro;
+    private javax.swing.JButton jbuttonEditar1;
     private javax.swing.JButton jbuttonExcluirLivro;
     private javax.swing.JButton jbuttonNovoLivro;
     private javax.swing.JButton jbuttonSalvarLivro;

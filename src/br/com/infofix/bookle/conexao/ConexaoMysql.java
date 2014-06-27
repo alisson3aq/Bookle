@@ -26,6 +26,7 @@ public class ConexaoMysql {
     public Connection conexao;
     public Statement statement;
     public ResultSet resultset;
+    public PreparedStatement preparestatement;
     
     /**
      * Método para abrir conexão com o banco de dados<br>
@@ -83,7 +84,7 @@ public class ConexaoMysql {
      */
     public void prepareStatement(String Query) {
         try {
-            PreparedStatement preparestatement = conexao.prepareStatement(Query);
+          preparestatement = conexao.prepareStatement(Query);
         } catch (SQLException erroSQL) {
             System.err.println("Error Classe: ConexaoMysql - Método: prepareStatement - Exceção: " + erroSQL);
         }
