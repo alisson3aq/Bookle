@@ -30,12 +30,12 @@
                       <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel5" alignment="0" min="-2" pref="283" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                               <Component id="jLabel7" alignment="0" pref="269" max="32767" attributes="0"/>
                               <Component id="jLabel6" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <Component id="jLabel8" alignment="0" min="-2" pref="251" max="-2" attributes="0"/>
+                          <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -80,7 +80,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/br/com/infofix/bookle/imagens/desenvolvedores.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Desenvolvimento: K&#xe9;lvin Santiago Leonardo"/>
+        <Property name="text" type="java.lang.String" value="K&#xe9;lvin Santiago Leonardo"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
@@ -91,7 +91,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/br/com/infofix/bookle/imagens/desenvolvedores.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Requisitos: Rodrigo Clementino"/>
+        <Property name="text" type="java.lang.String" value="Rodrigo Clementino"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
@@ -102,7 +102,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/br/com/infofix/bookle/imagens/desenvolvedores.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Documenta&#xe7;&#xe3;o: Jean Matsunaga"/>
+        <Property name="text" type="java.lang.String" value="Jean Matsunaga"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
@@ -113,7 +113,7 @@
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/br/com/infofix/bookle/imagens/desenvolvedores.png"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Documenta&#xe7;&#xe3;o: Rhuan Pablo"/>
+        <Property name="text" type="java.lang.String" value="Rhuan Pablo"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">

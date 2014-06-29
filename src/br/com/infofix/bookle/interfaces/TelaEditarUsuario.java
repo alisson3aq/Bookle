@@ -16,7 +16,9 @@ import javax.swing.JOptionPane;
 public class TelaEditarUsuario extends javax.swing.JInternalFrame {
 
     ConexaoMysql conectmysql = new ConexaoMysql();
+    Boolean cadastrado = false;
     String tipouser = "";
+    String loginunico = "";
 
     /**
      * Este construtor inicializa os componentes de interface GUI, gerados
@@ -46,8 +48,10 @@ public class TelaEditarUsuario extends javax.swing.JInternalFrame {
             conectmysql.executaSQL("SELECT * FROM tbuser where matriculauser LIKE " + coduser);
             conectmysql.resultset.first();
             jtextfieldNome.setText(conectmysql.resultset.getString("nomeuser"));
+            jtextfieldLoginUnico.setText(conectmysql.resultset.getString("loginunico"));
             jpasswordfieldSenha.setText(conectmysql.resultset.getString("senhauser"));
             tipouser = conectmysql.resultset.getString("permissaouser");
+            loginunico = conectmysql.resultset.getString("loginunico");
             switch (tipouser) {
                 case "Aluno":
                     jradiobuttonAluno.setSelected(true);
@@ -80,18 +84,33 @@ public class TelaEditarUsuario extends javax.swing.JInternalFrame {
      * formulário e atualiza-las no banco de dados.
      */
     public void editarUser() {
-        String sql = "UPDATE tbuser set nomeuser = ?, senhauser = ?, permissaouser = ? where matriculauser = ?";
+        String sql = "UPDATE tbuser set loginunico = ?,nomeuser = ?, senhauser = ?, permissaouser = ? where matriculauser = ?";
         try {
             conectmysql.abrirConexao();
-            conectmysql.prepareStatement(sql);
-            conectmysql.preparestatement.setString(1, jtextfieldNome.getText());
-            conectmysql.preparestatement.setString(2, jpasswordfieldSenha.getText());
-            conectmysql.preparestatement.setString(3, tipouser);
-            conectmysql.preparestatement.setString(4, labelMatriculaCod.getText());
-            conectmysql.preparestatement.executeUpdate();
-            dispose();
+            conectmysql.createStatement();
+            conectmysql.executaSQL("select * from tbuser");
+            if(!jtextfieldLoginUnico.getText().equals(loginunico)){
+                while (conectmysql.resultset.next()) {
+                    if (conectmysql.resultset.getString("loginunico").equals(jtextfieldLoginUnico.getText())) {
+                        JOptionPane.showMessageDialog(null, "Este login único já está cadastrado", "Login Único Existente!", JOptionPane.ERROR_MESSAGE);
+                        cadastrado = true;
+                    }
+                }
+            }
+            if (cadastrado == false) {
+                conectmysql.prepareStatement(sql);
+                conectmysql.preparestatement.setString(1, jtextfieldLoginUnico.getText());
+                conectmysql.preparestatement.setString(2, jtextfieldNome.getText());
+                conectmysql.preparestatement.setString(3, jpasswordfieldSenha.getText());
+                conectmysql.preparestatement.setString(4, tipouser);
+                conectmysql.preparestatement.setString(5, labelMatriculaCod.getText());
+                conectmysql.preparestatement.executeUpdate();
+                JOptionPane.showMessageDialog(null, "Usuário editado com sucesso, clique no botão ATUALIZAR", "Usuário Editado", JOptionPane.INFORMATION_MESSAGE);
+                dispose();
+            }
+            cadastrado = false;
             conectmysql.fecharConexao();
-            JOptionPane.showMessageDialog(null, "Usuário editado com sucesso, clique no botão ATUALIZAR", "Usuário Editado", JOptionPane.INFORMATION_MESSAGE);
+
         } catch (Exception erro) {
             System.out.println("Erro Editar Usuario: " + erro);
         }
@@ -118,8 +137,10 @@ public class TelaEditarUsuario extends javax.swing.JInternalFrame {
         jradiobuttonAdministrador = new javax.swing.JRadioButton();
         labelTipoUsuario = new javax.swing.JLabel();
         jpasswordfieldSenha = new javax.swing.JPasswordField();
-        jtextfieldSenha = new javax.swing.JTextField();
+        jtextfieldPassword = new javax.swing.JTextField();
         jbuttonMostrarSenha = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jtextfieldLoginUnico = new javax.swing.JTextField();
 
         jButton1.setText("jButton1");
 
@@ -135,7 +156,7 @@ public class TelaEditarUsuario extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(jbuttonEditar);
-        jbuttonEditar.setBounds(129, 361, 120, 50);
+        jbuttonEditar.setBounds(110, 400, 120, 50);
 
         jbuttonCancelar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jbuttonCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/delete.png"))); // NOI18N
@@ -146,17 +167,17 @@ public class TelaEditarUsuario extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(jbuttonCancelar);
-        jbuttonCancelar.setBounds(289, 361, 130, 50);
+        jbuttonCancelar.setBounds(310, 400, 130, 50);
 
         labelMatricula.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         labelMatricula.setText("Matrícula:");
         getContentPane().add(labelMatricula);
-        labelMatricula.setBounds(130, 127, 87, 22);
+        labelMatricula.setBounds(90, 130, 87, 22);
 
         labelNome.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         labelNome.setText("Nome:");
         getContentPane().add(labelNome);
-        labelNome.setBounds(130, 176, 59, 22);
+        labelNome.setBounds(90, 180, 59, 22);
 
         jtextfieldNome.setBackground(new java.awt.Color(255, 255, 204));
         jtextfieldNome.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -166,7 +187,7 @@ public class TelaEditarUsuario extends javax.swing.JInternalFrame {
         labelSenha.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         labelSenha.setText("Senha:");
         getContentPane().add(labelSenha);
-        labelSenha.setBounds(130, 228, 60, 22);
+        labelSenha.setBounds(90, 280, 60, 22);
 
         jPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -179,7 +200,7 @@ public class TelaEditarUsuario extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(130, Short.MAX_VALUE)
                 .addComponent(labelHeader)
                 .addGap(102, 102, 102))
         );
@@ -222,7 +243,7 @@ public class TelaEditarUsuario extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(jradiobuttonAluno);
-        jradiobuttonAluno.setBounds(144, 319, 64, 25);
+        jradiobuttonAluno.setBounds(140, 350, 64, 25);
 
         jradiobuttonProfessor.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jradiobuttonProfessor.setText("Professor");
@@ -232,7 +253,7 @@ public class TelaEditarUsuario extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(jradiobuttonProfessor);
-        jradiobuttonProfessor.setBounds(220, 320, 91, 25);
+        jradiobuttonProfessor.setBounds(220, 350, 91, 25);
 
         jradiobuttonAdministrador.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jradiobuttonAdministrador.setText("Administrador");
@@ -242,18 +263,21 @@ public class TelaEditarUsuario extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(jradiobuttonAdministrador);
-        jradiobuttonAdministrador.setBounds(310, 320, 120, 25);
+        jradiobuttonAdministrador.setBounds(310, 350, 120, 25);
 
         labelTipoUsuario.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         labelTipoUsuario.setText("Tipo de usuário:");
         getContentPane().add(labelTipoUsuario);
-        labelTipoUsuario.setBounds(218, 288, 143, 22);
-        getContentPane().add(jpasswordfieldSenha);
-        jpasswordfieldSenha.setBounds(220, 220, 200, 35);
+        labelTipoUsuario.setBounds(220, 320, 143, 22);
 
-        jtextfieldSenha.setVisible(false);
-        getContentPane().add(jtextfieldSenha);
-        jtextfieldSenha.setBounds(220, 220, 200, 35);
+        jpasswordfieldSenha.setBackground(new java.awt.Color(255, 255, 204));
+        getContentPane().add(jpasswordfieldSenha);
+        jpasswordfieldSenha.setBounds(220, 270, 200, 35);
+
+        jtextfieldPassword.setVisible(false);
+        jtextfieldPassword.setBackground(new java.awt.Color(255, 255, 204));
+        getContentPane().add(jtextfieldPassword);
+        jtextfieldPassword.setBounds(220, 270, 200, 35);
 
         jbuttonMostrarSenha.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jbuttonMostrarSenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/desbloquear.png"))); // NOI18N
@@ -266,9 +290,18 @@ public class TelaEditarUsuario extends javax.swing.JInternalFrame {
             }
         });
         getContentPane().add(jbuttonMostrarSenha);
-        jbuttonMostrarSenha.setBounds(430, 220, 40, 35);
+        jbuttonMostrarSenha.setBounds(430, 270, 40, 35);
 
-        setBounds(400, 40, 541, 468);
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel1.setText("Login Unico:");
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(90, 230, 120, 22);
+
+        jtextfieldLoginUnico.setBackground(new java.awt.Color(255, 255, 204));
+        getContentPane().add(jtextfieldLoginUnico);
+        jtextfieldLoginUnico.setBounds(220, 220, 200, 35);
+
+        setBounds(400, 40, 541, 508);
     }// </editor-fold>//GEN-END:initComponents
 
     // Evento button Cancelar
@@ -280,6 +313,8 @@ public class TelaEditarUsuario extends javax.swing.JInternalFrame {
     private void jbuttonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonEditarActionPerformed
         if (jtextfieldNome.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Por favor insira um nome!", "Nome em Branco", JOptionPane.ERROR_MESSAGE);
+        } else if (jtextfieldLoginUnico.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Por favor insira um Login unico!", "Login Unico em Branco", JOptionPane.ERROR_MESSAGE);
         } else if (jpasswordfieldSenha.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Por favor insira uma senha!", "Senha em Branco", JOptionPane.ERROR_MESSAGE);
         } else {
@@ -314,19 +349,20 @@ public class TelaEditarUsuario extends javax.swing.JInternalFrame {
     // Evento button Ocultar Senha ao soltar Clique
     private void jbuttonMostrarSenhaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbuttonMostrarSenhaMouseReleased
         jpasswordfieldSenha.setVisible(true);
-        jpasswordfieldSenha.setText(jtextfieldSenha.getText());
-        jtextfieldSenha.setVisible(false);
+        jpasswordfieldSenha.setText(jtextfieldPassword.getText());
+        jtextfieldPassword.setVisible(false);
     }//GEN-LAST:event_jbuttonMostrarSenhaMouseReleased
 
     // Evento button Mostrar Senha ao Pressionar
     private void jbuttonMostrarSenhaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbuttonMostrarSenhaMousePressed
-        jtextfieldSenha.setVisible(true);
-        jtextfieldSenha.setText(jpasswordfieldSenha.getText());
+        jtextfieldPassword.setVisible(true);
+        jtextfieldPassword.setText(jpasswordfieldSenha.getText());
         jpasswordfieldSenha.setVisible(false);
     }//GEN-LAST:event_jbuttonMostrarSenhaMousePressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton jbuttonCancelar;
@@ -336,8 +372,9 @@ public class TelaEditarUsuario extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton jradiobuttonAdministrador;
     private javax.swing.JRadioButton jradiobuttonAluno;
     private javax.swing.JRadioButton jradiobuttonProfessor;
+    private javax.swing.JTextField jtextfieldLoginUnico;
     private javax.swing.JTextField jtextfieldNome;
-    private javax.swing.JTextField jtextfieldSenha;
+    private javax.swing.JTextField jtextfieldPassword;
     private javax.swing.JLabel labelHeader;
     private javax.swing.JLabel labelMatricula;
     private javax.swing.JLabel labelMatriculaCod;

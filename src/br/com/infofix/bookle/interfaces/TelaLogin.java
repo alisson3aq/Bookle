@@ -68,7 +68,7 @@ public class TelaLogin extends javax.swing.JFrame {
 
             while (conectmysql.resultset.next()) {
                 if ((textfieldNome.getText().equals(conectmysql.resultset.getString("matriculauser"))
-                        || textfieldNome.getText().equals(conectmysql.resultset.getString("nomeuser")))
+                        || textfieldNome.getText().equals(conectmysql.resultset.getString("loginunico")))
                         && jpasswordField.getText().equals(conectmysql.resultset.getString("senhauser"))) {
                     nomelogado = conectmysql.resultset.getString("nomeuser");
                     matriculalogado = conectmysql.resultset.getString("matriculauser");
@@ -139,15 +139,15 @@ public class TelaLogin extends javax.swing.JFrame {
 
         labelNome.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         labelNome.setForeground(new java.awt.Color(0, 102, 153));
-        labelNome.setText("Matrícula / Nome Usuário:");
+        labelNome.setText("Matrícula / Login Único");
         getContentPane().add(labelNome);
-        labelNome.setBounds(122, 117, 260, 25);
+        labelNome.setBounds(122, 117, 260, 24);
 
         labelPassword.setFont(new java.awt.Font("Tahoma", 0, 20)); // NOI18N
         labelPassword.setForeground(new java.awt.Color(0, 102, 153));
         labelPassword.setText("Senha:");
         getContentPane().add(labelPassword);
-        labelPassword.setBounds(122, 191, 120, 25);
+        labelPassword.setBounds(122, 191, 120, 24);
 
         buttonSair.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         buttonSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/infofix/bookle/imagens/delete.png"))); // NOI18N
@@ -200,7 +200,7 @@ public class TelaLogin extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel2);
-        jPanel2.setBounds(0, 0, 520, 104);
+        jPanel2.setBounds(0, 0, 520, 103);
 
         setSize(new java.awt.Dimension(520, 381));
         setLocationRelativeTo(null);

@@ -9,6 +9,9 @@
 	<field name="matriculauser" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
+	<field name="loginunico" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
 	<field name="nomeuser" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
@@ -50,52 +53,63 @@
 				</graphicElement>
 			</rectangle>
 			<staticText>
-				<reportElement x="140" y="6" width="100" height="20" uuid="1288766e-9ecf-4f3a-8b79-b03124be5274"/>
+				<reportElement x="188" y="6" width="100" height="20" uuid="1288766e-9ecf-4f3a-8b79-b03124be5274"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[USUÁRIO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="282" y="6" width="100" height="20" uuid="25565f55-7c6f-4728-8d0b-64339a5137fe"/>
+				<reportElement x="352" y="6" width="100" height="20" uuid="25565f55-7c6f-4728-8d0b-64339a5137fe"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[SENHA]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="399" y="6" width="100" height="20" uuid="5a147f0c-61e2-4018-9216-e25836cfbec9"/>
+				<reportElement x="455" y="6" width="100" height="20" uuid="5a147f0c-61e2-4018-9216-e25836cfbec9"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[PERMISSÃO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="27" y="6" width="100" height="20" uuid="15367035-9109-467a-a3e9-5d99ff5e8f8b"/>
+				<reportElement x="1" y="6" width="77" height="20" uuid="15367035-9109-467a-a3e9-5d99ff5e8f8b"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[MATRÍCULA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="78" y="7" width="100" height="20" uuid="fc75fd43-2878-4a2a-bfd1-921c4548e069"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[LOGIN ÚNICO]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="23" splitType="Stretch">
 			<textField>
-				<reportElement x="27" y="3" width="100" height="20" uuid="6725423d-e17b-45f6-b3e4-1a10fd71f745"/>
+				<reportElement x="1" y="3" width="77" height="20" uuid="6725423d-e17b-45f6-b3e4-1a10fd71f745"/>
 				<textFieldExpression><![CDATA[$F{matriculauser}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="140" y="3" width="132" height="20" uuid="bb7b596b-ce49-4c56-848e-2aeaea570ec0"/>
+				<reportElement x="188" y="3" width="141" height="20" uuid="bb7b596b-ce49-4c56-848e-2aeaea570ec0"/>
 				<textFieldExpression><![CDATA[$F{nomeuser}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="282" y="3" width="100" height="20" uuid="5d47553a-6d6b-4a18-9577-63c17ba1cbbc"/>
+				<reportElement x="352" y="3" width="100" height="20" uuid="5d47553a-6d6b-4a18-9577-63c17ba1cbbc"/>
 				<textFieldExpression><![CDATA[$F{senhauser}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="399" y="3" width="100" height="20" uuid="d21d71be-1668-47f2-9ca4-7a262047db18"/>
+				<reportElement x="455" y="3" width="100" height="20" uuid="d21d71be-1668-47f2-9ca4-7a262047db18"/>
 				<textFieldExpression><![CDATA[$F{permissaouser}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="78" y="3" width="100" height="20" uuid="2e690c05-e2d5-4ee9-8a72-296d8ee813ae"/>
+				<textFieldExpression><![CDATA[$F{loginunico}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
