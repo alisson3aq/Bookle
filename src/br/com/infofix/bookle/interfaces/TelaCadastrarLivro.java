@@ -105,8 +105,8 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
             conectmysql.executaSQL("SELECT * FROM tblivros");
 
             while (conectmysql.resultset.next()) {
-                if (conectmysql.resultset.getString("nomelivro").equals(jtextfieldNomeLivro.getText())) {
-                    JOptionPane.showMessageDialog(null, "O livro ja está Cadastrado!", "Livro Cadastrado!", JOptionPane.INFORMATION_MESSAGE);
+                if (conectmysql.resultset.getString("nomelivro").equals(jtextfieldNomeLivro.getText()) && conectmysql.resultset.getString("localbiblioteca").equals(jcomboboxLocalBiblioteca.getSelectedItem())) {
+                    JOptionPane.showMessageDialog(null, "O livro ja está Cadastrado nesta biblioteca!", "Livro Cadastrado!", JOptionPane.INFORMATION_MESSAGE);
                     cadastrado = true;
                 }
             }

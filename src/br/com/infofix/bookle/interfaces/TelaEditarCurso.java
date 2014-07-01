@@ -63,6 +63,7 @@ public class TelaEditarCurso extends javax.swing.JInternalFrame {
     public void editarCurso() {
         String sql = "UPDATE tbcurso set nomecurso = ? where codcurso = ?";
         try {
+            cadastrado = false;
             conectmysql.abrirConexao();
             conectmysql.createStatement();
             conectmysql.executaSQL("select * from tbcurso");

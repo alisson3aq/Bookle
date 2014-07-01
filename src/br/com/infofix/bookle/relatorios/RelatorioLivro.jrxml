@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelatorioLivros" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fbaf23dc-606c-48b1-957e-aa6f7617a972">
-	<property name="ireport.zoom" value="1.210000000000001"/>
+	<property name="ireport.zoom" value="1.0000000000000009"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString>
@@ -43,6 +43,7 @@ FROM
 	<field name="tbcurso_codcurso" class="java.lang.Integer"/>
 	<field name="tbcurso_nomecurso" class="java.lang.String"/>
 	<field name="tbdisciplina_A_codcurso" class="java.lang.Integer"/>
+	<sortField name="nomecurso"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -75,21 +76,21 @@ FROM
 				</graphicElement>
 			</rectangle>
 			<staticText>
-				<reportElement x="87" y="7" width="60" height="20" uuid="1288766e-9ecf-4f3a-8b79-b03124be5274"/>
+				<reportElement x="78" y="7" width="66" height="20" uuid="1288766e-9ecf-4f3a-8b79-b03124be5274"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[LIVRO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="2" y="6" width="72" height="20" uuid="15367035-9109-467a-a3e9-5d99ff5e8f8b"/>
+				<reportElement x="0" y="7" width="72" height="20" uuid="15367035-9109-467a-a3e9-5d99ff5e8f8b"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[COD LIVRO]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="352" y="6" width="78" height="20" uuid="6fabc248-1857-4c87-a02e-e99230ac298a"/>
+				<reportElement x="352" y="7" width="78" height="20" uuid="6fabc248-1857-4c87-a02e-e99230ac298a"/>
 				<textElement>
 					<font size="12"/>
 				</textElement>
@@ -111,7 +112,7 @@ FROM
 				<textFieldExpression><![CDATA[$F{codlivro}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="87" y="3" width="258" height="20" uuid="dbd90035-91f8-45b4-9c97-74d66ea25f32"/>
+				<reportElement x="78" y="3" width="264" height="20" uuid="dbd90035-91f8-45b4-9c97-74d66ea25f32"/>
 				<textFieldExpression><![CDATA[$F{nomelivro}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -124,21 +125,18 @@ FROM
 			</textField>
 		</band>
 	</detail>
-	<columnFooter>
-		<band height="45" splitType="Stretch"/>
-	</columnFooter>
 	<pageFooter>
-		<band height="54" splitType="Stretch">
+		<band height="25" splitType="Stretch">
 			<textField>
-				<reportElement x="776" y="40" width="22" height="14" uuid="72945a25-af8b-4e15-9817-075fbbe43a0d"/>
+				<reportElement x="775" y="6" width="22" height="14" uuid="72945a25-af8b-4e15-9817-075fbbe43a0d"/>
 				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="739" y="40" width="37" height="14" uuid="138addd0-46f1-48d8-8b3d-f6d89cb9ae8b"/>
+				<reportElement x="738" y="6" width="37" height="14" uuid="138addd0-46f1-48d8-8b3d-f6d89cb9ae8b"/>
 				<text><![CDATA[Página]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="2" y="34" width="66" height="20" uuid="5ad96248-dfb0-4387-9758-3529f04a6f8e"/>
+				<reportElement x="2" y="2" width="66" height="20" uuid="5ad96248-dfb0-4387-9758-3529f04a6f8e"/>
 				<textFieldExpression><![CDATA[new java.text.SimpleDateFormat("dd/MM/yyyy HH:mm").format(new Date())]]></textFieldExpression>
 			</textField>
 		</band>

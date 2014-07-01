@@ -69,6 +69,7 @@ public class TelaEditarDisciplina extends javax.swing.JInternalFrame {
     public void editarDisciplina() {
         String sql = "UPDATE tbdisciplina set codcurso = ?, nomedisciplina = ? where coddisciplina = ?";
         try {
+            cadastrado = false;
             conectmysql.abrirConexao();
             conectmysql.createStatement();
             conectmysql.executaSQL("select * from tbdisciplina");

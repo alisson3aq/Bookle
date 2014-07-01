@@ -19,7 +19,7 @@ public class TelaEditarLivro extends javax.swing.JInternalFrame {
     TelaPesquisar telapesquisar = new TelaPesquisar();
     Boolean cadastrado = false;
     String nomedolivro = "";
-
+    String localbiblioteca = "";
     /**
      * Este construtor inicializa os componentes de interface GUI, gerados
      * automaticamente, é inicializado também um método preencheCamposEditar que
@@ -50,6 +50,7 @@ public class TelaEditarLivro extends javax.swing.JInternalFrame {
             conectmysql.executaSQL(sql);
             conectmysql.resultset.first();
             nomedolivro = conectmysql.resultset.getString("nomelivro");
+            localbiblioteca = conectmysql.resultset.getString("localbiblioteca");
             jtextfieldNomeLivro.setText(nomedolivro);
             labelCodLivroResultado.setText(codlivro);
             labelCodDisciplinaResultado.setText(conectmysql.resultset.getString("coddisciplina"));
@@ -72,13 +73,14 @@ public class TelaEditarLivro extends javax.swing.JInternalFrame {
     public void editarLivro() {
         String sql = "UPDATE tblivros set coddisciplina = ?, nomelivro = ?, statuslivro = ?, contexemplares = ?, localbiblioteca = ? where codlivro = ?";
         try {
+            cadastrado = false;
             conectmysql.abrirConexao();
             conectmysql.createStatement();
             conectmysql.executaSQL("select * from tblivros");
-            if (!jtextfieldNomeLivro.getText().equals(nomedolivro)) {
+            if ((!jtextfieldNomeLivro.getText().equals(nomedolivro)) || (!localbiblioteca.equals(jcomboboxLocalBiblioteca.getSelectedItem()))) {
                 while (conectmysql.resultset.next()) {
-                    if (conectmysql.resultset.getString("nomelivro").equals(jtextfieldNomeLivro.getText())) {
-                        JOptionPane.showMessageDialog(null, "O Livro informado já está cadastrado", "Livro Existente!", JOptionPane.ERROR_MESSAGE);
+                    if (conectmysql.resultset.getString("nomelivro").equals(jtextfieldNomeLivro.getText()) && conectmysql.resultset.getString("localbiblioteca").equals(jcomboboxLocalBiblioteca.getSelectedItem())) {
+                        JOptionPane.showMessageDialog(null, "O Livro informado já está cadastrado nesta biblioteca informada!", "Livro Existente!", JOptionPane.ERROR_MESSAGE);
                         cadastrado = true;
                     }
                 }
