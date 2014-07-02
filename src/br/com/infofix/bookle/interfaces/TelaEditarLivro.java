@@ -6,6 +6,7 @@
 package br.com.infofix.bookle.interfaces;
 
 import br.com.infofix.bookle.conexao.ConexaoMysql;
+import br.com.infofix.bookle.util.JTextFieldTamanhoMaximo;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,25 +21,39 @@ public class TelaEditarLivro extends javax.swing.JInternalFrame {
     Boolean cadastrado = false;
     String nomedolivro = "";
     String localbiblioteca = "";
+
     /**
      * Este construtor inicializa os componentes de interface GUI, gerados
      * automaticamente, é inicializado também um método preencheCamposEditar que
      * é responsável em preencher cada componente de acordo com a opcao
      * selecionada na jtable do formulário de cadastro de livros.
-     * 
+     *
      * @param codlivro
      */
     public TelaEditarLivro(String codlivro) {
         initComponents();
         telapesquisar.preencheComboBox("select * from tbdisciplina", "nomedisciplina", jcomboboxDisciplinas);
         preencheCamposEditar(codlivro);
+        setLimitTextFields();
     }
 
-     /**
+    /**
+     * Método responsável por inicializar os componentes de entrada de dados,
+     * com a classes que limita os componentes<br>
+     * Ex: jtextfield, jpasswordfield.
+     */
+    public void setLimitTextFields() {
+        jtextfieldNomeLivro.setDocument(new JTextFieldTamanhoMaximo(58));
+        jtextfieldStatus.setDocument(new JTextFieldTamanhoMaximo(12));
+        jtextfieldQuantidadeLivros.setDocument(new JTextFieldTamanhoMaximo(5));
+    }
+
+    /**
      * O Método é responsável por preencher os componentes do formulário, com
-     * base ao codigo da disciplina que foi informado via argumento no construtor
+     * base ao codigo da disciplina que foi informado via argumento no
+     * construtor
      *
-     * @param codlivro  String - Codigo do Livro
+     * @param codlivro String - Codigo do Livro
      */
     public void preencheCamposEditar(String codlivro) {
 
@@ -66,7 +81,7 @@ public class TelaEditarLivro extends javax.swing.JInternalFrame {
         }
     }
 
-     /**
+    /**
      * Este método é responsável por pegar as informações dos componentes do
      * formulário e atualiza-las no banco de dados.
      */
@@ -346,7 +361,7 @@ public class TelaEditarLivro extends javax.swing.JInternalFrame {
 
         setBounds(285, 10, 707, 566);
     }// </editor-fold>//GEN-END:initComponents
-    
+
     // Evento Cancelar
     private void jbuttonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbuttonCancelarActionPerformed
         dispose();

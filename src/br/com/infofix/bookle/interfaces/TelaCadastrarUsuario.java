@@ -7,6 +7,7 @@ package br.com.infofix.bookle.interfaces;
 
 import br.com.infofix.bookle.conexao.ConexaoMysql;
 import br.com.infofix.bookle.modelos.ModeloTabela;
+import br.com.infofix.bookle.util.JTextFieldTamanhoMaximo;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
@@ -36,8 +37,20 @@ public class TelaCadastrarUsuario extends javax.swing.JInternalFrame {
     public TelaCadastrarUsuario() {
         initComponents();
         listarUser();
+        setLimitTextFields();
     }
 
+     /** 
+     * Método responsável por inicializar os componentes de entrada de dados,
+     * com a classes que limita os componentes<br>
+     * Ex: jtextfield, jpasswordfield.
+     */
+    public void setLimitTextFields(){
+        jtextfieldNome.setDocument(new JTextFieldTamanhoMaximo(40));
+        jtextfieldLoginUnico.setDocument(new JTextFieldTamanhoMaximo(20));
+        jpasswordfieldSenha.setDocument(new JTextFieldTamanhoMaximo(20));
+    }
+    
     /**
      * Método cadastra usuários de acordo com os campos:<br>
      * - Nome do Usuário<br>

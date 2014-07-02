@@ -7,6 +7,7 @@ package br.com.infofix.bookle.interfaces;
 
 import br.com.infofix.bookle.conexao.ConexaoMysql;
 import br.com.infofix.bookle.modelos.ModeloTabela;
+import br.com.infofix.bookle.util.JTextFieldTamanhoMaximo;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
@@ -36,6 +37,18 @@ public class TelaCadastrarLivro extends javax.swing.JInternalFrame {
         listaLivros();
         telapesquisar.preencheComboBox("select * from tbdisciplina", "nomedisciplina", jcomboboxLivros);
         jcomboboxLivros.setSelectedIndex(-1);
+        setLimitTextFields();
+    }
+    
+     /** 
+     * Método responsável por inicializar os componentes de entrada de dados,
+     * com a classes que limita os componentes<br>
+     * Ex: jtextfield, jpasswordfield.
+     */
+    public void setLimitTextFields(){
+        jtextfieldNomeLivro.setDocument(new JTextFieldTamanhoMaximo(58));
+        jtextfieldStatusLivro.setDocument(new JTextFieldTamanhoMaximo(12));
+        jtextfieldContExemplares.setDocument(new JTextFieldTamanhoMaximo(5));
     }
 
     /**

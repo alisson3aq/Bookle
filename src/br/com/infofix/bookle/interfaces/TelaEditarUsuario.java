@@ -6,6 +6,7 @@
 package br.com.infofix.bookle.interfaces;
 
 import br.com.infofix.bookle.conexao.ConexaoMysql;
+import br.com.infofix.bookle.util.JTextFieldTamanhoMaximo;
 import javax.swing.JOptionPane;
 
 /**
@@ -30,7 +31,19 @@ public class TelaEditarUsuario extends javax.swing.JInternalFrame {
      */
     public TelaEditarUsuario(String coduser) {
         initComponents();
+        setLimitTextFields();
         preencheCamposEditar(coduser);
+    }
+
+    /**
+     * Método responsável por inicializar os componentes de entrada de dados,
+     * com a classes que limita os componentes<br>
+     * Ex: jtextfield, jpasswordfield.
+     */
+    public void setLimitTextFields() {
+        jtextfieldNome.setDocument(new JTextFieldTamanhoMaximo(40));
+        jtextfieldLoginUnico.setDocument(new JTextFieldTamanhoMaximo(20));
+        jpasswordfieldSenha.setDocument(new JTextFieldTamanhoMaximo(20));
     }
 
     /**
@@ -89,7 +102,7 @@ public class TelaEditarUsuario extends javax.swing.JInternalFrame {
             conectmysql.abrirConexao();
             conectmysql.createStatement();
             conectmysql.executaSQL("select * from tbuser");
-            if(!jtextfieldLoginUnico.getText().equals(loginunico)){
+            if (!jtextfieldLoginUnico.getText().equals(loginunico)) {
                 while (conectmysql.resultset.next()) {
                     if (conectmysql.resultset.getString("loginunico").equals(jtextfieldLoginUnico.getText())) {
                         JOptionPane.showMessageDialog(null, "Este login único já está cadastrado", "Login Único Existente!", JOptionPane.ERROR_MESSAGE);

@@ -7,6 +7,7 @@
 package br.com.infofix.bookle.interfaces;
 
 import br.com.infofix.bookle.conexao.ConexaoMysql;
+import br.com.infofix.bookle.util.JTextFieldTamanhoMaximo;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,8 +23,20 @@ public class TelaAlterarSenha extends javax.swing.JInternalFrame {
      */
     public TelaAlterarSenha() {
         initComponents();
+        setLimitTextFields();
     }
-
+    
+    /** 
+     * Método responsável por inicializar os componentes de entrada de dados,
+     * com a classes que limita os componentes<br>
+     * Ex: jtextfield, jpasswordfield.
+     */
+    public void setLimitTextFields(){
+        jpasswordSenhaAntiga.setDocument(new JTextFieldTamanhoMaximo(20));
+        jpasswordNovaSenha.setDocument(new JTextFieldTamanhoMaximo(20));
+        jpasswordConfirmNovaSenha.setDocument(new JTextFieldTamanhoMaximo(20));
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

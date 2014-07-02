@@ -6,6 +6,7 @@
 package br.com.infofix.bookle.interfaces;
 
 import br.com.infofix.bookle.conexao.ConexaoMysql;
+import br.com.infofix.bookle.util.JTextFieldTamanhoMaximo;
 import javax.swing.JOptionPane;
 
 /**
@@ -32,8 +33,18 @@ public class TelaEditarDisciplina extends javax.swing.JInternalFrame {
         initComponents();
         telapesquisar.preencheComboBox("select * from tbcurso", "nomecurso", jcomboboxCursos);
         preencheCamposEditar(coddisciplina);
+        setLimitTextFields();
     }
 
+     /** 
+     * Método responsável por inicializar os componentes de entrada de dados,
+     * com a classes que limita os componentes<br>
+     * Ex: jtextfield, jpasswordfield.
+     */
+    public void setLimitTextFields(){
+        jtextfieldNomeDisciplinasetDocument(new JTextFieldTamanhoMaximo(35,true));
+    }
+    
      /**
      * O Método é responsável por preencher os componentes do formulário, com
      * base ao codigo da disciplina que foi informado via argumento no construtor
@@ -313,4 +324,8 @@ public class TelaEditarDisciplina extends javax.swing.JInternalFrame {
     private javax.swing.JLabel labelHeader;
     private javax.swing.JLabel labelNomeCurso;
     // End of variables declaration//GEN-END:variables
+
+    private void jtextfieldNomeDisciplinasetDocument(JTextFieldTamanhoMaximo jTextFieldTamanhoMaximo) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

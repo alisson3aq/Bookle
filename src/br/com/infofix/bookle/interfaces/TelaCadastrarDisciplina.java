@@ -7,6 +7,7 @@ package br.com.infofix.bookle.interfaces;
 
 import br.com.infofix.bookle.conexao.ConexaoMysql;
 import br.com.infofix.bookle.modelos.ModeloTabela;
+import br.com.infofix.bookle.util.JTextFieldTamanhoMaximo;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.ListSelectionModel;
@@ -36,8 +37,18 @@ public class TelaCadastrarDisciplina extends javax.swing.JInternalFrame {
         listarDisciplina();
         telapesquisar.preencheComboBox("select * from tbcurso", "nomecurso", jcomboboxCursoCadDisciplina);
         jcomboboxCursoCadDisciplina.setSelectedIndex(-1);
+        setLimitTextFields();
     }
-
+    
+     /** 
+     * Método responsável por inicializar os componentes de entrada de dados,
+     * com a classes que limita os componentes<br>
+     * Ex: jtextfield, jpasswordfield.
+     */
+    public void setLimitTextFields(){
+        jtextfieldDisciplina.setDocument(new JTextFieldTamanhoMaximo(35,true));
+    }
+    
     /**
      * Método faz uma consulta na tabela tbdisciplina do banco de dados bookle e
      * preenche uma jtable com as disciplinas.

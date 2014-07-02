@@ -6,6 +6,7 @@
 package br.com.infofix.bookle.interfaces;
 
 import br.com.infofix.bookle.conexao.ConexaoMysql;
+import br.com.infofix.bookle.util.JTextFieldTamanhoMaximo;
 import javax.swing.JOptionPane;
 
 /**
@@ -30,6 +31,16 @@ public class TelaEditarCurso extends javax.swing.JInternalFrame {
     public TelaEditarCurso(String codcurso) {
         initComponents();
         preencheCamposEditar(codcurso);
+        setLimitTextFields();
+    }
+
+     /** 
+     * Método responsável por inicializar os componentes de entrada de dados,
+     * com a classes que limita os componentes<br>
+     * Ex: jtextfield, jpasswordfield.
+     */
+    public void setLimitTextFields() {
+        jtextfieldNomeCurso.setDocument(new JTextFieldTamanhoMaximo(30, true));
     }
 
     /**

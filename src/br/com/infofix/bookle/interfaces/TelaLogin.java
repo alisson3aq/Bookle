@@ -6,6 +6,7 @@
 package br.com.infofix.bookle.interfaces;
 
 import br.com.infofix.bookle.conexao.ConexaoMysql;
+import br.com.infofix.bookle.util.JTextFieldTamanhoMaximo;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
@@ -17,7 +18,7 @@ import javax.swing.JOptionPane;
  *
  * @author Kélvin Santiago
  */
-public class TelaLogin extends javax.swing.JFrame {
+public final class TelaLogin extends javax.swing.JFrame {
 
     // Declarando Variaveis
     public static String nomelogado;
@@ -31,6 +32,7 @@ public class TelaLogin extends javax.swing.JFrame {
     public TelaLogin() {
         initComponents();
         setIcon();
+        setLimitTextFields();
     }
     
     /**
@@ -40,6 +42,15 @@ public class TelaLogin extends javax.swing.JFrame {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/br/com/infofix/bookle/imagens/chave.png")));
     }
 
+    /** 
+     * Método responsável por inicializar os componentes de entrada de dados,
+     * com a classes que limita os componentes<br>
+     * Ex: jtextfield, jpasswordfield.
+     */
+    public void setLimitTextFields(){
+        textfieldNome.setDocument(new JTextFieldTamanhoMaximo(20));
+        jpasswordField.setDocument(new JTextFieldTamanhoMaximo(20));
+    }
     /**
      * Método instancia objeto da janela principal do sistema e seta como
      * visível.
