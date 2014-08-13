@@ -32,8 +32,8 @@ public class TelaEditarDisciplina extends javax.swing.JInternalFrame {
     public TelaEditarDisciplina(String coddisciplina) {
         initComponents();
         telapesquisar.preencheComboBox("select * from tbcurso", "nomecurso", jcomboboxCursos);
-        preencheCamposEditar(coddisciplina);
         setLimitTextFields();
+        preencheCamposEditar(coddisciplina);
     }
 
      /** 

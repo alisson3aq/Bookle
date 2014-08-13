@@ -30,8 +30,8 @@ public class TelaEditarCurso extends javax.swing.JInternalFrame {
      */
     public TelaEditarCurso(String codcurso) {
         initComponents();
-        preencheCamposEditar(codcurso);
         setLimitTextFields();
+        preencheCamposEditar(codcurso);
     }
 
      /** 
