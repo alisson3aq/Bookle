@@ -42,7 +42,7 @@ public class TelaEditarDisciplina extends javax.swing.JInternalFrame {
      * Ex: jtextfield, jpasswordfield.
      */
     public void setLimitTextFields(){
-        jtextfieldNomeDisciplinasetDocument(new JTextFieldTamanhoMaximo(35,true));
+        jtextfieldNomeDisciplina.setDocument(new JTextFieldTamanhoMaximo(35,true));
     }
     
      /**
